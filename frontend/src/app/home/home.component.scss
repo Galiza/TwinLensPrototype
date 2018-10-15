@@ -1,0 +1,59 @@
+.masthead{
+    background-image: url('src/assets/image/photo.jpeg');
+    background-repeat: no-repeat;
+
+    & span {
+        font-size: 6.5rem;
+        font-weight: 600;
+        color: white;
+    }
+}
+
+.img-fluid {
+    max-width: 50%;
+    float: left;
+    padding: 15px;
+}
+
+li {
+    cursor: pointer;
+}
+
+p{
+    padding-top: 13px;
+}
+
+.home:hover{
+    cursor:pointer;
+}
+
+.send-btn{
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    border: 1px solid #6c757d;
+    color: #6c757d;
+
+    &:hover {
+        background-color: #e1e9f1!important
+    }
+}
+
+.form-control{
+    border: 1px solid #6c757d;
+}
+
+textarea{
+    resize: unset;
+    height: 100px;
+}
+
+.projects-section, .email-section{
+    padding: 6rem 0;
+}
+
+.contact-section{
+    padding: 3rem 0;
+    // background-image: url('src/assets/image/photo.jpeg');
+    background-repeat: no-repeat;
+}
