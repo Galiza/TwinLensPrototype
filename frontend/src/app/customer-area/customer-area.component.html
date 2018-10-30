@@ -1,3 +1,79 @@
-<p>
-  customer-area works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand text-white home">Jack Silverspoon</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Sair</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div style="padding-top: 56px; background-color: #dadada; height: -webkit-fill-available; width: 100%;">
+  <!-- <p-fileUpload name="" customUpload="true"></p-fileUpload> -->
+  <!--<div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          data-target="#image-gallery">
+          <img class="img-thumbnail" id="selected-img" src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            alt="Another alt text">
+        </a>
+      </div>
+      <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="image-gallery-title"></h4>
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img id="image-gallery-image" class="img-responsive col-md-12" src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+            </div>
+            <div class="modal-footer row justify-content-between">
+              <button type="button" class="btn btn-secondary" id="show-previous-image"><i class="fa fa-arrow-left"></i>
+              </button>
+              <button type="button" id="show-next-image" class="btn btn-secondary"><i class="fa fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          data-target="#image-gallery2">
+          <img class="img-thumbnail" id="selected-img" src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            alt="Another alt text">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="image-gallery2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="image-gallery-title"></h4>
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id="image-gallery-image" class="img-responsive col-md-12" src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+        </div>
+        <div class="modal-footer row justify-content-between">
+            <button type="button" class="btn btn-secondary" id="show-previous-image"><i class="fa fa-arrow-left"></i>
+            </button>
+            <button type="button" id="show-next-image" class="btn btn-secondary"><i class="fa fa-arrow-right"></i>
+            </button>
+          </div>
+      </div>
+    </div>
+  </div>-->
+  <ks-modal-gallery [id]="1" [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery>
+</div>
