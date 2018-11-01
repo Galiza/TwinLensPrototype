@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+.plain-container{
+    width: auto !important;
+    padding-left: 30px;
+    padding-top: 10px;
+
+    & img {
+        margin-top: 5px;
+    }
+}

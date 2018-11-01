@@ -165,3 +165,29 @@ footer a,footer a:hover{
         padding: 10px 28px;
     }
 }
+
+.buttons{
+    & button {
+        border: unset;
+        background-color: transparent;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.active{
+    font-weight: 600;
+}
+
+input {
+    &.ng-invalid.ng-touched{
+        border: 1px solid red;
+    }
+}
+
+.register-btn{
+    margin-top: 5px;
+    padding: 12px;
+}

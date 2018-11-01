@@ -5,20 +5,37 @@
  */
 package com.gallery.model;
 
-import org.springframework.data.annotation.Id;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
-/**
- *
- * @author yuri
- */
-public class User {
-	@Id
-	private String id;
-	
+@Entity
+@Table(name = "users")
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+   
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+   
+    @Column(name="name")
     private String name;
-    private String phone;
+    @Column(name="email")
     private String email;
+    @Column(name="password")
     private String password;
+    
+    public void setId(Long id){
+        this.id = id;
+    }
+    
+    public Long getId(){
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -26,14 +43,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setTPhone(String phone) {
-        this.phone = phone ;
     }
 
     public String getEmail() {
@@ -51,5 +60,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

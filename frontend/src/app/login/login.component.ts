@@ -30,10 +30,8 @@ export class LoginComponent implements OnInit {
 
   public submit(): void {
     this.loginService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).then(
-      (allow: boolean) => {
-        if (allow) {
-          this.router.navigate(['/customer-area']);
-        }
+      () => {
+        this.router.navigate(['/customer-area']);
       }
     );
   }

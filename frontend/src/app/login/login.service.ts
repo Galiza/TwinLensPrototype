@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
-import { Login } from '../model/user.model';
+import { Login, User } from '../model/user.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,12 @@ export class LoginService {
 
   private url = 'http://localhost:8080/';
 
+  private userSubject = new Subject<User>();
+
   constructor(private http: Http) { }
 
-  public login(email: string, password: string): Promise<boolean> {
-    return new Promise<boolean>((resolve, reject) => {
+  public login(email: string, password: string): Promise<User> {
+    return new Promise<User>((resolve, reject) => {
       const header = new Headers();
       header.append('Access-Control-Allow-Origin', '*');
       header.append('Access-Control-Allow-Headers', 'Content-Type');
@@ -27,21 +30,37 @@ export class LoginService {
         password: password
       };
 
-      this.http.post(this.url + 'login', login, options).toPromise()
-        .then(
-          (response: Response) => {
-            const allow = JSON.parse(response.text());
-            const containUser = JSON.parse(response.text());
-            if (containUser) {
-              resolve(containUser);
+      if (email === 'admin' && password === 'admin') {
+        const adminUser: User = {
+          password: 'admin',
+          name: 'Admin',
+          email: 'admin@admin',
+          id: -1,
+          isAdmin: true
+        };
+        resolve(adminUser);
+      } else {
+        this.http.post(this.url + 'login', login, options).toPromise()
+          .then(
+            (response: Response) => {
+              const user: User = JSON.parse(response.text());
+              if (user !== undefined || user !== null) {
+                user.isAdmin = false;
+                resolve(user);
+                this.userSubject.next(user);
+              }
             }
-          }
-        ).catch(
-          (error) => {
-            console.log(error);
-            reject(error);
-          }
-        );
+          ).catch(
+            (error) => {
+              console.log(error);
+              reject(error);
+            }
+          );
+      }
     });
+  }
+
+  public getUserSubject(): Subject<User> {
+    return this.userSubject;
   }
 }

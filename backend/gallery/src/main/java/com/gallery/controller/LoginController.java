@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//import com.gallery.db.DBController;
-import com.aubay.exception.EmailExistsException;
+import com.gallery.db.DBController;
 import com.gallery.model.Login;
+import com.gallery.model.User;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -23,18 +23,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class LoginController {
 
-//	@Autowired
-//	private DBController controller;
+    @Autowired
+    private DBController dbController;
+
     /*
-	 * Method that gets the request to register the user
+* Method that gets the request to register the user
      */
-    
-    @RequestMapping(value="login", method=RequestMethod.POST)
-    public boolean login(@RequestParam Login login) {
+
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public User login(@RequestParam Login login) {
+        User user = dbController.findByEmail(login.getEmail());
         
-//        if(login.getEmail() && login.getPassword()){
-            
-//        }
         /*List<User> dbUsers = controller.findAll();
 		
 		for(User user: dbUsers) {
@@ -47,14 +46,14 @@ public class LoginController {
 		dbUsers.add(userRegister);
 		
         return dbUsers;*/
-        return true;
+        return user;
     }
 
     /*
 	 * Method that gets the request to fetch all users
 	 * saved in the database
      */
-    /*@CrossOrigin
+ /*@CrossOrigin
     @RequestMapping(value = "/users")
     public List<User> listUsers() {
         List<User> dbUsers;

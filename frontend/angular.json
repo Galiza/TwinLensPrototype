@@ -23,7 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "./node_modules/startbootstrap-grayscale/vendor/bootstrap/css/bootstrap.min.css",
               "./node_modules/startbootstrap-grayscale/vendor/fontawesome-free/css/all.min.css",
               "./node_modules/startbootstrap-grayscale/css/grayscale.min.css"
@@ -80,7 +80,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [

@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { HttpModule } from '@angular/http';
 
+import { TabMenuModule } from 'primeng/tabmenu';
 import { FileUploadModule } from 'primeng/fileupload';
 import { DialogModule } from 'primeng/dialog';
 import { ModalGalleryModule } from '@ks89/angular-modal-gallery';
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     HttpModule,
     FileUploadModule,
     DialogModule,
+    TabMenuModule,
     ModalGalleryModule.forRoot({ shortcuts: ['ctrl+a', 'ctrl+s', 'meta+s'] }),
     RouterModule.forRoot(appRoutes)
   ],

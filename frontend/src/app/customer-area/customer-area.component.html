@@ -16,64 +16,41 @@
   </div>
 </nav>
 <div style="padding-top: 56px; background-color: #dadada; height: -webkit-fill-available; width: 100%;">
-  <!-- <p-fileUpload name="" customUpload="true"></p-fileUpload> -->
-  <!--<div class="container">
-    <div class="row">
-      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-          data-target="#image-gallery">
-          <img class="img-thumbnail" id="selected-img" src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            alt="Another alt text">
-        </a>
-      </div>
-      <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="image-gallery-title"></h4>
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <img id="image-gallery-image" class="img-responsive col-md-12" src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-            </div>
-            <div class="modal-footer row justify-content-between">
-              <button type="button" class="btn btn-secondary" id="show-previous-image"><i class="fa fa-arrow-left"></i>
-              </button>
-              <button type="button" id="show-next-image" class="btn btn-secondary"><i class="fa fa-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-          data-target="#image-gallery2">
-          <img class="img-thumbnail" id="selected-img" src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            alt="Another alt text">
-        </a>
-      </div>
+  <!-- <div *ngIf="user.isAdmin"> -->
+  <div class="row" style="margin: 0; border-bottom: 1px solid black">
+    <div class="buttons" style="padding-left: 75px;">
+      <button (click)="fetchClients()" style="margin-right: 20px;">
+        Cliente
+      </button>
+      <button (click)="registerNewClient()">
+        Registrar Novo Cliente
+      </button>
     </div>
   </div>
-  <div class="modal fade" id="image-gallery2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="image-gallery-title"></h4>
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <img id="image-gallery-image" class="img-responsive col-md-12" src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-        </div>
-        <div class="modal-footer row justify-content-between">
-            <button type="button" class="btn btn-secondary" id="show-previous-image"><i class="fa fa-arrow-left"></i>
-            </button>
-            <button type="button" id="show-next-image" class="btn btn-secondary"><i class="fa fa-arrow-right"></i>
-            </button>
-          </div>
+  <div *ngIf="isRegister">
+    <form [formGroup]="newUserForm" style="margin: 0 auto; width: 400px; padding-top: 50px;">
+      <div style="padding-bottom: 0;">
+        <label>Nome:</label>
+        <input class="form-control flex-fill mr-1" formControlName="name">
       </div>
-    </div>
-  </div>-->
-  <ks-modal-gallery [id]="1" [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery>
+      <div>
+        <label>Email:</label>
+        <input class="form-control flex-fill mr-1" formControlName="email">
+      </div>
+      <div>
+        <label>Senha:</label>
+        <input type="password" class="form-control flex-fill mr-1" formControlName="password">
+      </div>
+      <div>
+        <label>Confirme a senha:</label>
+        <input type="password" class="form-control flex-fill mr-1" formControlName="confirmPass">
+      </div>
+      <div>
+        <button [disabled]="!newUserForm.valid" class="btn btn-success btn-lg btn-block register-btn" (click)="register()">Entrar</button>
+      </div>
+    </form>
+  </div>
 </div>
+<!-- <p-fileUpload name="" customUpload="true"></p-fileUpload> -->
+<!-- </div> -->
+<!-- <ks-modal-gallery [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery> -->
