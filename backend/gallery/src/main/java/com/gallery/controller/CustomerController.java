@@ -6,6 +6,7 @@ import com.gallery.model.User;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
-    public User register(User user) {
+    public User register(@RequestBody User user) {
         dbController.save(user);
         return user;
     }

@@ -10,6 +10,7 @@ export class CustomerAreaService {
 
     private url = 'http://localhost:8080/';
 
+
     constructor(
         private http: Http
     ) { }
@@ -56,7 +57,9 @@ export class CustomerAreaService {
             this.http.post(this.url + 'register', user, options).toPromise()
                 .then(
                     (response: Response) => {
-                        console.log(response);
+                        if (response.status === 200) {
+                            resolve(JSON.parse(response.text()));
+                        }
                     }
                 ).catch(
                     (error) => {

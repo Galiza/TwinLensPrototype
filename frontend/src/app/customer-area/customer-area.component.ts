@@ -38,6 +38,10 @@ export class CustomerAreaComponent implements OnInit {
         this.user = user;
       }
     );
+
+    if (this.userList.length === 0) {
+      this.fetchClients();
+    }
     // if (this.user.isAdmin) {
     this.menuItems = [
       { label: 'Clientes', icon: 'fa fa-fw fa-bar-chart' },
@@ -99,7 +103,7 @@ export class CustomerAreaComponent implements OnInit {
   public fetchClients(): void {
     this.customerService.fetchClientList().then(
       (userList: User[]) => {
-
+        this.userList = userList;
       }
     );
   }
@@ -115,8 +119,9 @@ export class CustomerAreaComponent implements OnInit {
     newUser.password = this.newUserForm.get('password').value;
 
     this.customerService.addNewClient(newUser).then(
-      (userList: User) => {
-
+      (addedUser: User) => {
+        this.userList.push(addedUser);
+        this.newUserForm.reset();
       }
     );
   }
