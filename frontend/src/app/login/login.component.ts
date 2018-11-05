@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
+  public showError = false;
 
   constructor(
     private loginService: LoginService,
@@ -33,7 +34,15 @@ export class LoginComponent implements OnInit {
       () => {
         this.router.navigate(['/customer-area']);
       }
+    ).catch(
+      (error) => {
+        this.showError = true;
+      }
     );
+  }
+
+  public cancel(): void {
+    this.router.navigate(['/home']);
   }
 
 }

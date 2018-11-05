@@ -188,6 +188,66 @@ input {
 }
 
 .register-btn{
-    margin-top: 5px;
+    margin-top: 10px;
     padding: 12px;
+}
+
+.list-client-div{
+    width: 500px;
+    padding-top: 20px;
+}
+
+.new-user-form{
+    width: 400px;
+    padding-top: 50px;
+}
+
+.list-client-div, .new-user-form{
+    margin: 0 auto;
+}
+
+.client-list-title{
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+td{
+    text-align: center;
+    width: 250px;
+    font-size: 18px;
+
+    &:first-child{
+        border-right: 1px solid black;
+    }
+}
+
+th{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.body-tr:hover{
+    background-color: white !important;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.client-name, .client-email{
+    border-bottom: 1px solid black;
+}
+
+.client-name{
+    border-right: 1px solid black;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.btn-success.disabled, .btn-success:disabled{
+background-color: #486f51 !important;
+border-color: #486f51 !important;
 }

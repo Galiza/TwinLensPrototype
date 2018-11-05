@@ -8,3 +8,28 @@
         margin-top: 5px;
     }
 }
+
+.ui-fileupload-buttonbar {
+    border: 1px solid #b1b0b0;
+    background-color: #cecece;
+    padding: 5px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    & button {
+        margin-right: 15px;
+    }
+}
+
+.ui-fileupload-content{
+    background-color: white;
+    border: 1px solid #b1b0b0;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding: 5px;
+
+    & .ui-fileupload-row{
+        display: table-row;
+    }
+
+}

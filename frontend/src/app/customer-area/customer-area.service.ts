@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
-import { Login, User } from '../model/user.model';
+import { Login, User, Album } from '../model/model';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -55,6 +55,58 @@ export class CustomerAreaService {
             );
 
             this.http.post(this.url + 'register', user, options).toPromise()
+                .then(
+                    (response: Response) => {
+                        if (response.status === 200) {
+                            resolve(JSON.parse(response.text()));
+                        }
+                    }
+                ).catch(
+                    (error) => {
+                        reject(error);
+                    }
+                );
+        });
+    }
+
+    public uploadClientPhotos(album: Album): Promise<boolean> {
+        return new Promise<boolean>((resolve, reject) => {
+            const header = new Headers();
+            header.append('Access-Control-Allow-Origin', '*');
+            header.append('Access-Control-Allow-Headers', 'Content-Type');
+            header.append('Access-Control-Allow-Methods', '*');
+
+            const options = new RequestOptions(
+                { headers: header }
+            );
+
+            this.http.post(this.url + 'savePhotos', album, options).toPromise()
+                .then(
+                    (response: Response) => {
+                        if (response.status === 200) {
+                            resolve(true);
+                        }
+                    }
+                ).catch(
+                    (error) => {
+                        reject(error);
+                    }
+                );
+        });
+    }
+
+    public getClientPhotos(id: number): Promise<Album> {
+        return new Promise<Album>((resolve, reject) => {
+            const header = new Headers();
+            header.append('Access-Control-Allow-Origin', '*');
+            header.append('Access-Control-Allow-Headers', 'Content-Type');
+            header.append('Access-Control-Allow-Methods', '*');
+
+            const options = new RequestOptions(
+                { headers: header }
+            );
+
+            this.http.get(this.url + 'getPhotos/:' + id, options).toPromise()
                 .then(
                     (response: Response) => {
                         if (response.status === 200) {

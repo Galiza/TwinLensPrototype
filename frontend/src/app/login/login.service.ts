@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
-import { Login, User } from '../model/user.model';
+import { Login, User } from '../model/model';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -10,7 +10,7 @@ export class LoginService {
 
   private url = 'http://localhost:8080/';
 
-  private userSubject = new Subject<User>();
+  private user: User = {} as User;
 
   constructor(private http: Http) { }
 
@@ -39,6 +39,7 @@ export class LoginService {
           isAdmin: true
         };
         resolve(adminUser);
+        this.setUser(adminUser);
       } else {
         this.http.post(this.url + 'login', login, options).toPromise()
           .then(
@@ -47,7 +48,7 @@ export class LoginService {
               if (user !== undefined || user !== null) {
                 user.isAdmin = false;
                 resolve(user);
-                this.userSubject.next(user);
+                this.setUser(user);
               }
             }
           ).catch(
@@ -60,7 +61,11 @@ export class LoginService {
     });
   }
 
-  public getUserSubject(): Subject<User> {
-    return this.userSubject;
+  public getUser(): User {
+    return this.user;
+  }
+
+  public setUser(user: User): void {
+    this.user = user;
   }
 }

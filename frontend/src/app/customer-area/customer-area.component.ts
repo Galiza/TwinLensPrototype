@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { PlainGalleryConfig, PlainGalleryStrategy, Image, GridLayout } from '@ks89/angular-modal-gallery';
-import { User } from '../model/user.model';
+import { User, Album } from '../model/model';
 import { MenuItem } from 'primeng/api';
 import { CustomerAreaService } from './customer-area.service';
 import { LoginService } from '../login/login.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-customer-area',
@@ -15,75 +17,60 @@ export class CustomerAreaComponent implements OnInit {
 
   public images: Image[] = [];
 
-  public menuItems: MenuItem[];
+  private album: Album = {} as Album;
 
   public user: User = {} as User;
   public userList: User[] = [];
 
   public isRegister = false;
-  public isListClient = false;
+  public isListClient = true;
+  public isGallery = false;
 
   private newUserForm: FormGroup;
+  public selectedUser: User = {} as User;
+
+  public uploadPhoto = false;
+
+  public multiple = true;
 
   plainGalleryRow: PlainGalleryConfig;
   constructor(
     private customerService: CustomerAreaService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
     this.createForm();
-    this.loginService.getUserSubject().subscribe(
-      (user: User) => {
-        this.user = user;
-      }
-    );
-
-    if (this.userList.length === 0) {
-      this.fetchClients();
+    this.user = this.loginService.getUser();
+    if (Object.keys(this.user).length === 0 || this.user === undefined || this.user === null) {
+      this.router.navigate(['/home']);
     }
-    // if (this.user.isAdmin) {
-    this.menuItems = [
-      { label: 'Clientes', icon: 'fa fa-fw fa-bar-chart' },
-      { label: 'Álbum', icon: 'fa fa-fw fa-calendar' }
-    ];
-    // }
-    this.images.push(new Image(
-      0,
-      {
-        img: 'https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+    if (this.user.isAdmin) {
+      if (this.userList.length === 0) {
+        this.fetchClients();
       }
-    ));
-    this.images.push(new Image(
-      1,
-      {
-        img: 'https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-      }
-    ));
-    this.images.push(new Image(
-      2,
-      {
-        img: 'https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-      }
-    ));
-    this.images.push(new Image(
-      3,
-      {
-        img: 'https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-      }
-    ));
-    this.images.push(new Image(
-      4,
-      {
-        img: 'https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-      }
-    ));
-    this.images.push(new Image(
-      5,
-      {
-        img: 'https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-      }
-    ));
+    } else {
+      this.customerService.getClientPhotos(this.user.id).then(
+        (album: Album) => {
+          const files = JSON.parse(album.photo);
+          let index = 0;
+          files.forEach(
+            (file) => {
+              this.images.push(new Image(
+                index,
+                {
+                  img: this.sanitizeBase64(file)
+                }
+              ));
+              index++;
+            }
+          );
+          this.isGallery = true;
+        }
+      );
+    }
 
     this.plainGalleryRow = {
       strategy: PlainGalleryStrategy.GRID,
@@ -101,15 +88,47 @@ export class CustomerAreaComponent implements OnInit {
   }
 
   public fetchClients(): void {
-    this.customerService.fetchClientList().then(
-      (userList: User[]) => {
-        this.userList = userList;
+    this.isListClient = true;
+    this.isRegister = false;
+    this.images = [];
+    if (this.userList.length === 0) {
+      this.customerService.fetchClientList().then(
+        (userList: User[]) => {
+          this.userList = userList;
+        }
+      );
+    }
+  }
+
+  public fetchAlbum(selectedUser: User): void {
+    this.selectedUser = selectedUser;
+    this.isListClient = false;
+    this.customerService.getClientPhotos(selectedUser.id).then(
+      (album: Album) => {
+        const files = JSON.parse(album.photo);
+        let index = 0;
+        files.forEach(
+          (file) => {
+            this.images.push(new Image(
+              index,
+              {
+                img: this.sanitizeBase64(file)
+              }
+            ));
+            index++;
+          }
+        );
+        this.isGallery = true;
       }
     );
   }
 
   public registerNewClient(): void {
     this.isRegister = true;
+    this.isListClient = false;
+    this.isGallery = false;
+    this.uploadPhoto = false;
+    this.images = [];
   }
 
   public register(): void {
@@ -122,9 +141,65 @@ export class CustomerAreaComponent implements OnInit {
       (addedUser: User) => {
         this.userList.push(addedUser);
         this.newUserForm.reset();
+        this.isListClient = true;
       }
     );
   }
 
+  public returnToClients(): void {
+    this.isListClient = true;
+    this.isGallery = false;
+    this.uploadPhoto = false;
+    this.images = [];
+  }
 
+  public uploadPhotos(): void {
+    this.uploadPhoto = true;
+  }
+
+  public galleryPhotos(): void {
+    this.uploadPhoto = false;
+  }
+
+  myUploader(event) {
+    const files: string[] = [];
+    event.files.forEach((file) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        files.push(reader.result);
+      };
+      reader.readAsDataURL(file);
+    });
+
+    if (files.length === event.files.length) {
+      this.album.id = this.selectedUser.id;
+      this.album.photo = JSON.stringify(files);
+      this.customerService.uploadClientPhotos(this.album).then(
+        (uploaded: boolean) => {
+          if (uploaded) {
+            this.album = {} as Album;
+            let index = 0;
+            files.forEach(
+              (file) => {
+                this.images.push(new Image(
+                  index,
+                  {
+                    img: this.sanitizeBase64(file)
+                  }
+                ));
+                index++;
+              }
+            );
+          }
+          this.isGallery = true;
+          this.uploadPhoto = false;
+        }
+      );
+    }
+  }
+
+  private sanitizeBase64(base64: string): SafeResourceUrl {
+    const sanitizedBase64: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(base64);
+    return sanitizedBase64;
+  }
 }

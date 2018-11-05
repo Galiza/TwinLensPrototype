@@ -1,10 +1,10 @@
 <div style="padding-top: 200px; background-color: #dadada; height: -webkit-fill-available; width: 100%;">
-  <div style="width: 400px; background: red; border-radius: 5px; margin: 0 auto; text-align: center;margin-bottom: 50px;">
+  <div *ngIf="showError" style="width: 400px; background: red; border-radius: 5px; margin: 0 auto; text-align: center;margin-bottom: 50px;">
     <span>
-      EMAIL/PASSWORD INCORRECT
+      EMAIL/SENHA INCORRETOS
     </span>
   </div>
-  <div style="height: 290px; width: 400px; margin: 0 auto; background-color: white; border-radius: 10px;">
+  <div style="height: 328px; width: 400px; margin: 0 auto; background-color: white; border-radius: 10px;">
     <form [formGroup]="loginForm">
       <div style="padding-bottom: 0;">
         <label>Email:</label>
@@ -16,6 +16,7 @@
       </div>
       <div>
         <button class="btn btn-success btn-lg btn-block" (click)="submit()">Entrar</button>
+        <button class="btn btn-danger btn-lg btn-block" (click)="cancel()">Cancelar</button>
       </div>
     </form>
   </div>

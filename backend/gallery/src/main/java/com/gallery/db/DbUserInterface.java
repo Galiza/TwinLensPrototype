@@ -5,7 +5,7 @@ import java.util.List;
 import com.gallery.model.User;
 import org.springframework.data.repository.CrudRepository;
 
-public interface DBController extends CrudRepository<User, Integer> {
+public interface DbUserInterface extends CrudRepository<User, Integer> {
 
     /*
      * Custom request for the database to get an user
@@ -14,8 +14,9 @@ public interface DBController extends CrudRepository<User, Integer> {
     public User findByEmail(String email);
 
     /*
-     * Custom request for the database to get all users
-     * by name
+     * Custom request for the database to get album
+     * by id
      */
     public List<User> findAlbumById(int id);
+    
 }

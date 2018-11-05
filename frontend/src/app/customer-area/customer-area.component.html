@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand text-white home">Jack Silverspoon</a>
+    <a class="navbar-brand text-white home">{{user.name}}</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       Menu
@@ -16,41 +16,91 @@
   </div>
 </nav>
 <div style="padding-top: 56px; background-color: #dadada; height: -webkit-fill-available; width: 100%;">
-  <!-- <div *ngIf="user.isAdmin"> -->
-  <div class="row" style="margin: 0; border-bottom: 1px solid black">
-    <div class="buttons" style="padding-left: 75px;">
-      <button (click)="fetchClients()" style="margin-right: 20px;">
-        Cliente
-      </button>
-      <button (click)="registerNewClient()">
-        Registrar Novo Cliente
-      </button>
+  <div *ngIf="user.isAdmin">
+    <div class="row" style="margin: 0; border-bottom: 1px solid black">
+      <div class="buttons" style="padding-left: 75px;">
+        <button (click)="fetchClients()" style="margin-right: 20px;">
+          Cliente
+        </button>
+        <button (click)="registerNewClient()">
+          Registrar Novo Cliente
+        </button>
+      </div>
+    </div>
+    <div *ngIf="isListClient">
+      <div class="list-client-div">
+        <div class="client-list-title">
+          <span>Lista de Clientes</span>
+        </div>
+        <p-table [value]="userList">
+          <ng-template pTemplate="header">
+            <tr>
+              <th class="client-name">Nome</th>
+              <th class="client-email">Email</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-user>
+            <tr class="body-tr" (click)="fetchAlbum(user)">
+              <td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+    <div *ngIf="isRegister">
+      <form [formGroup]="newUserForm" class="new-user-form">
+        <div style="padding-bottom: 0;">
+          <label>Nome:</label>
+          <input class="form-control flex-fill mr-1" formControlName="name">
+        </div>
+        <div>
+          <label>Email:</label>
+          <input class="form-control flex-fill mr-1" formControlName="email">
+        </div>
+        <div>
+          <label>Senha:</label>
+          <input type="password" class="form-control flex-fill mr-1" formControlName="password">
+        </div>
+        <div>
+          <label>Confirme a senha:</label>
+          <input type="password" class="form-control flex-fill mr-1" formControlName="confirmPass">
+        </div>
+        <div>
+          <button [disabled]="!newUserForm.valid" class="btn btn-success btn-lg btn-block register-btn" (click)="register()">Entrar</button>
+        </div>
+      </form>
     </div>
   </div>
-  <div *ngIf="isRegister">
-    <form [formGroup]="newUserForm" style="margin: 0 auto; width: 400px; padding-top: 50px;">
-      <div style="padding-bottom: 0;">
-        <label>Nome:</label>
-        <input class="form-control flex-fill mr-1" formControlName="name">
+  <div *ngIf="isGallery">
+    <div *ngIf="user.isAdmin" class="row" style="padding-top: 10px; padding-left: 30px; margin: 0; padding-right: 30px;">
+      <div class="col">
+        <button (click)="returnToClients()" style="border: unset; background-color: transparent;">
+          <i class="fa fa-arrow-left"></i>
+          Retornar para lista de clientes
+        </button>
       </div>
-      <div>
-        <label>Email:</label>
-        <input class="form-control flex-fill mr-1" formControlName="email">
+      <div class="col" style="padding-left: 310px; font-size: 25px; font-weight: 600;">
+        <span>{{selectedUser.name}}</span>
       </div>
-      <div>
-        <label>Senha:</label>
-        <input type="password" class="form-control flex-fill mr-1" formControlName="password">
+      <div class="col">
+        <button *ngIf="!uploadPhoto" (click)="uploadPhotos()" style="border: unset; background-color: transparent;">
+          Upload de imagens</button>
+          <button *ngIf="uploadPhoto" (click)="galleryPhotos()" style="border: unset; background-color: transparent;">Retornar para galeria</button>
       </div>
-      <div>
-        <label>Confirme a senha:</label>
-        <input type="password" class="form-control flex-fill mr-1" formControlName="confirmPass">
-      </div>
-      <div>
-        <button [disabled]="!newUserForm.valid" class="btn btn-success btn-lg btn-block register-btn" (click)="register()">Entrar</button>
-      </div>
-    </form>
+    </div>
+    <div *ngIf="!uploadPhoto">
+      <ks-modal-gallery [id]="0" [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery>
+    </div>
+    <div *ngIf="uploadPhoto" style="padding-left: 30px; padding-right: 30px;">
+      <p-fileUpload multiple="multiple" accept="image/*" mode="advanced" customUpload="true"
+      (uploadHandler)="myUploader($event)">
+          <ng-template pTemplate="content">
+              <ul>
+                  <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+              </ul>
+          </ng-template>
+      </p-fileUpload>
+    </div>
   </div>
 </div>
-<!-- <p-fileUpload name="" customUpload="true"></p-fileUpload> -->
-<!-- </div> -->
-<!-- <ks-modal-gallery [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery> -->
