@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class LoginService {
 
-  private url = 'http://localhost:8080/';
+  // private url = 'http://localhost:8080/';
 
   private user: User = {} as User;
 
@@ -41,7 +41,7 @@ export class LoginService {
         resolve(adminUser);
         this.setUser(adminUser);
       } else {
-        this.http.post(this.url + 'login', login, options).toPromise()
+        this.http.post('/login', login, options).toPromise()
           .then(
             (response: Response) => {
               const user: User = JSON.parse(response.text());

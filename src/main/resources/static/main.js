@@ -421,7 +421,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var CustomerAreaService = /** @class */ (function () {
     function CustomerAreaService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/';
+        this.url = 'https://twin-lens.herokuapp.com/';
     }
     CustomerAreaService.prototype.fetchClientList = function () {
         var _this = this;
@@ -431,7 +431,7 @@ var CustomerAreaService = /** @class */ (function () {
             header.append('Access-Control-Allow-Headers', 'Content-Type');
             header.append('Access-Control-Allow-Methods', '*');
             var options = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["RequestOptions"]({ headers: header });
-            _this.http.get(_this.url + 'listUsers', options).toPromise()
+            _this.http.get('/listUsers', options).toPromise()
                 .then(function (response) {
                 var user = JSON.parse(response.text());
                 if (user !== undefined || user !== null) {
@@ -451,7 +451,7 @@ var CustomerAreaService = /** @class */ (function () {
             header.append('Access-Control-Allow-Headers', 'Content-Type');
             header.append('Access-Control-Allow-Methods', '*');
             var options = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["RequestOptions"]({ headers: header });
-            _this.http.post(_this.url + 'register', user, options).toPromise()
+            _this.http.post('/register', user, options).toPromise()
                 .then(function (response) {
                 if (response.status === 200) {
                     resolve(JSON.parse(response.text()));
@@ -704,7 +704,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var LoginService = /** @class */ (function () {
     function LoginService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/';
+        // private url = 'http://localhost:8080/';
         this.user = {};
     }
     LoginService.prototype.login = function (email, password) {
@@ -731,7 +731,7 @@ var LoginService = /** @class */ (function () {
                 _this.setUser(adminUser);
             }
             else {
-                _this.http.post(_this.url + 'login', login, options).toPromise()
+                _this.http.post('/login', login, options).toPromise()
                     .then(function (response) {
                     var user = JSON.parse(response.text());
                     if (user !== undefined || user !== null) {

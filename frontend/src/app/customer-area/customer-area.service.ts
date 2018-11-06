@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class CustomerAreaService {
 
-    private url = 'http://localhost:8080/';
+    private url = 'https://twin-lens.herokuapp.com/';
 
 
     constructor(
@@ -26,7 +26,7 @@ export class CustomerAreaService {
                 { headers: header }
             );
 
-            this.http.get(this.url + 'listUsers', options).toPromise()
+            this.http.get('/listUsers', options).toPromise()
                 .then(
                     (response: Response) => {
                         const user: User[] = JSON.parse(response.text());
@@ -54,7 +54,7 @@ export class CustomerAreaService {
                 { headers: header }
             );
 
-            this.http.post(this.url + 'register', user, options).toPromise()
+            this.http.post('/register', user, options).toPromise()
                 .then(
                     (response: Response) => {
                         if (response.status === 200) {
