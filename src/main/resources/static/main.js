@@ -183,7 +183,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div style=\"padding-top: 56px; background-color: #dadada; height: -webkit-fill-available; width: 100%;\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row\" style=\"margin: 0; border-bottom: 1px solid black\">\n      <div class=\"buttons\" style=\"padding-left: 75px;\">\n        <button (click)=\"fetchClients()\" style=\"margin-right: 20px;\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewClient()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div *ngIf=\"isListClient\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\" (click)=\"fetchAlbum(user)\">\n              <td>{{user.name}}</td>\n              <td>{{user.email}}</td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td style=\"border-right: unset; font-weight: bold;\" colspan=2>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n      <form [formGroup]=\"newUserForm\" class=\"new-user-form\">\n        <div style=\"padding-bottom: 0;\">\n          <label>Nome:</label>\n          <input class=\"form-control flex-fill mr-1\" formControlName=\"name\">\n        </div>\n        <div>\n          <label>Email:</label>\n          <input class=\"form-control flex-fill mr-1\" formControlName=\"email\">\n        </div>\n        <div>\n          <label>Senha:</label>\n          <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"password\">\n        </div>\n        <div>\n          <label>Confirme a senha:</label>\n          <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"confirmPass\">\n        </div>\n        <div>\n          <button [disabled]=\"!newUserForm.valid\" class=\"btn btn-success btn-lg btn-block register-btn\" (click)=\"register()\">Entrar</button>\n        </div>\n      </form>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row\" style=\"padding-top: 10px; padding-left: 30px; margin: 0; padding-right: 30px;\">\n      <div class=\"col\">\n        <button (click)=\"returnToClients()\" style=\"border: unset; background-color: transparent;\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col\" style=\"padding-left: 310px; font-size: 25px; font-weight: 600;\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"uploadPhotos()\" style=\"border: unset; background-color: transparent;\">\n          Upload de imagens</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"galleryPhotos()\" style=\"border: unset; background-color: transparent;\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n    </div>\n    <div *ngIf=\"uploadPhoto\" style=\"padding-left: 30px; padding-right: 30px;\">\n      <p-fileUpload multiple=\"multiple\" accept=\"image/*\" mode=\"advanced\" customUpload=\"true\" (uploadHandler)=\"myUploader($event)\">\n        <ng-template pTemplate=\"content\">\n          <ul>\n            <li *ngFor=\"let file of uploadedFiles\">{{file.name}} - {{file.size}} bytes</li>\n          </ul>\n        </ng-template>\n      </p-fileUpload>\n    </div>\n  </div>\n</div>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div style=\"padding-top: 56px; background-color: #dadada; height: -webkit-fill-available; width: 100%;\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row\" style=\"margin: 0; border-bottom: 1px solid black\">\n      <div class=\"buttons\" style=\"padding-left: 75px;\">\n        <button (click)=\"fetchClients()\" style=\"margin-right: 20px;\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewClient()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div *ngIf=\"isListClient\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\" (click)=\"fetchAlbum(user)\">\n              <td>{{user.name}}</td>\n              <td>{{user.email}}</td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td style=\"border-right: unset; font-weight: bold;\" colspan=2>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n      <form [formGroup]=\"newUserForm\" class=\"new-user-form\">\n        <div style=\"padding-bottom: 0;\">\n          <label>Nome:</label>\n          <input class=\"form-control flex-fill mr-1\" formControlName=\"name\">\n        </div>\n        <div>\n          <label>Email:</label>\n          <input class=\"form-control flex-fill mr-1\" formControlName=\"email\">\n        </div>\n        <div>\n          <label>Senha:</label>\n          <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"password\">\n        </div>\n        <div>\n          <label>Confirme a senha:</label>\n          <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"confirmPass\">\n        </div>\n        <div>\n          <button [disabled]=\"!newUserForm.valid\" class=\"btn btn-success btn-lg btn-block register-btn\" (click)=\"register()\">Entrar</button>\n        </div>\n      </form>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row\" style=\"padding-top: 10px; padding-left: 30px; margin: 0; padding-right: 30px;\">\n      <div class=\"col\">\n        <button (click)=\"returnToClients()\" style=\"border: unset; background-color: transparent;\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col\" style=\"padding-left: 310px; font-size: 25px; font-weight: 600;\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"uploadPhotos()\" style=\"border: unset; background-color: transparent;\">\n          Upload de imagens</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"galleryPhotos()\" style=\"border: unset; background-color: transparent;\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n    </div>\n    <div *ngIf=\"uploadPhoto\" style=\"padding-left: 30px; padding-right: 30px;\">\n      <p-fileUpload multiple=\"multiple\" accept=\"image/*\" mode=\"advanced\" customUpload=\"true\" (onUpload)=\"storeInFiles($event)\" (uploadHandler)=\"uploadFiles()\">\n        <ng-template pTemplate=\"content\">\n          <ul>\n            <li *ngFor=\"let file of uploadedFiles\">{{file.name}} - {{file.size}} bytes</li>\n          </ul>\n        </ng-template>\n      </p-fileUpload>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -238,6 +238,7 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.router = router;
         this.sanitizer = sanitizer;
         this.images = [];
+        this.files = [];
         this.album = {};
         this.user = {};
         this.userList = [];
@@ -352,34 +353,37 @@ var CustomerAreaComponent = /** @class */ (function () {
     CustomerAreaComponent.prototype.galleryPhotos = function () {
         this.uploadPhoto = false;
     };
-    CustomerAreaComponent.prototype.myUploader = function (event) {
+    CustomerAreaComponent.prototype.storeInFiles = function (event) {
         var _this = this;
-        var files = [];
+        // const files: string[] = [];
         event.files.forEach(function (file) {
             var reader = new FileReader();
             reader.onloadend = function () {
-                files.push(reader.result);
+                _this.files.push(reader.result);
             };
             reader.readAsDataURL(file);
         });
-        if (files.length === event.files.length) {
-            this.album.id = this.selectedUser.id;
-            this.album.photo = JSON.stringify(files);
-            this.customerService.uploadClientPhotos(this.album).then(function (uploaded) {
-                if (uploaded) {
-                    _this.album = {};
-                    var index_3 = 0;
-                    files.forEach(function (file) {
-                        _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_3, {
-                            img: _this.sanitizeBase64(file)
-                        }));
-                        index_3++;
-                    });
-                }
-                _this.isGallery = true;
-                _this.uploadPhoto = false;
-            });
-        }
+    };
+    CustomerAreaComponent.prototype.uploadFiles = function () {
+        var _this = this;
+        // if (this.files.length === event.files.length) {
+        this.album.id = this.selectedUser.id;
+        this.album.photo = JSON.stringify(this.files);
+        this.customerService.uploadClientPhotos(this.album).then(function (uploaded) {
+            if (uploaded) {
+                _this.album = {};
+                var index_3 = 0;
+                _this.files.forEach(function (file) {
+                    _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_3, {
+                        img: _this.sanitizeBase64(file)
+                    }));
+                    index_3++;
+                });
+            }
+            _this.isGallery = true;
+            _this.uploadPhoto = false;
+        });
+        // }
     };
     CustomerAreaComponent.prototype.sanitizeBase64 = function (base64) {
         var sanitizedBase64 = this.sanitizer.bypassSecurityTrustResourceUrl(base64);
@@ -477,7 +481,7 @@ var CustomerAreaService = /** @class */ (function () {
             header.append('Access-Control-Allow-Headers', 'Content-Type');
             header.append('Access-Control-Allow-Methods', '*');
             var options = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["RequestOptions"]({ headers: header });
-            _this.http.post(_this.url + 'savePhotos', album, options).toPromise()
+            _this.http.post('/savePhotos', album, options).toPromise()
                 .then(function (response) {
                 if (response.status === 200) {
                     resolve(true);
@@ -495,7 +499,7 @@ var CustomerAreaService = /** @class */ (function () {
             header.append('Access-Control-Allow-Headers', 'Content-Type');
             header.append('Access-Control-Allow-Methods', '*');
             var options = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["RequestOptions"]({ headers: header });
-            _this.http.get(_this.url + 'getPhotos/:' + id, options).toPromise()
+            _this.http.get('/getPhotos/:' + id, options).toPromise()
                 .then(function (response) {
                 if (response.status === 200) {
                     resolve(JSON.parse(response.text()));
@@ -536,7 +540,7 @@ module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".masthead {\n  background-image: url('rafa-e-mila.jpeg');\n  background-repeat: no-repeat; }\n  .masthead span {\n    font-size: 6.5rem;\n    font-weight: 600;\n    color: white; }\n  .img-fluid {\n  max-width: 50%;\n  float: left;\n  padding: 15px; }\n  li {\n  cursor: pointer; }\n  p {\n  padding-top: 13px; }\n  .home:hover {\n  cursor: pointer; }\n  .send-btn {\n  width: 100%;\n  height: 40px;\n  padding: 0;\n  border: 1px solid #6c757d;\n  color: #6c757d; }\n  .send-btn:hover {\n    background-color: #e1e9f1 !important; }\n  .form-control {\n  border: 1px solid #6c757d; }\n  textarea {\n  resize: unset;\n  height: 100px; }\n  .projects-section, .email-section {\n  padding: 6rem 0; }\n  .contact-section {\n  padding: 3rem 0;\n  background-image: url('outro.jpeg');\n  background-repeat: no-repeat; }\n"
+module.exports = ".masthead {\n  background-image: url('rafa-e-mila.jpeg');\n  background-repeat: no-repeat; }\n  .masthead span {\n    font-size: 6.5rem;\n    font-weight: 600;\n    color: white; }\n  .img-fluid {\n  max-width: 50%;\n  float: left;\n  padding: 15px; }\n  li {\n  cursor: pointer; }\n  p {\n  padding-top: 13px; }\n  .home:hover {\n  cursor: pointer; }\n  .send-btn {\n  width: 100%;\n  height: 40px;\n  padding: 0;\n  border: 1px solid #6c757d;\n  color: #6c757d; }\n  .send-btn:hover {\n    background-color: #e1e9f1 !important; }\n  .form-control {\n  border: 1px solid #6c757d; }\n  textarea {\n  resize: unset;\n  height: 100px; }\n  .projects-section, .email-section {\n  padding: 6rem 0; }\n  .contact-section {\n  padding: 3rem 0;\n  background-image: url('paisagem2.jpeg');\n  background-repeat: no-repeat; }\n"
 
 /***/ }),
 
