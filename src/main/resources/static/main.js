@@ -183,7 +183,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div style=\"padding-top: 56px; background-color: #dadada; height: -webkit-fill-available; width: 100%;\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row\" style=\"margin: 0; border-bottom: 1px solid black\">\n      <div class=\"buttons\" style=\"padding-left: 75px;\">\n        <button (click)=\"fetchClients()\" style=\"margin-right: 20px;\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewClient()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div *ngIf=\"isListClient\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\" (click)=\"fetchAlbum(user)\">\n              <td>{{user.name}}</td>\n              <td>{{user.email}}</td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n      <form [formGroup]=\"newUserForm\" class=\"new-user-form\">\n        <div style=\"padding-bottom: 0;\">\n          <label>Nome:</label>\n          <input class=\"form-control flex-fill mr-1\" formControlName=\"name\">\n        </div>\n        <div>\n          <label>Email:</label>\n          <input class=\"form-control flex-fill mr-1\" formControlName=\"email\">\n        </div>\n        <div>\n          <label>Senha:</label>\n          <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"password\">\n        </div>\n        <div>\n          <label>Confirme a senha:</label>\n          <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"confirmPass\">\n        </div>\n        <div>\n          <button [disabled]=\"!newUserForm.valid\" class=\"btn btn-success btn-lg btn-block register-btn\" (click)=\"register()\">Entrar</button>\n        </div>\n      </form>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row\" style=\"padding-top: 10px; padding-left: 30px; margin: 0; padding-right: 30px;\">\n      <div class=\"col\">\n        <button (click)=\"returnToClients()\" style=\"border: unset; background-color: transparent;\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col\" style=\"padding-left: 310px; font-size: 25px; font-weight: 600;\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"uploadPhotos()\" style=\"border: unset; background-color: transparent;\">\n          Upload de imagens</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"galleryPhotos()\" style=\"border: unset; background-color: transparent;\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n    </div>\n    <div *ngIf=\"uploadPhoto\" style=\"padding-left: 30px; padding-right: 30px;\">\n      <p-fileUpload multiple=\"multiple\" accept=\"image/*\" mode=\"advanced\" customUpload=\"true\" (uploadHandler)=\"myUploader($event)\">\n        <ng-template pTemplate=\"content\">\n          <ul>\n            <li *ngFor=\"let file of uploadedFiles\">{{file.name}} - {{file.size}} bytes</li>\n          </ul>\n        </ng-template>\n      </p-fileUpload>\n    </div>\n  </div>\n</div>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div style=\"padding-top: 56px; background-color: #dadada; height: -webkit-fill-available; width: 100%;\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row\" style=\"margin: 0; border-bottom: 1px solid black\">\n      <div class=\"buttons\" style=\"padding-left: 75px;\">\n        <button (click)=\"fetchClients()\" style=\"margin-right: 20px;\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewClient()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div *ngIf=\"isListClient\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\" (click)=\"fetchAlbum(user)\">\n              <td>{{user.name}}</td>\n              <td>{{user.email}}</td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td colspan=2>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n      <form [formGroup]=\"newUserForm\" class=\"new-user-form\">\n        <div style=\"padding-bottom: 0;\">\n          <label>Nome:</label>\n          <input class=\"form-control flex-fill mr-1\" formControlName=\"name\">\n        </div>\n        <div>\n          <label>Email:</label>\n          <input class=\"form-control flex-fill mr-1\" formControlName=\"email\">\n        </div>\n        <div>\n          <label>Senha:</label>\n          <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"password\">\n        </div>\n        <div>\n          <label>Confirme a senha:</label>\n          <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"confirmPass\">\n        </div>\n        <div>\n          <button [disabled]=\"!newUserForm.valid\" class=\"btn btn-success btn-lg btn-block register-btn\" (click)=\"register()\">Entrar</button>\n        </div>\n      </form>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row\" style=\"padding-top: 10px; padding-left: 30px; margin: 0; padding-right: 30px;\">\n      <div class=\"col\">\n        <button (click)=\"returnToClients()\" style=\"border: unset; background-color: transparent;\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col\" style=\"padding-left: 310px; font-size: 25px; font-weight: 600;\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"uploadPhotos()\" style=\"border: unset; background-color: transparent;\">\n          Upload de imagens</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"galleryPhotos()\" style=\"border: unset; background-color: transparent;\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n    </div>\n    <div *ngIf=\"uploadPhoto\" style=\"padding-left: 30px; padding-right: 30px;\">\n      <p-fileUpload multiple=\"multiple\" accept=\"image/*\" mode=\"advanced\" customUpload=\"true\" (uploadHandler)=\"myUploader($event)\">\n        <ng-template pTemplate=\"content\">\n          <ul>\n            <li *ngFor=\"let file of uploadedFiles\">{{file.name}} - {{file.size}} bytes</li>\n          </ul>\n        </ng-template>\n      </p-fileUpload>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -263,7 +263,7 @@ var CustomerAreaComponent = /** @class */ (function () {
         else {
             this.customerService.getClientPhotos(this.user.id).then(function (album) {
                 var files = JSON.parse(album.photo);
-                if (files.length <= 0) {
+                if (files.length > 0) {
                     var index_1 = 0;
                     files.forEach(function (file) {
                         _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_1, {
@@ -271,8 +271,8 @@ var CustomerAreaComponent = /** @class */ (function () {
                         }));
                         index_1++;
                     });
-                    _this.isGallery = true;
                 }
+                _this.isGallery = true;
             });
         }
         this.plainGalleryRow = {
@@ -305,13 +305,15 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.isListClient = false;
         this.customerService.getClientPhotos(selectedUser.id).then(function (album) {
             var files = JSON.parse(album.photo);
-            var index = 0;
-            files.forEach(function (file) {
-                _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index, {
-                    img: _this.sanitizeBase64(file)
-                }));
-                index++;
-            });
+            if (files.length > 0) {
+                var index_2 = 0;
+                files.forEach(function (file) {
+                    _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_2, {
+                        img: _this.sanitizeBase64(file)
+                    }));
+                    index_2++;
+                });
+            }
             _this.isGallery = true;
         });
     };
@@ -362,12 +364,12 @@ var CustomerAreaComponent = /** @class */ (function () {
             this.customerService.uploadClientPhotos(this.album).then(function (uploaded) {
                 if (uploaded) {
                     _this.album = {};
-                    var index_2 = 0;
+                    var index_3 = 0;
                     files.forEach(function (file) {
-                        _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_2, {
+                        _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_3, {
                             img: _this.sanitizeBase64(file)
                         }));
-                        index_2++;
+                        index_3++;
                     });
                 }
                 _this.isGallery = true;

@@ -55,7 +55,7 @@ export class CustomerAreaComponent implements OnInit {
       this.customerService.getClientPhotos(this.user.id).then(
         (album: Album) => {
           const files = JSON.parse(album.photo);
-          if (files.length <= 0) {
+          if (files.length > 0) {
             let index = 0;
             files.forEach(
               (file) => {
@@ -68,8 +68,8 @@ export class CustomerAreaComponent implements OnInit {
                 index++;
               }
             );
-            this.isGallery = true;
           }
+          this.isGallery = true;
         }
       );
     }
@@ -108,18 +108,20 @@ export class CustomerAreaComponent implements OnInit {
     this.customerService.getClientPhotos(selectedUser.id).then(
       (album: Album) => {
         const files = JSON.parse(album.photo);
-        let index = 0;
-        files.forEach(
-          (file) => {
-            this.images.push(new Image(
-              index,
-              {
-                img: this.sanitizeBase64(file)
-              }
-            ));
-            index++;
-          }
-        );
+        if (files.length > 0) {
+          let index = 0;
+          files.forEach(
+            (file) => {
+              this.images.push(new Image(
+                index,
+                {
+                  img: this.sanitizeBase64(file)
+                }
+              ));
+              index++;
+            }
+          );
+        }
         this.isGallery = true;
       }
     );
