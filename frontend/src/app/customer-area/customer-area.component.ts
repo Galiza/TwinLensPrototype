@@ -16,7 +16,7 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 export class CustomerAreaComponent implements OnInit {
 
   public images: Image[] = [];
-
+  public files: string[] = [];
   private album: Album = {} as Album;
 
   public user: User = {} as User;
@@ -169,25 +169,28 @@ export class CustomerAreaComponent implements OnInit {
     this.uploadPhoto = false;
   }
 
-  myUploader(event) {
-    const files: string[] = [];
+  storeInFiles(event) {
+    // const files: string[] = [];
     event.files.forEach((file) => {
       const reader = new FileReader();
       reader.onloadend = () => {
-        files.push(reader.result);
+        this.files.push(reader.result);
       };
       reader.readAsDataURL(file);
     });
 
-    if (files.length === event.files.length) {
+  }
+
+  uploadFiles() {
+    // if (this.files.length === event.files.length) {
       this.album.id = this.selectedUser.id;
-      this.album.photo = JSON.stringify(files);
+      this.album.photo = JSON.stringify(this.files);
       this.customerService.uploadClientPhotos(this.album).then(
         (uploaded: boolean) => {
           if (uploaded) {
             this.album = {} as Album;
             let index = 0;
-            files.forEach(
+            this.files.forEach(
               (file) => {
                 this.images.push(new Image(
                   index,
@@ -203,7 +206,7 @@ export class CustomerAreaComponent implements OnInit {
           this.uploadPhoto = false;
         }
       );
-    }
+    // }
   }
 
   private sanitizeBase64(base64: string): SafeResourceUrl {

@@ -80,7 +80,7 @@ export class CustomerAreaService {
                 { headers: header }
             );
 
-            this.http.post(this.url + 'savePhotos', album, options).toPromise()
+            this.http.post('/savePhotos', album, options).toPromise()
                 .then(
                     (response: Response) => {
                         if (response.status === 200) {
@@ -106,7 +106,7 @@ export class CustomerAreaService {
                 { headers: header }
             );
 
-            this.http.get(this.url + 'getPhotos/:' + id, options).toPromise()
+            this.http.get('/getPhotos/:' + id, options).toPromise()
                 .then(
                     (response: Response) => {
                         if (response.status === 200) {
