@@ -18,7 +18,7 @@
 <div style="padding-top: 56px; background-color: #dadada; height: -webkit-fill-available; width: 100%;">
   <div *ngIf="user.isAdmin">
     <div class="row btn-list-admin">
-      <div class="buttons" style="">
+      <div class="buttons">
         <button (click)="fetchClients()" class="fetch-client-btn">
           Cliente
         </button>
@@ -100,17 +100,6 @@
       <ks-modal-gallery [id]="0" [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery>
     </div>
     <div *ngIf="uploadPhoto" class="uploader">
-      <!-- (onSelect)="storeInFiles($event)" -->
-      <!-- <p-fileUpload multiple="multiple" accept="image/*" mode="advanced" customUpload="true" (uploadHandler)="storeInFiles($event)">
-        <ng-template pTemplate="content">
-          <ul>
-            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-          </ul>
-        </ng-template>
-      </p-fileUpload> -->
-
-      
-      <!-- [class]="'customClass'" -->
       <button class="upload-btn" [disabled]="files.length === 0">FAZER UPLOAD</button>
       <image-upload
         [buttonCaption]="'Selecione as imagens'"

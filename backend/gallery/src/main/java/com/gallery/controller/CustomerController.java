@@ -29,6 +29,13 @@ public class CustomerController {
         dbUserInterface.save(user);
         return user;
     }
+    
+    @RequestMapping(value = "/remove", method = RequestMethod.DELETE)
+    public List<User> remove(@RequestBody User user) {
+        dbUserInterface.delete(user);
+        List<User> updatedList = (List<User>) dbUserInterface.findAll();
+        return updatedList;
+    }
 
     @RequestMapping(value = "/remove/:{id}", method = RequestMethod.DELETE)
     public List<User> remove(@PathVariable Long id) {
