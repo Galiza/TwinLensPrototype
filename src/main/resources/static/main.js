@@ -263,7 +263,7 @@ var CustomerAreaComponent = /** @class */ (function () {
         else {
             this.customerService.getClientPhotos(this.user.id).then(function (album) {
                 var files = JSON.parse(album.photo);
-                if (files.length > 0) {
+                if (files.length > 0 && files !== null) {
                     var index_1 = 0;
                     files.forEach(function (file) {
                         _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_1, {
@@ -305,7 +305,7 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.isListClient = false;
         this.customerService.getClientPhotos(selectedUser.id).then(function (album) {
             var files = JSON.parse(album.photo);
-            if (files.length > 0) {
+            if (files.length > 0 && files !== null) {
                 var index_2 = 0;
                 files.forEach(function (file) {
                     _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_2, {

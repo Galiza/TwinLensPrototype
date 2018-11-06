@@ -55,7 +55,7 @@ export class CustomerAreaComponent implements OnInit {
       this.customerService.getClientPhotos(this.user.id).then(
         (album: Album) => {
           const files = JSON.parse(album.photo);
-          if (files.length > 0) {
+          if (files.length > 0 && files !== null) {
             let index = 0;
             files.forEach(
               (file) => {
@@ -108,7 +108,7 @@ export class CustomerAreaComponent implements OnInit {
     this.customerService.getClientPhotos(selectedUser.id).then(
       (album: Album) => {
         const files = JSON.parse(album.photo);
-        if (files.length > 0) {
+        if (files.length > 0 && files !== null) {
           let index = 0;
           files.forEach(
             (file) => {
