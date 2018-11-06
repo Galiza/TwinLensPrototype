@@ -1,9 +1,9 @@
 com\gallery\model\User.class
 com\gallery\GalleryApplication.class
-com\gallery\controller\LoginController.class
-com\gallery\db\DbUserInterface.class
 com\gallery\model\Login.class
 com\gallery\db\DbAlbumInterface.class
 com\gallery\util\WebConfig.class
 com\gallery\controller\CustomerController.class
 com\gallery\model\Album.class
+com\gallery\db\DbUserInterface.class
+com\gallery\controller\LoginController.class
