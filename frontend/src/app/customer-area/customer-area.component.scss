@@ -227,6 +227,7 @@ th{
     text-align: center;
     font-size: 18px;
     font-weight: 600;
+    width: 250px;
 }
 
 .body-tr:hover{
@@ -250,4 +251,12 @@ button:hover{
 .btn-success.disabled, .btn-success:disabled{
 background-color: #486f51 !important;
 border-color: #486f51 !important;
+}
+
+.remove-btn{
+    all: unset;
+
+    &:hover{
+        cursor: pointer;
+    }
 }

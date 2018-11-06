@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class CustomerAreaService {
 
-    private url = 'http://localhost:8080/';
+    private url = 'https://twin-lens.herokuapp.com/';
 
 
     constructor(
@@ -26,7 +26,7 @@ export class CustomerAreaService {
                 { headers: header }
             );
 
-            this.http.get(this.url + 'listUsers', options).toPromise()
+            this.http.get('/listUsers', options).toPromise()
                 .then(
                     (response: Response) => {
                         const user: User[] = JSON.parse(response.text());
@@ -54,7 +54,7 @@ export class CustomerAreaService {
                 { headers: header }
             );
 
-            this.http.post(this.url + 'register', user, options).toPromise()
+            this.http.post('/register', user, options).toPromise()
                 .then(
                     (response: Response) => {
                         if (response.status === 200) {
@@ -80,7 +80,7 @@ export class CustomerAreaService {
                 { headers: header }
             );
 
-            this.http.post(this.url + 'savePhotos', album, options).toPromise()
+            this.http.post('/savePhotos', album, options).toPromise()
                 .then(
                     (response: Response) => {
                         if (response.status === 200) {
@@ -106,7 +106,33 @@ export class CustomerAreaService {
                 { headers: header }
             );
 
-            this.http.get(this.url + 'getPhotos/:' + id, options).toPromise()
+            this.http.get('/getPhotos/:' + id, options).toPromise()
+                .then(
+                    (response: Response) => {
+                        if (response.status === 200) {
+                            resolve(JSON.parse(response.text()));
+                        }
+                    }
+                ).catch(
+                    (error) => {
+                        reject(error);
+                    }
+                );
+        });
+    }
+
+    public removeClient(user: User): Promise<User[]> {
+        return new Promise<User[]>((resolve, reject) => {
+            const header = new Headers();
+            header.append('Access-Control-Allow-Origin', '*');
+            header.append('Access-Control-Allow-Headers', 'Content-Type');
+            header.append('Access-Control-Allow-Methods', '*');
+
+            const options = new RequestOptions(
+                { headers: header }
+            );
+
+            this.http.delete('/remove/:' + user.id, options).toPromise()
                 .then(
                     (response: Response) => {
                         if (response.status === 200) {

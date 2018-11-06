@@ -40,9 +40,15 @@
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-user>
-            <tr class="body-tr" (click)="fetchAlbum(user)">
-              <td>{{user.name}}</td>
-              <td>{{user.email}}</td>
+            <tr class="body-tr">
+              <td (click)="fetchAlbum(user)">{{user.name}}</td>
+              <td (click)="fetchAlbum(user)">{{user.email}}</td>
+              <td style="width: 25px !important;"><button class="remove-btn" (click)="removeUser(user)"><span class="font-weight: 600;">X</span></button></td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td style="border-right: unset; font-weight: bold;" colspan=2>Não há clientes cadastrados</td>
             </tr>
           </ng-template>
         </p-table>
@@ -86,20 +92,21 @@
       <div class="col">
         <button *ngIf="!uploadPhoto" (click)="uploadPhotos()" style="border: unset; background-color: transparent;">
           Upload de imagens</button>
-          <button *ngIf="uploadPhoto" (click)="galleryPhotos()" style="border: unset; background-color: transparent;">Retornar para galeria</button>
+        <button *ngIf="uploadPhoto" (click)="galleryPhotos()" style="border: unset; background-color: transparent;">Retornar
+          para galeria</button>
       </div>
     </div>
     <div *ngIf="!uploadPhoto">
       <ks-modal-gallery [id]="0" [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery>
     </div>
     <div *ngIf="uploadPhoto" style="padding-left: 30px; padding-right: 30px;">
-      <p-fileUpload multiple="multiple" accept="image/*" mode="advanced" customUpload="true"
-      (uploadHandler)="myUploader($event)">
-          <ng-template pTemplate="content">
-              <ul>
-                  <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-              </ul>
-          </ng-template>
+      <!-- (onSelect)="storeInFiles($event)" -->
+      <p-fileUpload multiple="multiple" accept="image/*" mode="advanced" customUpload="true" (uploadHandler)="storeInFiles($event)">
+        <ng-template pTemplate="content">
+          <ul>
+            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+          </ul>
+        </ng-template>
       </p-fileUpload>
     </div>
   </div>

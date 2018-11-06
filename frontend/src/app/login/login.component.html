@@ -8,11 +8,11 @@
     <form [formGroup]="loginForm">
       <div style="padding-bottom: 0;">
         <label>Email:</label>
-        <input class="form-control flex-fill mr-1" formControlName="email">
+        <input class="form-control flex-fill mr-1" type="text" formControlName="email">
       </div>
       <div>
         <label>Senha:</label>
-        <input class="form-control flex-fill mr-1" formControlName="password">
+        <input class="form-control flex-fill mr-1" type="password" formControlName="password">
       </div>
       <div>
         <button class="btn btn-success btn-lg btn-block" (click)="submit()">Entrar</button>
