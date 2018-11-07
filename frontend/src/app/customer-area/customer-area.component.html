@@ -43,7 +43,7 @@
             <tr class="body-tr" (click)="fetchAlbum(user)">
               <td>{{user.name}}</td>
               <td>{{user.email}}</td>
-              <td><button class="remove-btn" (click)="removeUser(user)"><i class="fa fa-close"></i></button></td>
+              <td style="width: 25px !important;"><button class="remove-btn" (click)="removeUser(user)"><span class="font-weight: 600;">X</span></button></td>
             </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">

@@ -38,9 +38,9 @@ public class CustomerController {
         return user;
     }
     
-    @RequestMapping(value = "/remove", method = RequestMethod.DELETE)
-    public List<User> remove(@RequestBody User user) {
-        dbUserInterface.delete(user);
+    @RequestMapping(value = "/remove/:{id}", method = RequestMethod.DELETE)
+    public List<User> remove(@PathVariable Long id) {
+        dbUserInterface.deleteById(id);
         List<User> updatedList = (List<User>) dbUserInterface.findAll();
         return updatedList;
     }
@@ -53,11 +53,7 @@ public class CustomerController {
 
     @RequestMapping(value = "/getPhotos/:{id}", method = RequestMethod.GET)
     public Album getPhotos(@PathVariable Long id) {
-        Optional<Album> optionalAlbum = dbAlbumInterface.findById(id);
-        Album album = new Album();
-        if(optionalAlbum.isPresent()){
-            album = optionalAlbum.get();
-        }
+        Album album = dbAlbumInterface.findAlbumById(id);
         return album;
     }
 }

@@ -132,7 +132,7 @@ export class CustomerAreaService {
                 { headers: header }
             );
 
-            this.http.delete('/remove' + user, options).toPromise()
+            this.http.delete('/remove/:' + user.id, options).toPromise()
                 .then(
                     (response: Response) => {
                         if (response.status === 200) {
