@@ -26,7 +26,7 @@ public class LoginController {
     @Autowired
     private DbUserInterface dbUserInterface;
 
-    @RequestMapping(value = "login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public User login(@RequestBody Login login) {
         User user = dbUserInterface.findByEmail(login.getEmail());
         return user;

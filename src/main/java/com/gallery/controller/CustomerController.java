@@ -26,25 +26,25 @@ public class CustomerController {
     @Autowired
     private DbAlbumInterface dbAlbumInterface;
 
-    @RequestMapping(value = "listUsers", method = RequestMethod.GET)
+    @RequestMapping(value = "/listUsers", method = RequestMethod.GET)
     public List<User> listUsers() {
         List<User> userList = (List<User>) dbUserInterface.findAll();
         return userList;
     }
 
-    @RequestMapping(value = "register", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public User register(@RequestBody User user) {
         dbUserInterface.save(user);
         return user;
     }
 
-    @RequestMapping(value = "savePhotos", method = RequestMethod.POST)
+    @RequestMapping(value = "/savePhotos", method = RequestMethod.POST)
     public int savePhotos(@RequestBody Album album) {
         dbAlbumInterface.save(album);
         return 0;
     }
 
-    @RequestMapping(value = "getPhotos/:{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getPhotos/:{id}", method = RequestMethod.GET)
     public Album getPhotos(@PathVariable Long id) {
         Optional<Album> optionalAlbum = dbAlbumInterface.findById(id);
         Album album = new Album();
