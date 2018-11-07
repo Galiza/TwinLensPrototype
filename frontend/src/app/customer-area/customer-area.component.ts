@@ -150,6 +150,7 @@ export class CustomerAreaComponent implements OnInit {
         this.userList.push(addedUser);
         this.newUserForm.reset();
         this.isListClient = true;
+        this.isRegister = false;
       }
     );
   }
@@ -171,7 +172,6 @@ export class CustomerAreaComponent implements OnInit {
 
   storeInFiles(event) {
     // const files: string[] = [];
-    console.log(this.files);
     event.files.forEach((file) => {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -179,7 +179,6 @@ export class CustomerAreaComponent implements OnInit {
       };
       reader.readAsDataURL(file);
     });
-    
     this.album.id = this.selectedUser.id;
     this.album.photo = JSON.stringify(this.files);
     this.customerService.uploadClientPhotos(this.album).then(
@@ -199,42 +198,23 @@ export class CustomerAreaComponent implements OnInit {
             }
           );
         }
+        this.files = [];
         this.isGallery = true;
         this.uploadPhoto = false;
       }
     );
   }
 
-  uploadFiles() {
-    // if (this.files.length === event.files.length) {
-      this.album.id = this.selectedUser.id;
-      this.album.photo = JSON.stringify(this.files);
-      this.customerService.uploadClientPhotos(this.album).then(
-        (uploaded: boolean) => {
-          if (uploaded) {
-            this.album = {} as Album;
-            let index = 0;
-            this.files.forEach(
-              (file) => {
-                this.images.push(new Image(
-                  index,
-                  {
-                    img: this.sanitizeBase64(file)
-                  }
-                ));
-                index++;
-              }
-            );
-          }
-          this.isGallery = true;
-          this.uploadPhoto = false;
-        }
-      );
-    // }
-  }
-
   private sanitizeBase64(base64: string): SafeResourceUrl {
     const sanitizedBase64: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(base64);
     return sanitizedBase64;
+  }
+
+  public removeUser(user: User): void {
+    this.customerService.removeClient(user).then(
+      (userList: User[]) => {
+        this.userList = userList;
+      }
+    );
   }
 }

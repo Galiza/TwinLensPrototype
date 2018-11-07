@@ -43,6 +43,7 @@
             <tr class="body-tr" (click)="fetchAlbum(user)">
               <td>{{user.name}}</td>
               <td>{{user.email}}</td>
+              <td><button class="remove-btn" (click)="removeUser(user)"><i class="fa fa-close"></i></button></td>
             </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
@@ -100,7 +101,7 @@
     </div>
     <div *ngIf="uploadPhoto" style="padding-left: 30px; padding-right: 30px;">
       <!-- (onSelect)="storeInFiles($event)" -->
-      <p-fileUpload name="files[]" multiple="multiple" accept="image/*" mode="advanced" customUpload="true" (uploadHandler)="storeInFiles($event)">
+      <p-fileUpload multiple="multiple" accept="image/*" mode="advanced" customUpload="true" (uploadHandler)="storeInFiles($event)">
         <ng-template pTemplate="content">
           <ul>
             <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>

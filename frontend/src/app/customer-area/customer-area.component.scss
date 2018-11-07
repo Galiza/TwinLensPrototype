@@ -252,3 +252,11 @@ button:hover{
 background-color: #486f51 !important;
 border-color: #486f51 !important;
 }
+
+.remove-btn{
+    all: unset;
+
+    &:hover{
+        cursor: pointer;
+    }
+}

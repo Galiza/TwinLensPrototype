@@ -120,4 +120,30 @@ export class CustomerAreaService {
                 );
         });
     }
+
+    public removeClient(user: User): Promise<User[]> {
+        return new Promise<User[]>((resolve, reject) => {
+            const header = new Headers();
+            header.append('Access-Control-Allow-Origin', '*');
+            header.append('Access-Control-Allow-Headers', 'Content-Type');
+            header.append('Access-Control-Allow-Methods', '*');
+
+            const options = new RequestOptions(
+                { headers: header }
+            );
+
+            this.http.delete('/remove' + user, options).toPromise()
+                .then(
+                    (response: Response) => {
+                        if (response.status === 200) {
+                            resolve(JSON.parse(response.text()));
+                        }
+                    }
+                ).catch(
+                    (error) => {
+                        reject(error);
+                    }
+                );
+        });
+    }
 }
