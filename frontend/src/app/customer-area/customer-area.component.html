@@ -40,9 +40,9 @@
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-user>
-            <tr class="body-tr" (click)="fetchAlbum(user)">
-              <td>{{user.name}}</td>
-              <td>{{user.email}}</td>
+            <tr class="body-tr">
+              <td (click)="fetchAlbum(user)">{{user.name}}</td>
+              <td (click)="fetchAlbum(user)">{{user.email}}</td>
               <td style="width: 25px !important;"><button class="remove-btn" (click)="removeUser(user)"><span class="font-weight: 600;">X</span></button></td>
             </tr>
           </ng-template>
