@@ -10,4 +10,4 @@ public interface DbUserInterface extends CrudRepository<User, Long> {
      * through the email
      */
     public User findByEmail(String email);
-}
+} 
