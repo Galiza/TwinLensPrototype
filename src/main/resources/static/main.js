@@ -356,15 +356,15 @@ var CustomerAreaComponent = /** @class */ (function () {
     CustomerAreaComponent.prototype.downloadAlbum = function (id) {
         var _this = this;
         this.customerService.getClientPhotos(id).then(function (album) {
-            _this.isGallery = true;
             if (album.photo === '') {
+                _this.isGallery = true;
                 return;
             }
             var files = JSON.parse(album.photo);
             if (files !== null) {
                 if (files.length > 0) {
                     var index_2 = 0;
-                    _this.files.forEach(function (file) {
+                    files.forEach(function (file) {
                         _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_2, {
                             img: _this.sanitizeBase64(file)
                         }));
@@ -372,6 +372,7 @@ var CustomerAreaComponent = /** @class */ (function () {
                     });
                 }
             }
+            _this.isGallery = true;
         });
     };
     CustomerAreaComponent.prototype.sanitizeBase64 = function (base64) {
