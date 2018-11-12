@@ -14,5 +14,11 @@ public interface DbUserInterface extends CrudRepository<User, Long> {
      */
     @Query(value = "SELECT * FROM users WHERE users.email = ?1 AND users.password = ?2")
     public User findUserByEmail(String email, String password);
-    
+
+    /*
+     * Custom request for the database to get album
+     * by id
+     */
+    public List<User> findAlbumById(int id);
+
 }

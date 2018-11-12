@@ -2,9 +2,6 @@ package com.gallery.controller;
 
 import java.util.List;
 import com.gallery.model.User;
-import java.util.List;
-import com.gallery.model.User;
-import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,9 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.gallery.db.DbUserInterface;
 import org.springframework.web.bind.annotation.PathVariable;
-import java.util.Optional;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
 @RestController
@@ -36,13 +30,6 @@ public class CustomerController {
         return user;
     }
     
-    @RequestMapping(value = "/remove", method = RequestMethod.DELETE)
-    public List<User> remove(@RequestBody User user) {
-        dbUserInterface.delete(user);
-        List<User> updatedList = (List<User>) dbUserInterface.findAll();
-        return updatedList;
-    }
-
     @RequestMapping(value = "/remove/:{id}", method = RequestMethod.DELETE)
     public List<User> remove(@PathVariable Long id) {
         dbUserInterface.deleteById(id);
