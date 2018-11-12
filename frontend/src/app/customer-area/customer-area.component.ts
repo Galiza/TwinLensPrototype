@@ -162,8 +162,8 @@ export class CustomerAreaComponent implements OnInit {
   private downloadAlbum(id: number): void {
     this.customerService.getClientPhotos(id).then(
       (album: Album) => {
-        this.isGallery = true;
         if (album.photo === '') {
+          this.isGallery = true;
           return;
         }
         const files = JSON.parse(album.photo);
@@ -183,6 +183,7 @@ export class CustomerAreaComponent implements OnInit {
             );
           }
         }
+        this.isGallery = true;
       }
     );
   }
