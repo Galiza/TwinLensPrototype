@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { Album } from '../model/model';
 
 @Component({
   selector: 'app-login',

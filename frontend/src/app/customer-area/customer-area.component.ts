@@ -128,18 +128,11 @@ export class CustomerAreaComponent implements OnInit {
     this.uploadPhoto = false;
   }
 
-  onUploadFinished(event) {
-    // const files: string[] = [];
-    event.files.forEach((file) => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        this.files.push(reader.result);
-      };
-      reader.readAsDataURL(file);
-    });
+  public onUploadFinished(event): void {
+    this.files.push(event.src);
   }
 
-  savePhotos(): void {
+  public savePhotos(): void {
     this.album.id = this.selectedUser.id;
     this.album.photo = JSON.stringify(this.files);
     this.customerService.uploadClientPhotos(this.album).then(

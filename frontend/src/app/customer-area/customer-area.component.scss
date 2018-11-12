@@ -178,6 +178,22 @@ footer a,footer a:hover{
     }
 }
 
+.upload-btn{
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    margin-top: 15px;
+    border: unset;
+    color: white;
+    background-color: #3C9;
+    font-family: sans-serif;
+    margin-right: 15px;
+
+    &:disabled{
+        background-color: rgb(57, 116, 96);
+    }
+}
+
 .uploader{
     padding: 0px 30px;
 }
