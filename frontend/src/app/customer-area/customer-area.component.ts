@@ -170,7 +170,7 @@ export class CustomerAreaComponent implements OnInit {
         if (files !== null) {
           if (files.length > 0) {
             let index = 0;
-            this.files.forEach(
+            files.forEach(
               (file) => {
                 this.images.push(new Image(
                   index,
