@@ -25,8 +25,11 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public User login(@RequestBody Login login) {
-        User user = dbUserInterface.findUserByEmail(login.getEmail(), login.getPassword());
-        return user;
+        User user = dbUserInterface.findByEmail(login.getEmail());
+        if (user.getEmail().equals(login.getEmail()) && user.getPassword().equals(login.getPassword())) {
+            return user;
+        }
+        return null;
     }
 
 }
