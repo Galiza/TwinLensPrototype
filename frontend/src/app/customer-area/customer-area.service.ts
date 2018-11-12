@@ -108,7 +108,7 @@ export class CustomerAreaService {
             this.http.get('/getPhotos/:' + id, options).toPromise()
                 .then(
                     (response: Response) => {
-                        if (response.status === 200) {
+                        if (response.status === 200 && (response.text() !== undefined || response.text() !== null)) {
                             resolve(JSON.parse(response.text()));
                         }
                     }
