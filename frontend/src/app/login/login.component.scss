@@ -1,7 +1,33 @@
-div{
-    padding: 15px;
-}
-
 button {
     padding: 12px;
+}
+
+.main-div{
+    padding-top: 200px;
+    background-color: #dadada;
+    height: -webkit-fill-available;
+    width: 100%;
+}
+
+.error-div{
+    width: 400px;
+    background: red;
+    border-radius: 5px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 5px 0px;
+}
+
+.form-div{
+    padding: 15px;
+    height: 328px;
+    width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+
+    & div {
+        padding: 15px;
+    }
 }

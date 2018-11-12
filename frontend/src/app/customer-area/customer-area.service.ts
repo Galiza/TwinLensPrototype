@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class CustomerAreaService {
 
-    private url = 'https://twin-lens.herokuapp.com/';
+    private url = 'http://localhost:8080';
 
 
     constructor(

@@ -52,28 +52,7 @@ export class CustomerAreaComponent implements OnInit {
         this.fetchClients();
       }
     } else {
-      this.customerService.getClientPhotos(this.user.id).then(
-        (album: Album) => {
-          const files = JSON.parse(album.photo);
-          if (files !== null) {
-            if (files.length > 0) {
-              let index = 0;
-              files.forEach(
-                (file) => {
-                  this.images.push(new Image(
-                    index,
-                    {
-                      img: this.sanitizeBase64(file)
-                    }
-                  ));
-                  index++;
-                }
-              );
-            }
-          }
-          this.isGallery = true;
-        }
-      );
+      this.downloadAlbum(this.user.id);
     }
 
     this.plainGalleryRow = {
@@ -107,28 +86,7 @@ export class CustomerAreaComponent implements OnInit {
   public fetchAlbum(selectedUser: User): void {
     this.selectedUser = selectedUser;
     this.isListClient = false;
-    this.customerService.getClientPhotos(selectedUser.id).then(
-      (album: Album) => {
-        const files = JSON.parse(album.photo);
-        if (files !== null) {
-          if (files.length > 0) {
-            let index = 0;
-            files.forEach(
-              (file) => {
-                this.images.push(new Image(
-                  index,
-                  {
-                    img: this.sanitizeBase64(file)
-                  }
-                ));
-                index++;
-              }
-            );
-          }
-        }
-        this.isGallery = true;
-      }
-    );
+    this.downloadAlbum(selectedUser.id);
   }
 
   public registerNewClient(): void {
@@ -170,7 +128,7 @@ export class CustomerAreaComponent implements OnInit {
     this.uploadPhoto = false;
   }
 
-  storeInFiles(event) {
+  onUploadFinished(event) {
     // const files: string[] = [];
     event.files.forEach((file) => {
       const reader = new FileReader();
@@ -179,6 +137,9 @@ export class CustomerAreaComponent implements OnInit {
       };
       reader.readAsDataURL(file);
     });
+  }
+
+  savePhotos(): void {
     this.album.id = this.selectedUser.id;
     this.album.photo = JSON.stringify(this.files);
     this.customerService.uploadClientPhotos(this.album).then(
@@ -201,6 +162,31 @@ export class CustomerAreaComponent implements OnInit {
         this.files = [];
         this.isGallery = true;
         this.uploadPhoto = false;
+      }
+    );
+  }
+
+  downloadAlbum(id: number): void {
+    this.customerService.getClientPhotos(id).then(
+      (album: Album) => {
+        const files = JSON.parse(album.photo);
+        if (files !== null) {
+          if (files.length > 0) {
+            let index = 0;
+            files.forEach(
+              (file) => {
+                this.images.push(new Image(
+                  index,
+                  {
+                    img: this.sanitizeBase64(file)
+                  }
+                ));
+                index++;
+              }
+            );
+          }
+        }
+        this.isGallery = true;
       }
     );
   }

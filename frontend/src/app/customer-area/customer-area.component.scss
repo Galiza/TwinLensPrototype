@@ -167,6 +167,7 @@ footer a,footer a:hover{
 }
 
 .buttons{
+    padding-left: 75px;
     & button {
         border: unset;
         background-color: transparent;
@@ -175,6 +176,32 @@ footer a,footer a:hover{
             cursor: pointer;
         }
     }
+}
+
+.uploader{
+    padding: 0px 30px;
+}
+
+.selected-username{
+    padding-left: 310px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.remove-styles{
+    border: unset;
+    background-color: transparent;
+}
+
+.is-gallery{
+    padding-top: 10px;
+    padding-left: 30px;
+    margin: 0;
+    padding-right: 30px;
+}
+
+.fetch-client-btn{
+    margin-right: 20px;
 }
 
 .active{
@@ -259,4 +286,18 @@ border-color: #486f51 !important;
     &:hover{
         cursor: pointer;
     }
+}
+
+.no-customer{
+    border-right: unset;
+    font-weight: bold;
+}
+
+.td-remove-btn{
+    width: 25px !important;
+}
+
+.btn-list-admin{
+    margin: 0;
+    border-bottom: 1px solid black;
 }

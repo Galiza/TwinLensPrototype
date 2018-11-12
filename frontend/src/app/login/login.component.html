@@ -1,10 +1,10 @@
-<div style="padding-top: 200px; background-color: #dadada; height: -webkit-fill-available; width: 100%;">
-  <div *ngIf="showError" style="width: 400px; background: red; border-radius: 5px; margin: 0 auto; text-align: center;margin-bottom: 50px;">
+<div class="main-div">
+  <div *ngIf="showError" class="error-div">
     <span>
       EMAIL/SENHA INCORRETOS
     </span>
   </div>
-  <div style="height: 328px; width: 400px; margin: 0 auto; background-color: white; border-radius: 10px;">
+  <div class="form-div">
     <form [formGroup]="loginForm">
       <div style="padding-bottom: 0;">
         <label>Email:</label>

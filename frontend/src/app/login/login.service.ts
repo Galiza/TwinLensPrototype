@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class LoginService {
 
-  // private url = 'http://localhost:8080/';
+  private url = 'http://localhost:8080';
 
   private user: User = {} as User;
 
