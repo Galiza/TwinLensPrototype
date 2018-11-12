@@ -31,8 +31,9 @@ public class AlbumController {
     @RequestMapping(value = "/getPhotos/:{id}", method = RequestMethod.GET)
     public Album getPhotos(@PathVariable Long id) {
         Album album = dbAlbumInterface.findAlbumById(id);
-		if(album == null || album == ""){
-			Album album = new Album(id, "");
+		if(album == null){
+			Album newAlbum = new Album(id, "");
+			album = newAlbum;
 		}
         return album;
     }
