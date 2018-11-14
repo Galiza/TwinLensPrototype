@@ -370,6 +370,7 @@ var CustomerAreaComponent = /** @class */ (function () {
                     });
                 }
             }
+            _this.galleryPhotos();
         });
     };
     CustomerAreaComponent.prototype.sanitizeBase64 = function (base64) {

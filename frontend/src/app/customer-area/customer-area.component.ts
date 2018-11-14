@@ -180,6 +180,7 @@ export class CustomerAreaComponent implements OnInit {
             );
           }
         }
+        this.galleryPhotos();
       }
     );
   }
