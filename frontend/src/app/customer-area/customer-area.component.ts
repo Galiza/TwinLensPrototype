@@ -27,7 +27,7 @@ export class CustomerAreaComponent implements OnInit {
   public isGallery = false;
   public uploadPhoto = false;
 
-  private newUserForm: FormGroup;
+  public newUserForm: FormGroup;
   public selectedUser: User = {} as User;
 
   plainGalleryRow: PlainGalleryConfig;
@@ -155,7 +155,7 @@ export class CustomerAreaComponent implements OnInit {
     );
   }
 
-  public downloadAlbum(id: number): void {
+  private downloadAlbum(id: number): void {
     this.isGallery = true;
     this.customerService.getClientPhotos(id).then(
       (album: Album) => {
