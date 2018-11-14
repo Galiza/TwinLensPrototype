@@ -25,15 +25,13 @@ export class CustomerAreaComponent implements OnInit {
   public isRegister = false;
   public isListClient = true;
   public isGallery = false;
+  public uploadPhoto = false;
 
   private newUserForm: FormGroup;
   public selectedUser: User = {} as User;
 
-  public uploadPhoto = false;
-
-  public multiple = true;
-
   plainGalleryRow: PlainGalleryConfig;
+
   constructor(
     private customerService: CustomerAreaService,
     private loginService: LoginService,
@@ -48,16 +46,14 @@ export class CustomerAreaComponent implements OnInit {
       this.router.navigate(['/home']);
     }
     if (this.user.isAdmin) {
-      if (this.userList.length === 0) {
-        this.fetchClients();
-      }
+      this.fetchClients();
     } else {
       this.downloadAlbum(this.user.id);
     }
 
     this.plainGalleryRow = {
       strategy: PlainGalleryStrategy.GRID,
-      layout: new GridLayout({ width: '240px', height: '190px' }, { length: 5, wrap: true })
+      layout: new GridLayout({ width: '240px', height: 'auto' }, { length: 5, wrap: true })
     };
   }
 
@@ -159,7 +155,7 @@ export class CustomerAreaComponent implements OnInit {
     );
   }
 
-  private downloadAlbum(id: number): void {
+  public downloadAlbum(id: number): void {
     this.isGallery = true;
     this.customerService.getClientPhotos(id).then(
       (album: Album) => {
