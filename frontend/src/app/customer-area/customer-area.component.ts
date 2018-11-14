@@ -118,6 +118,7 @@ export class CustomerAreaComponent implements OnInit {
     this.isGallery = false;
     this.uploadPhoto = false;
     this.images = [];
+    this.album = {} as Album;
   }
 
   public uploadPhotos(): void {
@@ -138,7 +139,6 @@ export class CustomerAreaComponent implements OnInit {
     this.customerService.uploadClientPhotos(this.album).then(
       (uploaded: boolean) => {
         if (uploaded) {
-          this.album = {} as Album;
           let index = 0;
           this.files.forEach(
             (file) => {
@@ -160,13 +160,14 @@ export class CustomerAreaComponent implements OnInit {
   }
 
   private downloadAlbum(id: number): void {
+    this.isGallery = true;
     this.customerService.getClientPhotos(id).then(
       (album: Album) => {
         if (album.photo === '') {
-          this.isGallery = true;
           return;
         }
-        const files = JSON.parse(album.photo);
+        this.album = album;
+        const files: string[] = JSON.parse(album.photo);
         if (files !== null) {
           if (files.length > 0) {
             let index = 0;
@@ -183,7 +184,6 @@ export class CustomerAreaComponent implements OnInit {
             );
           }
         }
-        this.isGallery = true;
       }
     );
   }

@@ -323,6 +323,7 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.isGallery = false;
         this.uploadPhoto = false;
         this.images = [];
+        this.album = {};
     };
     CustomerAreaComponent.prototype.uploadPhotos = function () {
         this.uploadPhoto = true;
@@ -339,7 +340,6 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.album.photo = JSON.stringify(this.files);
         this.customerService.uploadClientPhotos(this.album).then(function (uploaded) {
             if (uploaded) {
-                _this.album = {};
                 var index_1 = 0;
                 _this.files.forEach(function (file) {
                     _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_1, {
@@ -355,11 +355,12 @@ var CustomerAreaComponent = /** @class */ (function () {
     };
     CustomerAreaComponent.prototype.downloadAlbum = function (id) {
         var _this = this;
+        this.isGallery = true;
         this.customerService.getClientPhotos(id).then(function (album) {
             if (album.photo === '') {
-                _this.isGallery = true;
                 return;
             }
+            _this.album = album;
             var files = JSON.parse(album.photo);
             if (files !== null) {
                 if (files.length > 0) {
@@ -372,7 +373,6 @@ var CustomerAreaComponent = /** @class */ (function () {
                     });
                 }
             }
-            _this.isGallery = true;
         });
     };
     CustomerAreaComponent.prototype.sanitizeBase64 = function (base64) {
@@ -446,7 +446,6 @@ var CustomerAreaService = /** @class */ (function () {
                     resolve(user);
                 }
             }).catch(function (error) {
-                console.log(error);
                 reject(error);
             });
         });
