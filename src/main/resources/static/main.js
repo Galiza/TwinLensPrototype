@@ -812,8 +812,16 @@ var LoginComponent = /** @class */ (function () {
         this.loginService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).then(function () {
             _this.router.navigate(['/customer-area']);
         }).catch(function (error) {
-            if (error.status === 503) {
-                _this.errorService.setErrorTextSubject('Sem conexão com servidor');
+            switch (error.status) {
+                case 503: {
+                    _this.errorService.setErrorTextSubject('Sem conexão com servidor');
+                    break;
+                }
+                case 500: {
+                    var err = JSON.parse(error.text());
+                    _this.errorService.setErrorTextSubject(err.message);
+                    break;
+                }
             }
             _this.showError = true;
         });
