@@ -100,20 +100,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customer_area_customer_area_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./customer-area/customer-area.component */ "./src/app/customer-area/customer-area.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/tabmenu */ "./node_modules/primeng/tabmenu.js");
-/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(primeng_tabmenu__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/fileupload */ "./node_modules/primeng/fileupload.js");
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(primeng_fileupload__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/dialog */ "./node_modules/primeng/dialog.js");
-/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(primeng_dialog__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ks89/angular-modal-gallery */ "./node_modules/@ks89/angular-modal-gallery/esm5/ks89-angular-modal-gallery.js");
-/* harmony import */ var angular2_image_upload__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! angular2-image-upload */ "./node_modules/angular2-image-upload/index.js");
-/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! hammerjs */ "./node_modules/hammerjs/hammer.js");
-/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var mousetrap__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! mousetrap */ "./node_modules/mousetrap/mousetrap.js");
-/* harmony import */ var mousetrap__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(mousetrap__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _util_auth_guard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./util/auth-guard */ "./src/app/util/auth-guard.ts");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/tabmenu */ "./node_modules/primeng/tabmenu.js");
+/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(primeng_tabmenu__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/fileupload */ "./node_modules/primeng/fileupload.js");
+/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(primeng_fileupload__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/dialog */ "./node_modules/primeng/dialog.js");
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(primeng_dialog__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ks89/angular-modal-gallery */ "./node_modules/@ks89/angular-modal-gallery/esm5/ks89-angular-modal-gallery.js");
+/* harmony import */ var angular2_image_upload__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! angular2-image-upload */ "./node_modules/angular2-image-upload/index.js");
+/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! hammerjs */ "./node_modules/hammerjs/hammer.js");
+/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var mousetrap__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! mousetrap */ "./node_modules/mousetrap/mousetrap.js");
+/* harmony import */ var mousetrap__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(mousetrap__WEBPACK_IMPORTED_MODULE_18__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -132,6 +133,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 // Imported Modules
 
 
@@ -142,10 +144,19 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 var appRoutes = [
-    { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"] },
-    { path: 'customer-area', component: _customer_area_customer_area_component__WEBPACK_IMPORTED_MODULE_7__["CustomerAreaComponent"] },
-    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"] },
-    { path: '**', redirectTo: 'home' }
+    {
+        path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"],
+    },
+    {
+        path: 'customer-area', component: _customer_area_customer_area_component__WEBPACK_IMPORTED_MODULE_7__["CustomerAreaComponent"],
+        canActivate: [_util_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
+    },
+    {
+        path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"]
+    },
+    {
+        path: '**', redirectTo: 'home'
+    }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -163,15 +174,18 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
                 _angular_http__WEBPACK_IMPORTED_MODULE_4__["HttpModule"],
-                primeng_fileupload__WEBPACK_IMPORTED_MODULE_12__["FileUploadModule"],
-                primeng_dialog__WEBPACK_IMPORTED_MODULE_13__["DialogModule"],
-                primeng_tabmenu__WEBPACK_IMPORTED_MODULE_11__["TabMenuModule"],
-                primeng_table__WEBPACK_IMPORTED_MODULE_10__["TableModule"],
-                angular2_image_upload__WEBPACK_IMPORTED_MODULE_15__["ImageUploadModule"].forRoot(),
-                _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_14__["ModalGalleryModule"].forRoot({ shortcuts: ['ctrl+a', 'ctrl+s', 'meta+s'] }),
+                primeng_fileupload__WEBPACK_IMPORTED_MODULE_13__["FileUploadModule"],
+                primeng_dialog__WEBPACK_IMPORTED_MODULE_14__["DialogModule"],
+                primeng_tabmenu__WEBPACK_IMPORTED_MODULE_12__["TabMenuModule"],
+                primeng_table__WEBPACK_IMPORTED_MODULE_11__["TableModule"],
+                angular2_image_upload__WEBPACK_IMPORTED_MODULE_16__["ImageUploadModule"].forRoot(),
+                _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_15__["ModalGalleryModule"].forRoot({ shortcuts: ['ctrl+a', 'ctrl+s', 'meta+s'] }),
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(appRoutes)
             ],
-            providers: [{ provide: _angular_common__WEBPACK_IMPORTED_MODULE_3__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_3__["HashLocationStrategy"] }],
+            providers: [
+                { provide: _angular_common__WEBPACK_IMPORTED_MODULE_3__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_3__["HashLocationStrategy"] },
+                _util_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]
+            ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
@@ -322,12 +336,6 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.images = [];
         this.album = {};
     };
-    CustomerAreaComponent.prototype.uploadPhotos = function () {
-        this.uploadPhoto = true;
-    };
-    CustomerAreaComponent.prototype.galleryPhotos = function () {
-        this.uploadPhoto = false;
-    };
     CustomerAreaComponent.prototype.onUploadFinished = function (event) {
         this.files.push(event.src);
     };
@@ -338,12 +346,14 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.customerService.uploadClientPhotos(this.album).then(function (uploaded) {
             if (uploaded) {
                 var index_1 = 0;
+                var downloadedImages_1 = [];
                 _this.files.forEach(function (file) {
-                    _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_1, {
+                    downloadedImages_1.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_1, {
                         img: _this.sanitizeBase64(file)
                     }));
                     index_1++;
                 });
+                _this.images = downloadedImages_1;
             }
             _this.files = [];
             _this.isGallery = true;
@@ -359,18 +369,18 @@ var CustomerAreaComponent = /** @class */ (function () {
             }
             _this.album = album;
             var files = JSON.parse(album.photo);
-            if (files !== null) {
-                if (files.length > 0) {
-                    var index_2 = 0;
-                    files.forEach(function (file) {
-                        _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_2, {
-                            img: _this.sanitizeBase64(file)
-                        }));
-                        index_2++;
-                    });
-                }
+            if (files !== null && files.length > 0) {
+                var index_2 = 0;
+                var downloadedImages_2 = [];
+                files.forEach(function (file) {
+                    downloadedImages_2.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_2, {
+                        img: _this.sanitizeBase64(file)
+                    }));
+                    index_2++;
+                });
+                _this.images = downloadedImages_2;
             }
-            _this.galleryPhotos();
+            _this.uploadPhoto = false;
         });
     };
     CustomerAreaComponent.prototype.sanitizeBase64 = function (base64) {
@@ -782,6 +792,61 @@ var LoginService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
     ], LoginService);
     return LoginService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/util/auth-guard.ts":
+/*!************************************!*\
+  !*** ./src/app/util/auth-guard.ts ***!
+  \************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _login_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../login/login.service */ "./src/app/login/login.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(loginService, router) {
+        this.loginService = loginService;
+        this.router = router;
+    }
+    AuthGuard.prototype.canActivate = function () {
+        if (!this.isAuthenticated()) {
+            this.router.navigate(['login']);
+            return false;
+        }
+        return true;
+    };
+    AuthGuard.prototype.isAuthenticated = function () {
+        if (this.loginService.getUser() !== null && this.loginService.getUser() !== undefined) {
+            return true;
+        }
+        return false;
+    };
+    AuthGuard = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_login_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], AuthGuard);
+    return AuthGuard;
 }());
 
 
