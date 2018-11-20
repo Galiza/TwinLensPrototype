@@ -565,7 +565,7 @@ module.exports = "<div class=\"error-div\">\n  <span>\n    {{errorText}}\n  </sp
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".error-div {\n  min-width: 400px;\n  background: red;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  margin-bottom: 50px;\n  padding: 5px 0px;\n  color: white;\n  font-weight: bold; }\n"
+module.exports = ".error-div {\n  width: 450px;\n  background: red;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  margin-bottom: 50px;\n  padding: 5px 0px;\n  color: white;\n  font-weight: bold; }\n"
 
 /***/ }),
 
@@ -600,6 +600,7 @@ var ErrorComponent = /** @class */ (function () {
         var _this = this;
         this.errorService.getErrorTextSubject().subscribe(function (errorMsg) {
             _this.errorText = errorMsg;
+            _this.errorService.setShowError();
         });
     };
     ErrorComponent = __decorate([
@@ -643,12 +644,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var ErrorService = /** @class */ (function () {
     function ErrorService() {
         this.errorTextSubject = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+        this.showErrorSubject = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
     }
     ErrorService.prototype.setErrorTextSubject = function (error) {
         this.errorTextSubject.next(error);
     };
     ErrorService.prototype.getErrorTextSubject = function () {
         return this.errorTextSubject;
+    };
+    ErrorService.prototype.setShowError = function () {
+        this.showErrorSubject.next(true);
+    };
+    ErrorService.prototype.getShowError = function () {
+        return this.showErrorSubject;
     };
     ErrorService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -799,7 +807,11 @@ var LoginComponent = /** @class */ (function () {
         this.showError = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.createForm();
+        this.errorService.getShowError().subscribe(function (show) {
+            _this.showError = show;
+        });
     };
     LoginComponent.prototype.createForm = function () {
         this.loginForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
@@ -823,7 +835,6 @@ var LoginComponent = /** @class */ (function () {
                     break;
                 }
             }
-            _this.showError = true;
         });
     };
     LoginComponent.prototype.cancel = function () {

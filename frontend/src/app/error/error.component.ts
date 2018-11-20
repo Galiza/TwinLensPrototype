@@ -18,6 +18,7 @@ export class ErrorComponent implements OnInit {
     this.errorService.getErrorTextSubject().subscribe(
       (errorMsg: string) => {
         this.errorText = errorMsg;
+        this.errorService.setShowError();
       }
     );
   }

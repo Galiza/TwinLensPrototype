@@ -23,6 +23,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
+
+    this.errorService.getShowError().subscribe(
+      (show) => {
+        this.showError = show;
+      }
+    );
   }
 
   private createForm(): void {
@@ -50,8 +56,6 @@ export class LoginComponent implements OnInit {
             break;
           }
         }
-
-        this.showError = true;
       }
     );
   }
