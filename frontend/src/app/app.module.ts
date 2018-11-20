@@ -11,22 +11,35 @@ import { AppComponent } from './app.component';
 import { CustomerAreaComponent } from './customer-area/customer-area.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './util/auth-guard';
 
 // Imported Modules
 import { TableModule } from 'primeng/table';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { FileUploadModule } from 'primeng/fileupload';
 import { DialogModule } from 'primeng/dialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ModalGalleryModule } from '@ks89/angular-modal-gallery';
 import { ImageUploadModule } from 'angular2-image-upload';
 import 'hammerjs';
 import 'mousetrap';
+import { ErrorComponent } from './error/error.component';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'customer-area', component: CustomerAreaComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '**', redirectTo: 'home' }
+  {
+    path: 'home', component: HomeComponent,
+  },
+  {
+    path: 'customer-area', component: CustomerAreaComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: '**', redirectTo: 'home'
+  }
 ];
 
 @NgModule({
@@ -34,7 +47,9 @@ const appRoutes: Routes = [
     AppComponent,
     CustomerAreaComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -44,12 +59,16 @@ const appRoutes: Routes = [
     FileUploadModule,
     DialogModule,
     TabMenuModule,
+    ProgressSpinnerModule,
     TableModule,
     ImageUploadModule.forRoot(),
     ModalGalleryModule.forRoot({ shortcuts: ['ctrl+a', 'ctrl+s', 'meta+s'] }),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

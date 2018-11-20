@@ -9,13 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">Sair</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active" (click)="logout()">Sair</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-<div style="padding-top: 56px; background-color: #dadada; height: -webkit-fill-available; width: 100%;">
+<div class="bottom-div">
   <div *ngIf="user.isAdmin">
     <div class="row btn-list-admin">
       <div class="buttons">
@@ -55,27 +55,7 @@
       </div>
     </div>
     <div *ngIf="isRegister">
-      <form [formGroup]="newUserForm" class="new-user-form">
-        <div style="padding-bottom: 0;">
-          <label>Nome:</label>
-          <input class="form-control flex-fill mr-1" formControlName="name">
-        </div>
-        <div>
-          <label>Email:</label>
-          <input class="form-control flex-fill mr-1" formControlName="email">
-        </div>
-        <div>
-          <label>Senha:</label>
-          <input type="password" class="form-control flex-fill mr-1" formControlName="password">
-        </div>
-        <div>
-          <label>Confirme a senha:</label>
-          <input type="password" class="form-control flex-fill mr-1" formControlName="confirmPass">
-        </div>
-        <div>
-          <button [disabled]="!newUserForm.valid" class="btn btn-success btn-lg btn-block register-btn" (click)="register()">Entrar</button>
-        </div>
-      </form>
+        <app-register (newUserAdded)="newUserAdded($event)"></app-register>
     </div>
   </div>
   <div *ngIf="isGallery">
@@ -97,17 +77,24 @@
       </div>
     </div>
     <div *ngIf="!uploadPhoto">
-      <ks-modal-gallery [id]="0" [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery>
+      <div *ngIf="fetchingPhotos" class="loading-div">
+        <img class="loading-gif" src="../../assets/image/loader_grey.gif">
+        <h2>Baixando fotos...</h2>
+      </div>
+      <div *ngIf="!fetchingPhotos">
+        <div *ngIf="images.length > 0">
+          <ks-modal-gallery [id]="0" [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery>
+        </div>
+        <div *ngIf="images.length === 0" class="no-photo">
+          <h2>Não há nenhuma foto</h2>
+        </div>
+      </div>
     </div>
     <div *ngIf="uploadPhoto" class="uploader">
       <button class="upload-btn" [disabled]="files.length === 0" (click)="savePhotos()">FAZER UPLOAD</button>
-      <image-upload
-        [buttonCaption]="'Selecione as imagens'"
-        [dropBoxMessage]="'Arraste as imagens aqui.'"
-         [extensions]="['jpg','jpeg','png']"
-        (uploadFinished)="onUploadFinished($event)"
-        >
+      <image-upload [buttonCaption]="'Selecione as imagens'" [dropBoxMessage]="'Arraste as imagens aqui.'" [extensions]="['jpg','jpeg','png']"
+        (uploadFinished)="onUploadFinished($event)">
       </image-upload>
     </div>
   </div>
-</div> 
+</div>

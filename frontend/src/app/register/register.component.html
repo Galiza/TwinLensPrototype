@@ -1,0 +1,21 @@
+<form [formGroup]="newUserForm" class="new-user-form">
+  <div style="padding-bottom: 0;">
+    <label>Nome:</label>
+    <input class="form-control flex-fill mr-1" formControlName="name">
+  </div>
+  <div>
+    <label>Email:</label>
+    <input class="form-control flex-fill mr-1" formControlName="email">
+  </div>
+  <div>
+    <label>Senha:</label>
+    <input type="password" class="form-control flex-fill mr-1" formControlName="password">
+  </div>
+  <div>
+    <label>Confirme a senha:</label>
+    <input type="password" class="form-control flex-fill mr-1" formControlName="confirmPass">
+  </div>
+  <div>
+    <button [disabled]="!newUserForm.valid" class="btn btn-success btn-lg btn-block register-btn" (click)="register()">Entrar</button>
+  </div>
+</form>

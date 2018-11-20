@@ -100,20 +100,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customer_area_customer_area_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./customer-area/customer-area.component */ "./src/app/customer-area/customer-area.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/tabmenu */ "./node_modules/primeng/tabmenu.js");
-/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(primeng_tabmenu__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/fileupload */ "./node_modules/primeng/fileupload.js");
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(primeng_fileupload__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/dialog */ "./node_modules/primeng/dialog.js");
-/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(primeng_dialog__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ks89/angular-modal-gallery */ "./node_modules/@ks89/angular-modal-gallery/esm5/ks89-angular-modal-gallery.js");
-/* harmony import */ var angular2_image_upload__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! angular2-image-upload */ "./node_modules/angular2-image-upload/index.js");
-/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! hammerjs */ "./node_modules/hammerjs/hammer.js");
-/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var mousetrap__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! mousetrap */ "./node_modules/mousetrap/mousetrap.js");
-/* harmony import */ var mousetrap__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(mousetrap__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
+/* harmony import */ var _util_auth_guard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./util/auth-guard */ "./src/app/util/auth-guard.ts");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/tabmenu */ "./node_modules/primeng/tabmenu.js");
+/* harmony import */ var primeng_tabmenu__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(primeng_tabmenu__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/fileupload */ "./node_modules/primeng/fileupload.js");
+/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(primeng_fileupload__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! primeng/dialog */ "./node_modules/primeng/dialog.js");
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(primeng_dialog__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var primeng_progressspinner__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! primeng/progressspinner */ "./node_modules/primeng/progressspinner.js");
+/* harmony import */ var primeng_progressspinner__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(primeng_progressspinner__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ks89/angular-modal-gallery */ "./node_modules/@ks89/angular-modal-gallery/esm5/ks89-angular-modal-gallery.js");
+/* harmony import */ var angular2_image_upload__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! angular2-image-upload */ "./node_modules/angular2-image-upload/index.js");
+/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! hammerjs */ "./node_modules/hammerjs/hammer.js");
+/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var mousetrap__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! mousetrap */ "./node_modules/mousetrap/mousetrap.js");
+/* harmony import */ var mousetrap__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(mousetrap__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _error_error_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./error/error.component */ "./src/app/error/error.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -132,6 +137,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 // Imported Modules
 
 
@@ -141,11 +148,22 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var appRoutes = [
-    { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"] },
-    { path: 'customer-area', component: _customer_area_customer_area_component__WEBPACK_IMPORTED_MODULE_7__["CustomerAreaComponent"] },
-    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"] },
-    { path: '**', redirectTo: 'home' }
+    {
+        path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"],
+    },
+    {
+        path: 'customer-area', component: _customer_area_customer_area_component__WEBPACK_IMPORTED_MODULE_7__["CustomerAreaComponent"],
+        canActivate: [_util_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]]
+    },
+    {
+        path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"]
+    },
+    {
+        path: '**', redirectTo: 'home'
+    }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -156,22 +174,28 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
                 _customer_area_customer_area_component__WEBPACK_IMPORTED_MODULE_7__["CustomerAreaComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"]
+                _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
+                _register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"],
+                _error_error_component__WEBPACK_IMPORTED_MODULE_21__["ErrorComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
                 _angular_http__WEBPACK_IMPORTED_MODULE_4__["HttpModule"],
-                primeng_fileupload__WEBPACK_IMPORTED_MODULE_12__["FileUploadModule"],
-                primeng_dialog__WEBPACK_IMPORTED_MODULE_13__["DialogModule"],
-                primeng_tabmenu__WEBPACK_IMPORTED_MODULE_11__["TabMenuModule"],
-                primeng_table__WEBPACK_IMPORTED_MODULE_10__["TableModule"],
-                angular2_image_upload__WEBPACK_IMPORTED_MODULE_15__["ImageUploadModule"].forRoot(),
-                _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_14__["ModalGalleryModule"].forRoot({ shortcuts: ['ctrl+a', 'ctrl+s', 'meta+s'] }),
+                primeng_fileupload__WEBPACK_IMPORTED_MODULE_14__["FileUploadModule"],
+                primeng_dialog__WEBPACK_IMPORTED_MODULE_15__["DialogModule"],
+                primeng_tabmenu__WEBPACK_IMPORTED_MODULE_13__["TabMenuModule"],
+                primeng_progressspinner__WEBPACK_IMPORTED_MODULE_16__["ProgressSpinnerModule"],
+                primeng_table__WEBPACK_IMPORTED_MODULE_12__["TableModule"],
+                angular2_image_upload__WEBPACK_IMPORTED_MODULE_18__["ImageUploadModule"].forRoot(),
+                _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_17__["ModalGalleryModule"].forRoot({ shortcuts: ['ctrl+a', 'ctrl+s', 'meta+s'] }),
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(appRoutes)
             ],
-            providers: [{ provide: _angular_common__WEBPACK_IMPORTED_MODULE_3__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_3__["HashLocationStrategy"] }],
+            providers: [
+                { provide: _angular_common__WEBPACK_IMPORTED_MODULE_3__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_3__["HashLocationStrategy"] },
+                _util_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]
+            ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
@@ -189,7 +213,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div style=\"padding-top: 56px; background-color: #dadada; height: -webkit-fill-available; width: 100%;\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row btn-list-admin\">\n      <div class=\"buttons\">\n        <button (click)=\"fetchClients()\" class=\"fetch-client-btn\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewClient()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div *ngIf=\"isListClient\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th colspan=2 class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\">\n              <td (click)=\"fetchAlbum(user)\">{{user.name}}</td>\n              <td (click)=\"fetchAlbum(user)\">{{user.email}}</td>\n              <td class=\"td-remove-btn\"><button class=\"remove-btn\" (click)=\"removeUser(user)\"><span class=\"font-weight: 600;\">X</span></button></td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td class=\"no-customer\" colspan=2>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n      <form [formGroup]=\"newUserForm\" class=\"new-user-form\">\n        <div style=\"padding-bottom: 0;\">\n          <label>Nome:</label>\n          <input class=\"form-control flex-fill mr-1\" formControlName=\"name\">\n        </div>\n        <div>\n          <label>Email:</label>\n          <input class=\"form-control flex-fill mr-1\" formControlName=\"email\">\n        </div>\n        <div>\n          <label>Senha:</label>\n          <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"password\">\n        </div>\n        <div>\n          <label>Confirme a senha:</label>\n          <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"confirmPass\">\n        </div>\n        <div>\n          <button [disabled]=\"!newUserForm.valid\" class=\"btn btn-success btn-lg btn-block register-btn\" (click)=\"register()\">Entrar</button>\n        </div>\n      </form>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row is-gallery\">\n      <div class=\"col\">\n        <button (click)=\"returnToClients()\" class=\"remove-styles\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col selected-username\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"uploadPhotos()\" class=\"remove-styles\">\n          Upload de imagens</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"galleryPhotos()\" class=\"remove-styles\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n    </div>\n    <div *ngIf=\"uploadPhoto\" class=\"uploader\">\n      <button class=\"upload-btn\" [disabled]=\"files.length === 0\" (click)=\"savePhotos()\">FAZER UPLOAD</button>\n      <image-upload\n        [buttonCaption]=\"'Selecione as imagens'\"\n        [dropBoxMessage]=\"'Arraste as imagens aqui.'\"\n         [extensions]=\"['jpg','jpeg','png']\"\n        (uploadFinished)=\"onUploadFinished($event)\"\n        >\n      </image-upload>\n    </div>\n  </div>\n</div> "
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\" (click)=\"logout()\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div class=\"bottom-div\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row btn-list-admin\">\n      <div class=\"buttons\">\n        <button (click)=\"fetchClients()\" class=\"fetch-client-btn\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewClient()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div *ngIf=\"isListClient\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th colspan=2 class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\">\n              <td (click)=\"fetchAlbum(user)\">{{user.name}}</td>\n              <td (click)=\"fetchAlbum(user)\">{{user.email}}</td>\n              <td class=\"td-remove-btn\"><button class=\"remove-btn\" (click)=\"removeUser(user)\"><span class=\"font-weight: 600;\">X</span></button></td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td class=\"no-customer\" colspan=2>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n        <app-register (newUserAdded)=\"newUserAdded($event)\"></app-register>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row is-gallery\">\n      <div class=\"col\">\n        <button (click)=\"returnToClients()\" class=\"remove-styles\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col selected-username\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"uploadPhotos()\" class=\"remove-styles\">\n          Upload de imagens</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"galleryPhotos()\" class=\"remove-styles\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <div *ngIf=\"fetchingPhotos\" class=\"loading-div\">\n        <img class=\"loading-gif\" src=\"../../assets/image/loader_grey.gif\">\n        <h2>Baixando fotos...</h2>\n      </div>\n      <div *ngIf=\"!fetchingPhotos\">\n        <div *ngIf=\"images.length > 0\">\n          <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n        </div>\n        <div *ngIf=\"images.length === 0\" class=\"no-photo\">\n          <h2>Não há nenhuma foto</h2>\n        </div>\n      </div>\n    </div>\n    <div *ngIf=\"uploadPhoto\" class=\"uploader\">\n      <button class=\"upload-btn\" [disabled]=\"files.length === 0\" (click)=\"savePhotos()\">FAZER UPLOAD</button>\n      <image-upload [buttonCaption]=\"'Selecione as imagens'\" [dropBoxMessage]=\"'Arraste as imagens aqui.'\" [extensions]=\"['jpg','jpeg','png']\"\n        (uploadFinished)=\"onUploadFinished($event)\">\n      </image-upload>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -200,7 +224,7 @@ module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300);\nbody {\n  font-family: 'Quicksand', sans-serif; }\n.gal-container {\n  padding: 12px; }\n.gal-item {\n  overflow: hidden;\n  padding: 3px; }\n.gal-item .box {\n  height: 350px;\n  overflow: hidden; }\n.box img {\n  height: 100%;\n  width: 100%;\n  object-fit: cover;\n  -o-object-fit: cover; }\n.gal-item a:focus {\n  outline: none; }\n.gal-item a:after {\n  content: \"\\e003\";\n  font-family: 'Glyphicons Halflings';\n  opacity: 0;\n  background-color: rgba(0, 0, 0, 0.75);\n  position: absolute;\n  right: 3px;\n  left: 3px;\n  top: 3px;\n  bottom: 3px;\n  text-align: center;\n  line-height: 350px;\n  font-size: 30px;\n  color: #fff;\n  transition: all 0.5s ease-in-out 0s; }\n.gal-item a:hover:after {\n  opacity: 1; }\n.modal-open .gal-container .modal {\n  background-color: rgba(0, 0, 0, 0.4); }\n.modal-open .gal-item .modal-body {\n  padding: 0px; }\n.modal-open .gal-item button.close {\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  background-color: #000;\n  opacity: 1;\n  color: #fff;\n  z-index: 999;\n  right: -12px;\n  top: -12px;\n  border-radius: 50%;\n  font-size: 15px;\n  border: 2px solid #fff;\n  line-height: 25px;\n  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.35); }\n.modal-open .gal-item button.close:focus {\n  outline: none; }\n.modal-open .gal-item button.close span {\n  position: relative;\n  top: -3px;\n  font-weight: lighter;\n  text-shadow: none; }\n.gal-container .modal-dialogue {\n  width: 80%; }\n.gal-container .description {\n  position: relative;\n  height: 40px;\n  top: -40px;\n  padding: 10px 25px;\n  background-color: rgba(0, 0, 0, 0.5);\n  color: #fff;\n  text-align: left; }\n.gal-container .description h4 {\n  margin: 0px;\n  font-size: 15px;\n  font-weight: 300;\n  line-height: 20px; }\n.gal-container .modal.fade .modal-dialog {\n  -webkit-transform: scale(0.1);\n  transform: scale(0.1);\n  top: 100px;\n  opacity: 0;\n  transition: all 0.3s; }\n.gal-container .modal.fade.in .modal-dialog {\n  -webkit-transform: scale(1);\n  transform: scale(1);\n  -webkit-transform: translate3d(0, -100px, 0);\n  transform: translate3d(0, -100px, 0);\n  opacity: 1; }\n@media (min-width: 768px) {\n  .gal-container .modal-dialog {\n    width: 55%;\n    margin: 50 auto; } }\n@media (max-width: 768px) {\n  .gal-container .modal-content {\n    height: 250px; } }\n/* Footer Style */\ni.red {\n  color: #BC0213; }\n.gal-container {\n  padding-top: 75px;\n  padding-bottom: 75px; }\nfooter {\n  font-family: 'Quicksand', sans-serif; }\nfooter a, footer a:hover {\n  color: #88C425; }\n.modal-body {\n  padding: 0;\n  padding-top: 1rem; }\n.modal-header {\n  border-bottom: unset;\n  padding: 0.5rem; }\n.close {\n  margin: 0;\n  margin-bottom: -1rem;\n  padding: 0;\n  padding-right: 7px; }\n.modal-footer {\n  border-top: unset;\n  padding: 5px 15px; }\n.modal-footer button {\n    padding: 10px 28px; }\n.buttons {\n  padding-left: 75px; }\n.buttons button {\n    border: unset;\n    background-color: transparent; }\n.buttons button:hover {\n      cursor: pointer; }\n.upload-btn {\n  position: absolute;\n  z-index: 1;\n  right: 0;\n  margin-top: 15px;\n  border: unset;\n  color: white;\n  background-color: #3C9;\n  font-family: sans-serif;\n  margin-right: 50px; }\n.upload-btn:disabled {\n    background-color: #397460; }\n.uploader {\n  padding: 0px 30px; }\n.selected-username {\n  padding-left: 310px;\n  font-size: 25px;\n  font-weight: 600; }\n.remove-styles {\n  border: unset;\n  background-color: transparent; }\n.is-gallery {\n  padding-top: 10px;\n  padding-left: 30px;\n  margin: 0;\n  padding-right: 30px; }\n.fetch-client-btn {\n  margin-right: 20px; }\n.active {\n  font-weight: 600; }\ninput.ng-invalid.ng-touched {\n  border: 1px solid red; }\n.register-btn {\n  margin-top: 10px;\n  padding: 12px; }\n.list-client-div {\n  width: 500px;\n  padding-top: 20px; }\n.new-user-form {\n  width: 400px;\n  padding-top: 50px; }\n.list-client-div, .new-user-form {\n  margin: 0 auto; }\n.client-list-title {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: center;\n  padding-bottom: 20px; }\ntd {\n  text-align: center;\n  width: 250px;\n  font-size: 18px; }\ntd:first-child {\n    border-right: 1px solid black; }\nth {\n  text-align: center;\n  font-size: 18px;\n  font-weight: 600;\n  width: 250px; }\n.body-tr:hover {\n  background-color: white !important;\n  font-weight: 600;\n  cursor: pointer; }\n.client-name, .client-email {\n  border-bottom: 1px solid black; }\n.client-name {\n  border-right: 1px solid black; }\nbutton:hover {\n  cursor: pointer; }\n.btn-success.disabled, .btn-success:disabled {\n  background-color: #486f51 !important;\n  border-color: #486f51 !important; }\n.remove-btn {\n  all: unset; }\n.remove-btn:hover {\n    cursor: pointer; }\n.no-customer {\n  border-right: unset !important;\n  font-weight: bold; }\n.td-remove-btn {\n  width: 25px !important; }\n.btn-list-admin {\n  margin: 0;\n  border-bottom: 1px solid black; }\n"
+module.exports = "@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300);\nbody {\n  font-family: 'Quicksand', sans-serif; }\n.gal-container {\n  padding: 12px; }\n.gal-item {\n  overflow: hidden;\n  padding: 3px; }\n.gal-item .box {\n  height: 350px;\n  overflow: hidden; }\n.box img {\n  height: 100%;\n  width: 100%;\n  object-fit: cover;\n  -o-object-fit: cover; }\n.gal-item a:focus {\n  outline: none; }\n.gal-item a:after {\n  content: \"\\e003\";\n  font-family: 'Glyphicons Halflings';\n  opacity: 0;\n  background-color: rgba(0, 0, 0, 0.75);\n  position: absolute;\n  right: 3px;\n  left: 3px;\n  top: 3px;\n  bottom: 3px;\n  text-align: center;\n  line-height: 350px;\n  font-size: 30px;\n  color: #fff;\n  transition: all 0.5s ease-in-out 0s; }\n.gal-item a:hover:after {\n  opacity: 1; }\n.modal-open .gal-container .modal {\n  background-color: rgba(0, 0, 0, 0.4); }\n.modal-open .gal-item .modal-body {\n  padding: 0px; }\n.modal-open .gal-item button.close {\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  background-color: #000;\n  opacity: 1;\n  color: #fff;\n  z-index: 999;\n  right: -12px;\n  top: -12px;\n  border-radius: 50%;\n  font-size: 15px;\n  border: 2px solid #fff;\n  line-height: 25px;\n  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.35); }\n.modal-open .gal-item button.close:focus {\n  outline: none; }\n.modal-open .gal-item button.close span {\n  position: relative;\n  top: -3px;\n  font-weight: lighter;\n  text-shadow: none; }\n.gal-container .modal-dialogue {\n  width: 80%; }\n.gal-container .description {\n  position: relative;\n  height: 40px;\n  top: -40px;\n  padding: 10px 25px;\n  background-color: rgba(0, 0, 0, 0.5);\n  color: #fff;\n  text-align: left; }\n.gal-container .description h4 {\n  margin: 0px;\n  font-size: 15px;\n  font-weight: 300;\n  line-height: 20px; }\n.gal-container .modal.fade .modal-dialog {\n  -webkit-transform: scale(0.1);\n  transform: scale(0.1);\n  top: 100px;\n  opacity: 0;\n  transition: all 0.3s; }\n.gal-container .modal.fade.in .modal-dialog {\n  -webkit-transform: scale(1);\n  transform: scale(1);\n  -webkit-transform: translate3d(0, -100px, 0);\n  transform: translate3d(0, -100px, 0);\n  opacity: 1; }\n@media (min-width: 768px) {\n  .gal-container .modal-dialog {\n    width: 55%;\n    margin: 50 auto; } }\n@media (max-width: 768px) {\n  .gal-container .modal-content {\n    height: 250px; } }\n/* Footer Style */\ni.red {\n  color: #BC0213; }\n.gal-container {\n  padding-top: 75px;\n  padding-bottom: 75px; }\nfooter {\n  font-family: 'Quicksand', sans-serif; }\nfooter a, footer a:hover {\n  color: #88C425; }\n.modal-body {\n  padding: 0;\n  padding-top: 1rem; }\n.modal-header {\n  border-bottom: unset;\n  padding: 0.5rem; }\n.close {\n  margin: 0;\n  margin-bottom: -1rem;\n  padding: 0;\n  padding-right: 7px; }\n.modal-footer {\n  border-top: unset;\n  padding: 5px 15px; }\n.modal-footer button {\n    padding: 10px 28px; }\n.buttons {\n  padding-left: 75px; }\n.buttons button {\n    border: unset;\n    background-color: transparent; }\n.buttons button:hover {\n      cursor: pointer; }\n.upload-btn {\n  position: absolute;\n  z-index: 1;\n  right: 0;\n  margin-top: 15px;\n  border: unset;\n  color: white;\n  background-color: #3C9;\n  font-family: sans-serif;\n  margin-right: 50px; }\n.upload-btn:disabled {\n    background-color: #397460; }\n.uploader {\n  padding: 0px 30px; }\n.selected-username {\n  padding-left: 310px;\n  font-size: 25px;\n  font-weight: 600; }\n.remove-styles {\n  border: unset;\n  background-color: transparent; }\n.is-gallery {\n  padding-top: 10px;\n  padding-left: 30px;\n  margin: 0;\n  padding-right: 30px; }\n.fetch-client-btn {\n  margin-right: 20px; }\n.active {\n  font-weight: 600; }\n.list-client-div {\n  width: 500px;\n  padding-top: 20px; }\n.list-client-div {\n  margin: 0 auto; }\n.client-list-title {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: center;\n  padding-bottom: 20px; }\ntd {\n  text-align: center;\n  width: 250px;\n  font-size: 18px; }\ntd:first-child {\n    border-right: 1px solid black; }\nth {\n  text-align: center;\n  font-size: 18px;\n  font-weight: 600;\n  width: 250px; }\n.body-tr:hover {\n  background-color: white !important;\n  font-weight: 600;\n  cursor: pointer; }\n.client-name, .client-email {\n  border-bottom: 1px solid black; }\n.client-name {\n  border-right: 1px solid black; }\nbutton:hover {\n  cursor: pointer; }\n.btn-success.disabled, .btn-success:disabled {\n  background-color: #486f51 !important;\n  border-color: #486f51 !important; }\n.remove-btn {\n  all: unset; }\n.remove-btn:hover {\n    cursor: pointer; }\n.no-customer {\n  border-right: unset !important;\n  font-weight: bold; }\n.td-remove-btn {\n  width: 25px !important; }\n.btn-list-admin {\n  margin: 0;\n  border-bottom: 1px solid black; }\n.bottom-div {\n  padding-top: 56px;\n  background-color: #c3c3c3;\n  height: -webkit-fill-available;\n  width: 100%; }\n.loading-gif {\n  width: 100px; }\n.loading-div, .no-photo {\n  text-align: center;\n  margin-top: 100px; }\n.loading-div h2, .no-photo h2 {\n    color: white;\n    font-weight: bold; }\n"
 
 /***/ }),
 
@@ -218,9 +242,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ks89/angular-modal-gallery */ "./node_modules/@ks89/angular-modal-gallery/esm5/ks89-angular-modal-gallery.js");
 /* harmony import */ var _customer_area_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customer-area.service */ "./src/app/customer-area/customer-area.service.ts");
 /* harmony import */ var _login_login_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../login/login.service */ "./src/app/login/login.service.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -230,7 +253,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -252,14 +274,14 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.isListClient = true;
         this.isGallery = false;
         this.uploadPhoto = false;
+        this.fetchingPhotos = false;
         this.selectedUser = {};
     }
     CustomerAreaComponent.prototype.ngOnInit = function () {
-        this.createForm();
         this.user = this.loginService.getUser();
-        if (Object.keys(this.user).length === 0 || this.user === undefined || this.user === null) {
-            this.router.navigate(['/home']);
-        }
+        /*if (Object.keys(this.user).length === 0 || this.user === undefined || this.user === null) {
+          this.router.navigate(['/home']);
+        }*/
         if (this.user.isAdmin) {
             this.fetchClients();
         }
@@ -271,18 +293,11 @@ var CustomerAreaComponent = /** @class */ (function () {
             layout: new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["GridLayout"]({ width: '240px', height: 'auto' }, { length: 5, wrap: true })
         };
     };
-    CustomerAreaComponent.prototype.createForm = function () {
-        this.newUserForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
-            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required),
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].email),
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required),
-            confirmPass: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required),
-        });
-    };
     CustomerAreaComponent.prototype.fetchClients = function () {
         var _this = this;
         this.isListClient = true;
         this.isRegister = false;
+        this.isGallery = false;
         this.images = [];
         if (this.userList.length === 0) {
             this.customerService.fetchClientList().then(function (userList) {
@@ -301,19 +316,6 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.isGallery = false;
         this.uploadPhoto = false;
         this.images = [];
-    };
-    CustomerAreaComponent.prototype.register = function () {
-        var _this = this;
-        var newUser = {};
-        newUser.name = this.newUserForm.get('name').value;
-        newUser.email = this.newUserForm.get('email').value;
-        newUser.password = this.newUserForm.get('password').value;
-        this.customerService.addNewClient(newUser).then(function (addedUser) {
-            _this.userList.push(addedUser);
-            _this.newUserForm.reset();
-            _this.isListClient = true;
-            _this.isRegister = false;
-        });
     };
     CustomerAreaComponent.prototype.returnToClients = function () {
         this.isListClient = true;
@@ -338,12 +340,14 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.customerService.uploadClientPhotos(this.album).then(function (uploaded) {
             if (uploaded) {
                 var index_1 = 0;
+                var downloadedImages_1 = [];
                 _this.files.forEach(function (file) {
-                    _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_1, {
+                    downloadedImages_1.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_1, {
                         img: _this.sanitizeBase64(file)
                     }));
                     index_1++;
                 });
+                _this.images = downloadedImages_1;
             }
             _this.files = [];
             _this.isGallery = true;
@@ -353,24 +357,26 @@ var CustomerAreaComponent = /** @class */ (function () {
     CustomerAreaComponent.prototype.downloadAlbum = function (id) {
         var _this = this;
         this.isGallery = true;
+        this.fetchingPhotos = true;
         this.customerService.getClientPhotos(id).then(function (album) {
             if (album.photo === '') {
                 return;
             }
             _this.album = album;
             var files = JSON.parse(album.photo);
-            if (files !== null) {
-                if (files.length > 0) {
-                    var index_2 = 0;
-                    files.forEach(function (file) {
-                        _this.images.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_2, {
-                            img: _this.sanitizeBase64(file)
-                        }));
-                        index_2++;
-                    });
-                }
+            if (files !== null && files.length > 0) {
+                var index_2 = 0;
+                var downloadedImages_2 = [];
+                files.forEach(function (file) {
+                    downloadedImages_2.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_2, {
+                        img: _this.sanitizeBase64(file)
+                    }));
+                    index_2++;
+                });
+                _this.images = downloadedImages_2;
             }
-            _this.galleryPhotos();
+            _this.uploadPhoto = false;
+            _this.fetchingPhotos = false;
         });
     };
     CustomerAreaComponent.prototype.sanitizeBase64 = function (base64) {
@@ -383,6 +389,14 @@ var CustomerAreaComponent = /** @class */ (function () {
             _this.userList = userList;
         });
     };
+    CustomerAreaComponent.prototype.logout = function () {
+        this.loginService.setUser({});
+    };
+    CustomerAreaComponent.prototype.newUserAdded = function (newUser) {
+        this.userList.push(newUser);
+        this.isRegister = false;
+        this.isListClient = true;
+    };
     CustomerAreaComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-customer-area',
@@ -391,8 +405,8 @@ var CustomerAreaComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_customer_area_service__WEBPACK_IMPORTED_MODULE_2__["CustomerAreaService"],
             _login_login_service__WEBPACK_IMPORTED_MODULE_3__["LoginService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["DomSanitizer"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"]])
     ], CustomerAreaComponent);
     return CustomerAreaComponent;
 }());
@@ -425,9 +439,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var CustomerAreaService = /** @class */ (function () {
+    // private url = 'http://localhost:8080';
     function CustomerAreaService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080';
     }
     CustomerAreaService.prototype.fetchClientList = function () {
         var _this = this;
@@ -533,6 +547,130 @@ var CustomerAreaService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/error/error.component.html":
+/*!********************************************!*\
+  !*** ./src/app/error/error.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"error-div\">\n  <span>\n    {{errorText}}\n  </span>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/error/error.component.scss":
+/*!********************************************!*\
+  !*** ./src/app/error/error.component.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".error-div {\n  width: 450px;\n  background: red;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  margin-bottom: 50px;\n  padding: 5px 0px;\n  color: white;\n  font-weight: bold; }\n"
+
+/***/ }),
+
+/***/ "./src/app/error/error.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/error/error.component.ts ***!
+  \******************************************/
+/*! exports provided: ErrorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorComponent", function() { return ErrorComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _error_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error.service */ "./src/app/error/error.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ErrorComponent = /** @class */ (function () {
+    function ErrorComponent(errorService) {
+        this.errorService = errorService;
+    }
+    ErrorComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.errorService.getErrorTextSubject().subscribe(function (errorMsg) {
+            _this.errorText = errorMsg;
+            _this.errorService.setShowError(true);
+        });
+    };
+    ErrorComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-error',
+            template: __webpack_require__(/*! ./error.component.html */ "./src/app/error/error.component.html"),
+            styles: [__webpack_require__(/*! ./error.component.scss */ "./src/app/error/error.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_error_service__WEBPACK_IMPORTED_MODULE_1__["ErrorService"]])
+    ], ErrorComponent);
+    return ErrorComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/error/error.service.ts":
+/*!****************************************!*\
+  !*** ./src/app/error/error.service.ts ***!
+  \****************************************/
+/*! exports provided: ErrorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorService", function() { return ErrorService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ErrorService = /** @class */ (function () {
+    function ErrorService() {
+        this.errorTextSubject = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+        this.showError = false;
+    }
+    ErrorService.prototype.setErrorTextSubject = function (error) {
+        this.errorTextSubject.next(error);
+    };
+    ErrorService.prototype.getErrorTextSubject = function () {
+        return this.errorTextSubject;
+    };
+    ErrorService.prototype.setShowError = function (showError) {
+        this.showError = showError;
+    };
+    ErrorService.prototype.getShowError = function () {
+        return this.showError;
+    };
+    ErrorService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], ErrorService);
+    return ErrorService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/home/home.component.html":
 /*!******************************************!*\
   !*** ./src/app/home/home.component.html ***!
@@ -617,7 +755,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-div\">\n  <div *ngIf=\"showError\" class=\"error-div\">\n    <span>\n      EMAIL/SENHA INCORRETOS\n    </span>\n  </div>\n  <div class=\"form-div\">\n    <form [formGroup]=\"loginForm\">\n      <div style=\"padding-bottom: 0;\">\n        <label>Email:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"text\" formControlName=\"email\">\n      </div>\n      <div>\n        <label>Senha:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"password\" formControlName=\"password\">\n      </div>\n      <div>\n        <button class=\"btn btn-success btn-lg btn-block\" (click)=\"submit()\">Entrar</button>\n        <button class=\"btn btn-danger btn-lg btn-block\" (click)=\"cancel()\">Cancelar</button>\n      </div>\n    </form>\n  </div>\n</div>"
+module.exports = "<div class=\"main-div\">\n  <div *ngIf=\"errorService.getShowError()\">\n    <app-error></app-error>\n  </div>\n  <div class=\"form-div\">\n    <form [formGroup]=\"loginForm\">\n      <div style=\"padding-bottom: 0;\">\n        <label>Email:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"text\" formControlName=\"email\">\n      </div>\n      <div>\n        <label>Senha:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"password\" formControlName=\"password\">\n      </div>\n      <div>\n        <button class=\"btn btn-success btn-lg btn-block\" (click)=\"submit()\">Entrar</button>\n        <button class=\"btn btn-danger btn-lg btn-block\" (click)=\"cancel()\">Cancelar</button>\n      </div>\n    </form>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -628,7 +766,7 @@ module.exports = "<div class=\"main-div\">\n  <div *ngIf=\"showError\" class=\"e
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "button {\n  padding: 12px; }\n\n.main-div {\n  padding-top: 200px;\n  background-color: #dadada;\n  height: -webkit-fill-available;\n  width: 100%; }\n\n.error-div {\n  width: 400px;\n  background: red;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  margin-bottom: 50px;\n  padding: 5px 0px; }\n\n.form-div {\n  padding: 15px;\n  height: 328px;\n  width: 400px;\n  margin: 0 auto;\n  background-color: white;\n  border-radius: 10px; }\n\n.form-div div {\n    padding: 15px; }\n"
+module.exports = "button {\n  padding: 12px; }\n\n.main-div {\n  padding-top: 200px;\n  background-color: #dadada;\n  height: -webkit-fill-available;\n  width: 100%; }\n\n.form-div {\n  padding: 15px;\n  height: 328px;\n  width: 400px;\n  margin: 0 auto;\n  background-color: white;\n  border-radius: 10px; }\n\n.form-div div {\n    padding: 15px; }\n"
 
 /***/ }),
 
@@ -646,6 +784,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login.service */ "./src/app/login/login.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _error_error_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../error/error.service */ "./src/app/error/error.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -659,10 +798,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(loginService, router) {
+    function LoginComponent(loginService, router, errorService) {
         this.loginService = loginService;
         this.router = router;
+        this.errorService = errorService;
         this.showError = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
@@ -679,7 +820,17 @@ var LoginComponent = /** @class */ (function () {
         this.loginService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).then(function () {
             _this.router.navigate(['/customer-area']);
         }).catch(function (error) {
-            _this.showError = true;
+            switch (error.status) {
+                case 503: {
+                    _this.errorService.setErrorTextSubject('Sem conexão com servidor');
+                    break;
+                }
+                case 500: {
+                    var err = JSON.parse(error.text());
+                    _this.errorService.setErrorTextSubject(err.message);
+                    break;
+                }
+            }
         });
     };
     LoginComponent.prototype.cancel = function () {
@@ -692,7 +843,8 @@ var LoginComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/login/login.component.scss")]
         }),
         __metadata("design:paramtypes", [_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _error_error_service__WEBPACK_IMPORTED_MODULE_4__["ErrorService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -763,7 +915,6 @@ var LoginService = /** @class */ (function () {
                         _this.setUser(user);
                     }
                 }).catch(function (error) {
-                    console.log(error);
                     reject(error);
                 });
             }
@@ -782,6 +933,156 @@ var LoginService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
     ], LoginService);
     return LoginService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/register/register.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/register/register.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form [formGroup]=\"newUserForm\" class=\"new-user-form\">\n  <div style=\"padding-bottom: 0;\">\n    <label>Nome:</label>\n    <input class=\"form-control flex-fill mr-1\" formControlName=\"name\">\n  </div>\n  <div>\n    <label>Email:</label>\n    <input class=\"form-control flex-fill mr-1\" formControlName=\"email\">\n  </div>\n  <div>\n    <label>Senha:</label>\n    <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"password\">\n  </div>\n  <div>\n    <label>Confirme a senha:</label>\n    <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"confirmPass\">\n  </div>\n  <div>\n    <button [disabled]=\"!newUserForm.valid\" class=\"btn btn-success btn-lg btn-block register-btn\" (click)=\"register()\">Entrar</button>\n  </div>\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/register/register.component.scss":
+/*!**************************************************!*\
+  !*** ./src/app/register/register.component.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".register-btn {\n  margin-top: 10px;\n  padding: 12px; }\n\n.new-user-form {\n  width: 400px;\n  padding-top: 50px;\n  margin: 0 auto; }\n\ninput.ng-invalid.ng-touched {\n  border: 1px solid red; }\n"
+
+/***/ }),
+
+/***/ "./src/app/register/register.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/register/register.component.ts ***!
+  \************************************************/
+/*! exports provided: RegisterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _customer_area_customer_area_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../customer-area/customer-area.service */ "./src/app/customer-area/customer-area.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var RegisterComponent = /** @class */ (function () {
+    function RegisterComponent(customerService) {
+        this.customerService = customerService;
+        this.newUserAdded = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    RegisterComponent.prototype.ngOnInit = function () {
+        this.createForm();
+    };
+    RegisterComponent.prototype.createForm = function () {
+        this.newUserForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required),
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email),
+            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required),
+            confirmPass: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required),
+        });
+    };
+    RegisterComponent.prototype.register = function () {
+        var _this = this;
+        var newUser = {};
+        newUser.name = this.newUserForm.get('name').value;
+        newUser.email = this.newUserForm.get('email').value;
+        newUser.password = this.newUserForm.get('password').value;
+        this.customerService.addNewClient(newUser).then(function (addedUser) {
+            _this.newUserForm.reset();
+            _this.newUserAdded.emit(addedUser);
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], RegisterComponent.prototype, "newUserAdded", void 0);
+    RegisterComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-register',
+            template: __webpack_require__(/*! ./register.component.html */ "./src/app/register/register.component.html"),
+            styles: [__webpack_require__(/*! ./register.component.scss */ "./src/app/register/register.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_customer_area_customer_area_service__WEBPACK_IMPORTED_MODULE_2__["CustomerAreaService"]])
+    ], RegisterComponent);
+    return RegisterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/util/auth-guard.ts":
+/*!************************************!*\
+  !*** ./src/app/util/auth-guard.ts ***!
+  \************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _login_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../login/login.service */ "./src/app/login/login.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(loginService, router) {
+        this.loginService = loginService;
+        this.router = router;
+    }
+    AuthGuard.prototype.canActivate = function () {
+        if (!this.isAuthenticated()) {
+            this.router.navigate(['home']);
+            return false;
+        }
+        return true;
+    };
+    AuthGuard.prototype.isAuthenticated = function () {
+        if (Object.keys(this.loginService.getUser()).length !== 0 &&
+            this.loginService.getUser() !== null &&
+            this.loginService.getUser() !== undefined) {
+            return true;
+        }
+        return false;
+    };
+    AuthGuard = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_login_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], AuthGuard);
+    return AuthGuard;
 }());
 
 

@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { Album } from '../model/model';
+import { ErrorService } from '../error/error.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    public errorService: ErrorService
   ) { }
 
   ngOnInit() {
@@ -37,7 +39,17 @@ export class LoginComponent implements OnInit {
       }
     ).catch(
       (error) => {
-        this.showError = true;
+        switch (error.status) {
+          case 503: {
+            this.errorService.setErrorTextSubject('Sem conexão com servidor');
+            break;
+          }
+          case 500: {
+            const err = JSON.parse(error.text());
+            this.errorService.setErrorTextSubject(err.message);
+            break;
+          }
+        }
       }
     );
   }

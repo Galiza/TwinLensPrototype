@@ -27,6 +27,8 @@ export class CustomerAreaComponent implements OnInit {
   public isGallery = false;
   public uploadPhoto = false;
 
+  public fetchingPhotos = false;
+
   public newUserForm: FormGroup;
   public selectedUser: User = {} as User;
 
@@ -40,11 +42,10 @@ export class CustomerAreaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.createForm();
     this.user = this.loginService.getUser();
-    if (Object.keys(this.user).length === 0 || this.user === undefined || this.user === null) {
+    /*if (Object.keys(this.user).length === 0 || this.user === undefined || this.user === null) {
       this.router.navigate(['/home']);
-    }
+    }*/
     if (this.user.isAdmin) {
       this.fetchClients();
     } else {
@@ -57,18 +58,10 @@ export class CustomerAreaComponent implements OnInit {
     };
   }
 
-  private createForm(): void {
-    this.newUserForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.email),
-      password: new FormControl('', Validators.required),
-      confirmPass: new FormControl('', Validators.required),
-    });
-  }
-
   public fetchClients(): void {
     this.isListClient = true;
     this.isRegister = false;
+    this.isGallery = false;
     this.images = [];
     if (this.userList.length === 0) {
       this.customerService.fetchClientList().then(
@@ -91,22 +84,6 @@ export class CustomerAreaComponent implements OnInit {
     this.isGallery = false;
     this.uploadPhoto = false;
     this.images = [];
-  }
-
-  public register(): void {
-    const newUser: User = {} as User;
-    newUser.name = this.newUserForm.get('name').value;
-    newUser.email = this.newUserForm.get('email').value;
-    newUser.password = this.newUserForm.get('password').value;
-
-    this.customerService.addNewClient(newUser).then(
-      (addedUser: User) => {
-        this.userList.push(addedUser);
-        this.newUserForm.reset();
-        this.isListClient = true;
-        this.isRegister = false;
-      }
-    );
   }
 
   public returnToClients(): void {
@@ -136,9 +113,10 @@ export class CustomerAreaComponent implements OnInit {
       (uploaded: boolean) => {
         if (uploaded) {
           let index = 0;
+          const downloadedImages: Image[] = [];
           this.files.forEach(
             (file) => {
-              this.images.push(new Image(
+              downloadedImages.push(new Image(
                 index,
                 {
                   img: this.sanitizeBase64(file)
@@ -147,6 +125,7 @@ export class CustomerAreaComponent implements OnInit {
               index++;
             }
           );
+          this.images = downloadedImages;
         }
         this.files = [];
         this.isGallery = true;
@@ -157,6 +136,7 @@ export class CustomerAreaComponent implements OnInit {
 
   private downloadAlbum(id: number): void {
     this.isGallery = true;
+    this.fetchingPhotos = true;
     this.customerService.getClientPhotos(id).then(
       (album: Album) => {
         if (album.photo === '') {
@@ -164,23 +144,24 @@ export class CustomerAreaComponent implements OnInit {
         }
         this.album = album;
         const files: string[] = JSON.parse(album.photo);
-        if (files !== null) {
-          if (files.length > 0) {
-            let index = 0;
-            files.forEach(
-              (file) => {
-                this.images.push(new Image(
-                  index,
-                  {
-                    img: this.sanitizeBase64(file)
-                  }
-                ));
-                index++;
-              }
-            );
-          }
+        if (files !== null && files.length > 0) {
+          let index = 0;
+          const downloadedImages: Image[] = [];
+          files.forEach(
+            (file) => {
+              downloadedImages.push(new Image(
+                index,
+                {
+                  img: this.sanitizeBase64(file)
+                }
+              ));
+              index++;
+            }
+          );
+          this.images = downloadedImages;
         }
-        this.galleryPhotos();
+        this.uploadPhoto = false;
+        this.fetchingPhotos = false;
       }
     );
   }
@@ -196,5 +177,15 @@ export class CustomerAreaComponent implements OnInit {
         this.userList = userList;
       }
     );
+  }
+
+  public logout(): void {
+    this.loginService.setUser({} as User);
+  }
+
+  public newUserAdded(newUser: User): void {
+    this.userList.push(newUser);
+    this.isRegister = false;
+    this.isListClient = true;
   }
 }
