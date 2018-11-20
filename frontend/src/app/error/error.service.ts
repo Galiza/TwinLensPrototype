@@ -7,7 +7,7 @@ import { Subject } from '../../../node_modules/rxjs';
 export class ErrorService {
 
   public errorTextSubject = new Subject<string>();
-  public showErrorSubject = new Subject<boolean>();
+  public showError = false;
 
   constructor() { }
 
@@ -19,11 +19,11 @@ export class ErrorService {
     return this.errorTextSubject;
   }
 
-  public setShowError(): void {
-    this.showErrorSubject.next(true);
+  public setShowError(showError: boolean): void {
+    this.showError = showError;
   }
 
-  public getShowError(): Subject<boolean> {
-    return this.showErrorSubject;
+  public getShowError(): boolean {
+    return this.showError;
   }
 }

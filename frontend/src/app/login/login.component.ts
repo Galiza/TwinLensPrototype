@@ -18,17 +18,11 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private router: Router,
-    private errorService: ErrorService
+    public errorService: ErrorService
   ) { }
 
   ngOnInit() {
     this.createForm();
-
-    this.errorService.getShowError().subscribe(
-      (show) => {
-        this.showError = show;
-      }
-    );
   }
 
   private createForm(): void {
