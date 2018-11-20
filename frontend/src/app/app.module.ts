@@ -24,6 +24,7 @@ import { ModalGalleryModule } from '@ks89/angular-modal-gallery';
 import { ImageUploadModule } from 'angular2-image-upload';
 import 'hammerjs';
 import 'mousetrap';
+import { ErrorComponent } from './error/error.component';
 
 const appRoutes: Routes = [
   {
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     CustomerAreaComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

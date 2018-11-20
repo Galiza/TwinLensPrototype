@@ -118,6 +118,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_19__);
 /* harmony import */ var mousetrap__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! mousetrap */ "./node_modules/mousetrap/mousetrap.js");
 /* harmony import */ var mousetrap__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(mousetrap__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _error_error_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./error/error.component */ "./src/app/error/error.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -139,6 +140,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // Imported Modules
+
 
 
 
@@ -173,7 +175,8 @@ var AppModule = /** @class */ (function () {
                 _customer_area_customer_area_component__WEBPACK_IMPORTED_MODULE_7__["CustomerAreaComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
-                _register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"]
+                _register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"],
+                _error_error_component__WEBPACK_IMPORTED_MODULE_21__["ErrorComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -544,6 +547,122 @@ var CustomerAreaService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/error/error.component.html":
+/*!********************************************!*\
+  !*** ./src/app/error/error.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"error-div\">\n  <span>\n    {{errorText}}\n  </span>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/error/error.component.scss":
+/*!********************************************!*\
+  !*** ./src/app/error/error.component.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".error-div {\n  min-width: 400px;\n  background: red;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  margin-bottom: 50px;\n  padding: 5px 0px;\n  color: white;\n  font-weight: bold; }\n"
+
+/***/ }),
+
+/***/ "./src/app/error/error.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/error/error.component.ts ***!
+  \******************************************/
+/*! exports provided: ErrorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorComponent", function() { return ErrorComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _error_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error.service */ "./src/app/error/error.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ErrorComponent = /** @class */ (function () {
+    function ErrorComponent(errorService) {
+        this.errorService = errorService;
+    }
+    ErrorComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.errorService.getErrorTextSubject().subscribe(function (errorMsg) {
+            _this.errorText = errorMsg;
+        });
+    };
+    ErrorComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-error',
+            template: __webpack_require__(/*! ./error.component.html */ "./src/app/error/error.component.html"),
+            styles: [__webpack_require__(/*! ./error.component.scss */ "./src/app/error/error.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_error_service__WEBPACK_IMPORTED_MODULE_1__["ErrorService"]])
+    ], ErrorComponent);
+    return ErrorComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/error/error.service.ts":
+/*!****************************************!*\
+  !*** ./src/app/error/error.service.ts ***!
+  \****************************************/
+/*! exports provided: ErrorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorService", function() { return ErrorService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ErrorService = /** @class */ (function () {
+    function ErrorService() {
+        this.errorTextSubject = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+    }
+    ErrorService.prototype.setErrorTextSubject = function (error) {
+        this.errorTextSubject.next(error);
+    };
+    ErrorService.prototype.getErrorTextSubject = function () {
+        return this.errorTextSubject;
+    };
+    ErrorService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], ErrorService);
+    return ErrorService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/home/home.component.html":
 /*!******************************************!*\
   !*** ./src/app/home/home.component.html ***!
@@ -628,7 +747,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-div\">\n  <div *ngIf=\"showError\" class=\"error-div\">\n    <span>\n      EMAIL/SENHA INCORRETOS\n    </span>\n  </div>\n  <div class=\"form-div\">\n    <form [formGroup]=\"loginForm\">\n      <div style=\"padding-bottom: 0;\">\n        <label>Email:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"text\" formControlName=\"email\">\n      </div>\n      <div>\n        <label>Senha:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"password\" formControlName=\"password\">\n      </div>\n      <div>\n        <button class=\"btn btn-success btn-lg btn-block\" (click)=\"submit()\">Entrar</button>\n        <button class=\"btn btn-danger btn-lg btn-block\" (click)=\"cancel()\">Cancelar</button>\n      </div>\n    </form>\n  </div>\n</div>"
+module.exports = "<div class=\"main-div\">\n  <div *ngIf=\"showError\">\n    <app-error></app-error>\n  </div>\n  <div class=\"form-div\">\n    <form [formGroup]=\"loginForm\">\n      <div style=\"padding-bottom: 0;\">\n        <label>Email:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"text\" formControlName=\"email\">\n      </div>\n      <div>\n        <label>Senha:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"password\" formControlName=\"password\">\n      </div>\n      <div>\n        <button class=\"btn btn-success btn-lg btn-block\" (click)=\"submit()\">Entrar</button>\n        <button class=\"btn btn-danger btn-lg btn-block\" (click)=\"cancel()\">Cancelar</button>\n      </div>\n    </form>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -639,7 +758,7 @@ module.exports = "<div class=\"main-div\">\n  <div *ngIf=\"showError\" class=\"e
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "button {\n  padding: 12px; }\n\n.main-div {\n  padding-top: 200px;\n  background-color: #dadada;\n  height: -webkit-fill-available;\n  width: 100%; }\n\n.error-div {\n  width: 400px;\n  background: red;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  margin-bottom: 50px;\n  padding: 5px 0px; }\n\n.form-div {\n  padding: 15px;\n  height: 328px;\n  width: 400px;\n  margin: 0 auto;\n  background-color: white;\n  border-radius: 10px; }\n\n.form-div div {\n    padding: 15px; }\n"
+module.exports = "button {\n  padding: 12px; }\n\n.main-div {\n  padding-top: 200px;\n  background-color: #dadada;\n  height: -webkit-fill-available;\n  width: 100%; }\n\n.form-div {\n  padding: 15px;\n  height: 328px;\n  width: 400px;\n  margin: 0 auto;\n  background-color: white;\n  border-radius: 10px; }\n\n.form-div div {\n    padding: 15px; }\n"
 
 /***/ }),
 
@@ -657,6 +776,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login.service */ "./src/app/login/login.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _error_error_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../error/error.service */ "./src/app/error/error.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -670,10 +790,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(loginService, router) {
+    function LoginComponent(loginService, router, errorService) {
         this.loginService = loginService;
         this.router = router;
+        this.errorService = errorService;
         this.showError = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
@@ -690,6 +812,9 @@ var LoginComponent = /** @class */ (function () {
         this.loginService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).then(function () {
             _this.router.navigate(['/customer-area']);
         }).catch(function (error) {
+            if (error.status === 503) {
+                _this.errorService.setErrorTextSubject('Sem conexão com servidor');
+            }
             _this.showError = true;
         });
     };
@@ -703,7 +828,8 @@ var LoginComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/login/login.component.scss")]
         }),
         __metadata("design:paramtypes", [_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _error_error_service__WEBPACK_IMPORTED_MODULE_4__["ErrorService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -774,7 +900,6 @@ var LoginService = /** @class */ (function () {
                         _this.setUser(user);
                     }
                 }).catch(function (error) {
-                    console.log(error);
                     reject(error);
                 });
             }
@@ -924,7 +1049,7 @@ var AuthGuard = /** @class */ (function () {
     }
     AuthGuard.prototype.canActivate = function () {
         if (!this.isAuthenticated()) {
-            this.router.navigate(['login']);
+            this.router.navigate(['home']);
             return false;
         }
         return true;
