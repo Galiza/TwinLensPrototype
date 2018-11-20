@@ -20,7 +20,10 @@ export class AuthGuard implements CanActivate {
 
 
     private isAuthenticated(): boolean {
-        if (this.loginService.getUser() !== null && this.loginService.getUser() !== undefined) {
+        if (Object.keys(this.loginService.getUser()).length !== 0 &&
+            this.loginService.getUser() !== null &&
+            this.loginService.getUser() !== undefined
+        ) {
             return true;
         }
         return false;

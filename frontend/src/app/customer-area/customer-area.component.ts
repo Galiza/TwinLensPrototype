@@ -179,6 +179,10 @@ export class CustomerAreaComponent implements OnInit {
     );
   }
 
+  public logout(): void {
+    this.loginService.setUser({} as User);
+  }
+
   public newUserAdded(newUser: User): void {
     this.userList.push(newUser);
     this.isRegister = false;

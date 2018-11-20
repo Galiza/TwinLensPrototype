@@ -224,12 +224,6 @@ footer a,footer a:hover{
     font-weight: 600;
 }
 
-input {
-    &.ng-invalid.ng-touched{
-        border: 1px solid red;
-    }
-}
-
 .list-client-div{
     width: 500px;
     padding-top: 20px;
