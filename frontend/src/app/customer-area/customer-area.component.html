@@ -97,17 +97,19 @@
       </div>
     </div>
     <div *ngIf="!uploadPhoto">
-      <ks-modal-gallery [id]="0" [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery>
+      <div>
+        <h2 *ngIf="fetchingPhotos">Baixando fotos</h2>
+        <p-progressSpinner strokeWidth="8"></p-progressSpinner>
+      </div>
+      <div *ngIf="!fetchingPhotos">
+        <ks-modal-gallery [id]="0" [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery>
+      </div>
     </div>
     <div *ngIf="uploadPhoto" class="uploader">
       <button class="upload-btn" [disabled]="files.length === 0" (click)="savePhotos()">FAZER UPLOAD</button>
-      <image-upload
-        [buttonCaption]="'Selecione as imagens'"
-        [dropBoxMessage]="'Arraste as imagens aqui.'"
-         [extensions]="['jpg','jpeg','png']"
-        (uploadFinished)="onUploadFinished($event)"
-        >
+      <image-upload [buttonCaption]="'Selecione as imagens'" [dropBoxMessage]="'Arraste as imagens aqui.'" [extensions]="['jpg','jpeg','png']"
+        (uploadFinished)="onUploadFinished($event)">
       </image-upload>
     </div>
   </div>
-</div> 
+</div>

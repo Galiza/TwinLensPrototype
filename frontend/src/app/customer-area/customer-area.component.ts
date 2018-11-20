@@ -27,6 +27,8 @@ export class CustomerAreaComponent implements OnInit {
   public isGallery = false;
   public uploadPhoto = false;
 
+  public fetchingPhotos = false;
+
   public newUserForm: FormGroup;
   public selectedUser: User = {} as User;
 
@@ -117,6 +119,14 @@ export class CustomerAreaComponent implements OnInit {
     this.album = {} as Album;
   }
 
+  public uploadPhotos(): void {
+    this.uploadPhoto = true;
+  }
+
+  public galleryPhotos(): void {
+    this.uploadPhoto = false;
+  }
+
   public onUploadFinished(event): void {
     this.files.push(event.src);
   }
@@ -151,6 +161,7 @@ export class CustomerAreaComponent implements OnInit {
 
   private downloadAlbum(id: number): void {
     this.isGallery = true;
+    this.fetchingPhotos = true;
     this.customerService.getClientPhotos(id).then(
       (album: Album) => {
         if (album.photo === '') {
@@ -175,6 +186,7 @@ export class CustomerAreaComponent implements OnInit {
           this.images = downloadedImages;
         }
         this.uploadPhoto = false;
+        this.fetchingPhotos = false;
       }
     );
   }

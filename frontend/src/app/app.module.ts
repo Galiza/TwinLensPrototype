@@ -18,6 +18,7 @@ import { TableModule } from 'primeng/table';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { FileUploadModule } from 'primeng/fileupload';
 import { DialogModule } from 'primeng/dialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ModalGalleryModule } from '@ks89/angular-modal-gallery';
 import { ImageUploadModule } from 'angular2-image-upload';
 import 'hammerjs';
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
     FileUploadModule,
     DialogModule,
     TabMenuModule,
+    ProgressSpinnerModule,
     TableModule,
     ImageUploadModule.forRoot(),
     ModalGalleryModule.forRoot({ shortcuts: ['ctrl+a', 'ctrl+s', 'meta+s'] }),
