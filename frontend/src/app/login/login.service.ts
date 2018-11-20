@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Login, User } from '../model/model';
-import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { CustomerAreaComponent } from './customer-area/customer-area.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './util/auth-guard';
 
 // Imported Modules
 import { TableModule } from 'primeng/table';
@@ -23,10 +24,19 @@ import 'hammerjs';
 import 'mousetrap';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'customer-area', component: CustomerAreaComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '**', redirectTo: 'home' }
+  {
+    path: 'home', component: HomeComponent,
+  },
+  {
+    path: 'customer-area', component: CustomerAreaComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: '**', redirectTo: 'home'
+  }
 ];
 
 @NgModule({
@@ -49,7 +59,10 @@ const appRoutes: Routes = [
     ModalGalleryModule.forRoot({ shortcuts: ['ctrl+a', 'ctrl+s', 'meta+s'] }),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

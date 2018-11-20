@@ -117,14 +117,6 @@ export class CustomerAreaComponent implements OnInit {
     this.album = {} as Album;
   }
 
-  public uploadPhotos(): void {
-    this.uploadPhoto = true;
-  }
-
-  public galleryPhotos(): void {
-    this.uploadPhoto = false;
-  }
-
   public onUploadFinished(event): void {
     this.files.push(event.src);
   }
@@ -136,9 +128,10 @@ export class CustomerAreaComponent implements OnInit {
       (uploaded: boolean) => {
         if (uploaded) {
           let index = 0;
+          const downloadedImages: Image[] = [];
           this.files.forEach(
             (file) => {
-              this.images.push(new Image(
+              downloadedImages.push(new Image(
                 index,
                 {
                   img: this.sanitizeBase64(file)
@@ -147,6 +140,7 @@ export class CustomerAreaComponent implements OnInit {
               index++;
             }
           );
+          this.images = downloadedImages;
         }
         this.files = [];
         this.isGallery = true;
@@ -164,23 +158,23 @@ export class CustomerAreaComponent implements OnInit {
         }
         this.album = album;
         const files: string[] = JSON.parse(album.photo);
-        if (files !== null) {
-          if (files.length > 0) {
-            let index = 0;
-            files.forEach(
-              (file) => {
-                this.images.push(new Image(
-                  index,
-                  {
-                    img: this.sanitizeBase64(file)
-                  }
-                ));
-                index++;
-              }
-            );
-          }
+        if (files !== null && files.length > 0) {
+          let index = 0;
+          const downloadedImages: Image[] = [];
+          files.forEach(
+            (file) => {
+              downloadedImages.push(new Image(
+                index,
+                {
+                  img: this.sanitizeBase64(file)
+                }
+              ));
+              index++;
+            }
+          );
+          this.images = downloadedImages;
         }
-        this.galleryPhotos();
+        this.uploadPhoto = false;
       }
     );
   }
