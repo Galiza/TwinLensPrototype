@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { CustomerAreaComponent } from './customer-area/customer-area.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './util/auth-guard';
 
 // Imported Modules
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     AppComponent,
     CustomerAreaComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

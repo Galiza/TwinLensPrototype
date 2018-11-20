@@ -42,11 +42,10 @@ export class CustomerAreaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.createForm();
     this.user = this.loginService.getUser();
-    if (Object.keys(this.user).length === 0 || this.user === undefined || this.user === null) {
+    /*if (Object.keys(this.user).length === 0 || this.user === undefined || this.user === null) {
       this.router.navigate(['/home']);
-    }
+    }*/
     if (this.user.isAdmin) {
       this.fetchClients();
     } else {
@@ -59,18 +58,10 @@ export class CustomerAreaComponent implements OnInit {
     };
   }
 
-  private createForm(): void {
-    this.newUserForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.email),
-      password: new FormControl('', Validators.required),
-      confirmPass: new FormControl('', Validators.required),
-    });
-  }
-
   public fetchClients(): void {
     this.isListClient = true;
     this.isRegister = false;
+    this.isGallery = false;
     this.images = [];
     if (this.userList.length === 0) {
       this.customerService.fetchClientList().then(
@@ -93,22 +84,6 @@ export class CustomerAreaComponent implements OnInit {
     this.isGallery = false;
     this.uploadPhoto = false;
     this.images = [];
-  }
-
-  public register(): void {
-    const newUser: User = {} as User;
-    newUser.name = this.newUserForm.get('name').value;
-    newUser.email = this.newUserForm.get('email').value;
-    newUser.password = this.newUserForm.get('password').value;
-
-    this.customerService.addNewClient(newUser).then(
-      (addedUser: User) => {
-        this.userList.push(addedUser);
-        this.newUserForm.reset();
-        this.isListClient = true;
-        this.isRegister = false;
-      }
-    );
   }
 
   public returnToClients(): void {
@@ -202,5 +177,11 @@ export class CustomerAreaComponent implements OnInit {
         this.userList = userList;
       }
     );
+  }
+
+  public newUserAdded(newUser: User): void {
+    this.userList.push(newUser);
+    this.isRegister = false;
+    this.isListClient = true;
   }
 }
