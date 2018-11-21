@@ -37,6 +37,7 @@ export class CustomerAreaService {
                     }
                 ).catch(
                     (error) => {
+                        this.errorService.errorHandler(error);
                         reject(error);
                     }
                 );

@@ -461,6 +461,7 @@ var CustomerAreaService = /** @class */ (function () {
                     resolve(user);
                 }
             }).catch(function (error) {
+                _this.errorService.errorHandler(error);
                 reject(error);
             });
         });
