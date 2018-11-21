@@ -57,5 +57,4 @@ export class LoginComponent implements OnInit {
   public cancel(): void {
     this.router.navigate(['/home']);
   }
-
 }

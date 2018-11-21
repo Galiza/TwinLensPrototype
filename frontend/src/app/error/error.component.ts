@@ -8,7 +8,8 @@ import { ErrorService } from './error.service';
 })
 export class ErrorComponent implements OnInit {
 
-  public errorText: string;
+  public errorText = '';
+  public showError = false;
 
   constructor(
     private errorService: ErrorService
@@ -18,7 +19,7 @@ export class ErrorComponent implements OnInit {
     this.errorService.getErrorTextSubject().subscribe(
       (errorMsg: string) => {
         this.errorText = errorMsg;
-        this.errorService.setShowError(true);
+        this.showError = true;
       }
     );
   }

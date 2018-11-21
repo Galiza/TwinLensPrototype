@@ -554,7 +554,7 @@ var CustomerAreaService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"error-div\">\n  <span>\n    {{errorText}}\n  </span>\n</div>"
+module.exports = "<div class=\"error-div\" *ngIf=\"showError\">\n  <span>\n    {{errorText}}\n  </span>\n</div>"
 
 /***/ }),
 
@@ -595,12 +595,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var ErrorComponent = /** @class */ (function () {
     function ErrorComponent(errorService) {
         this.errorService = errorService;
+        this.errorText = '';
+        this.showError = false;
     }
     ErrorComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.errorService.getErrorTextSubject().subscribe(function (errorMsg) {
             _this.errorText = errorMsg;
-            _this.errorService.setShowError(true);
+            _this.showError = true;
         });
     };
     ErrorComponent = __decorate([
@@ -644,19 +646,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var ErrorService = /** @class */ (function () {
     function ErrorService() {
         this.errorTextSubject = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
-        this.showError = false;
     }
     ErrorService.prototype.setErrorTextSubject = function (error) {
         this.errorTextSubject.next(error);
     };
     ErrorService.prototype.getErrorTextSubject = function () {
         return this.errorTextSubject;
-    };
-    ErrorService.prototype.setShowError = function (showError) {
-        this.showError = showError;
-    };
-    ErrorService.prototype.getShowError = function () {
-        return this.showError;
     };
     ErrorService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -755,7 +750,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-div\">\n  <div *ngIf=\"errorService.getShowError()\">\n    <app-error></app-error>\n  </div>\n  <div class=\"form-div\">\n    <form [formGroup]=\"loginForm\">\n      <div style=\"padding-bottom: 0;\">\n        <label>Email:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"text\" formControlName=\"email\">\n      </div>\n      <div>\n        <label>Senha:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"password\" formControlName=\"password\">\n      </div>\n      <div>\n        <button class=\"btn btn-success btn-lg btn-block\" (click)=\"submit()\">Entrar</button>\n        <button class=\"btn btn-danger btn-lg btn-block\" (click)=\"cancel()\">Cancelar</button>\n      </div>\n    </form>\n  </div>\n</div>"
+module.exports = "<div class=\"main-div\">\n  <div style=\"all: unset;\">\n    <app-error></app-error>\n  </div>\n  <div class=\"form-div\">\n    <form [formGroup]=\"loginForm\">\n      <div style=\"padding-bottom: 0;\">\n        <label>Email:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"text\" formControlName=\"email\">\n      </div>\n      <div>\n        <label>Senha:</label>\n        <input class=\"form-control flex-fill mr-1\" type=\"password\" formControlName=\"password\">\n      </div>\n      <div>\n        <button class=\"btn btn-success btn-lg btn-block\" (click)=\"submit()\">Entrar</button>\n        <button class=\"btn btn-danger btn-lg btn-block\" (click)=\"cancel()\">Cancelar</button>\n      </div>\n    </form>\n  </div>\n</div>"
 
 /***/ }),
 
