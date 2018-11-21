@@ -39,17 +39,7 @@ export class LoginComponent implements OnInit {
       }
     ).catch(
       (error) => {
-        switch (error.status) {
-          case 503: {
-            this.errorService.setErrorTextSubject('Sem conexão com servidor');
-            break;
-          }
-          case 500: {
-            const err = JSON.parse(error.text());
-            this.errorService.setErrorTextSubject(err.message);
-            break;
-          }
-        }
+        this.errorService.errorHandler(error);
       }
     );
   }

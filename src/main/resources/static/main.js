@@ -224,7 +224,7 @@ module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300);\nbody {\n  font-family: 'Quicksand', sans-serif; }\n.gal-container {\n  padding: 12px; }\n.gal-item {\n  overflow: hidden;\n  padding: 3px; }\n.gal-item .box {\n  height: 350px;\n  overflow: hidden; }\n.box img {\n  height: 100%;\n  width: 100%;\n  object-fit: cover;\n  -o-object-fit: cover; }\n.gal-item a:focus {\n  outline: none; }\n.gal-item a:after {\n  content: \"\\e003\";\n  font-family: 'Glyphicons Halflings';\n  opacity: 0;\n  background-color: rgba(0, 0, 0, 0.75);\n  position: absolute;\n  right: 3px;\n  left: 3px;\n  top: 3px;\n  bottom: 3px;\n  text-align: center;\n  line-height: 350px;\n  font-size: 30px;\n  color: #fff;\n  transition: all 0.5s ease-in-out 0s; }\n.gal-item a:hover:after {\n  opacity: 1; }\n.modal-open .gal-container .modal {\n  background-color: rgba(0, 0, 0, 0.4); }\n.modal-open .gal-item .modal-body {\n  padding: 0px; }\n.modal-open .gal-item button.close {\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  background-color: #000;\n  opacity: 1;\n  color: #fff;\n  z-index: 999;\n  right: -12px;\n  top: -12px;\n  border-radius: 50%;\n  font-size: 15px;\n  border: 2px solid #fff;\n  line-height: 25px;\n  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.35); }\n.modal-open .gal-item button.close:focus {\n  outline: none; }\n.modal-open .gal-item button.close span {\n  position: relative;\n  top: -3px;\n  font-weight: lighter;\n  text-shadow: none; }\n.gal-container .modal-dialogue {\n  width: 80%; }\n.gal-container .description {\n  position: relative;\n  height: 40px;\n  top: -40px;\n  padding: 10px 25px;\n  background-color: rgba(0, 0, 0, 0.5);\n  color: #fff;\n  text-align: left; }\n.gal-container .description h4 {\n  margin: 0px;\n  font-size: 15px;\n  font-weight: 300;\n  line-height: 20px; }\n.gal-container .modal.fade .modal-dialog {\n  -webkit-transform: scale(0.1);\n  transform: scale(0.1);\n  top: 100px;\n  opacity: 0;\n  transition: all 0.3s; }\n.gal-container .modal.fade.in .modal-dialog {\n  -webkit-transform: scale(1);\n  transform: scale(1);\n  -webkit-transform: translate3d(0, -100px, 0);\n  transform: translate3d(0, -100px, 0);\n  opacity: 1; }\n@media (min-width: 768px) {\n  .gal-container .modal-dialog {\n    width: 55%;\n    margin: 50 auto; } }\n@media (max-width: 768px) {\n  .gal-container .modal-content {\n    height: 250px; } }\n/* Footer Style */\ni.red {\n  color: #BC0213; }\n.gal-container {\n  padding-top: 75px;\n  padding-bottom: 75px; }\nfooter {\n  font-family: 'Quicksand', sans-serif; }\nfooter a, footer a:hover {\n  color: #88C425; }\n.modal-body {\n  padding: 0;\n  padding-top: 1rem; }\n.modal-header {\n  border-bottom: unset;\n  padding: 0.5rem; }\n.close {\n  margin: 0;\n  margin-bottom: -1rem;\n  padding: 0;\n  padding-right: 7px; }\n.modal-footer {\n  border-top: unset;\n  padding: 5px 15px; }\n.modal-footer button {\n    padding: 10px 28px; }\n.buttons {\n  padding-left: 75px; }\n.buttons button {\n    border: unset;\n    background-color: transparent; }\n.buttons button:hover {\n      cursor: pointer; }\n.upload-btn {\n  position: absolute;\n  z-index: 1;\n  right: 0;\n  margin-top: 15px;\n  border: unset;\n  color: white;\n  background-color: #3C9;\n  font-family: sans-serif;\n  margin-right: 50px; }\n.upload-btn:disabled {\n    background-color: #397460; }\n.uploader {\n  padding: 0px 30px; }\n.selected-username {\n  padding-left: 310px;\n  font-size: 25px;\n  font-weight: 600; }\n.remove-styles {\n  border: unset;\n  background-color: transparent; }\n.is-gallery {\n  padding-top: 10px;\n  padding-left: 30px;\n  margin: 0;\n  padding-right: 30px; }\n.fetch-client-btn {\n  margin-right: 20px; }\n.active {\n  font-weight: 600; }\n.list-client-div {\n  width: 500px;\n  padding-top: 20px; }\n.list-client-div {\n  margin: 0 auto; }\n.client-list-title {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: center;\n  padding-bottom: 20px; }\ntd {\n  text-align: center;\n  width: 250px;\n  font-size: 18px; }\ntd:first-child {\n    border-right: 1px solid black; }\nth {\n  text-align: center;\n  font-size: 18px;\n  font-weight: 600;\n  width: 250px; }\n.body-tr:hover {\n  background-color: white !important;\n  font-weight: 600;\n  cursor: pointer; }\n.client-name, .client-email {\n  border-bottom: 1px solid black; }\n.client-name {\n  border-right: 1px solid black; }\nbutton:hover {\n  cursor: pointer; }\n.btn-success.disabled, .btn-success:disabled {\n  background-color: #486f51 !important;\n  border-color: #486f51 !important; }\n.remove-btn {\n  all: unset; }\n.remove-btn:hover {\n    cursor: pointer; }\n.no-customer {\n  border-right: unset !important;\n  font-weight: bold; }\n.td-remove-btn {\n  width: 25px !important; }\n.btn-list-admin {\n  margin: 0;\n  border-bottom: 1px solid black; }\n.bottom-div {\n  padding-top: 56px;\n  background-color: #c3c3c3;\n  height: -webkit-fill-available;\n  width: 100%; }\n.loading-gif {\n  width: 100px; }\n.loading-div, .no-photo {\n  text-align: center;\n  margin-top: 100px; }\n.loading-div h2, .no-photo h2 {\n    color: white;\n    font-weight: bold; }\n"
+module.exports = "@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300);\nbody {\n  font-family: 'Quicksand', sans-serif; }\n.gal-container {\n  padding: 12px; }\n.gal-item {\n  overflow: hidden;\n  padding: 3px; }\n.gal-item .box {\n  height: 350px;\n  overflow: hidden; }\n.box img {\n  height: 100%;\n  width: 100%;\n  object-fit: cover;\n  -o-object-fit: cover; }\n.gal-item a:focus {\n  outline: none; }\n.gal-item a:after {\n  content: \"\\e003\";\n  font-family: 'Glyphicons Halflings';\n  opacity: 0;\n  background-color: rgba(0, 0, 0, 0.75);\n  position: absolute;\n  right: 3px;\n  left: 3px;\n  top: 3px;\n  bottom: 3px;\n  text-align: center;\n  line-height: 350px;\n  font-size: 30px;\n  color: #fff;\n  transition: all 0.5s ease-in-out 0s; }\n.gal-item a:hover:after {\n  opacity: 1; }\n.modal-open .gal-container .modal {\n  background-color: rgba(0, 0, 0, 0.4); }\n.modal-open .gal-item .modal-body {\n  padding: 0px; }\n.modal-open .gal-item button.close {\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  background-color: #000;\n  opacity: 1;\n  color: #fff;\n  z-index: 999;\n  right: -12px;\n  top: -12px;\n  border-radius: 50%;\n  font-size: 15px;\n  border: 2px solid #fff;\n  line-height: 25px;\n  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.35); }\n.modal-open .gal-item button.close:focus {\n  outline: none; }\n.modal-open .gal-item button.close span {\n  position: relative;\n  top: -3px;\n  font-weight: lighter;\n  text-shadow: none; }\n.gal-container .modal-dialogue {\n  width: 80%; }\n.gal-container .description {\n  position: relative;\n  height: 40px;\n  top: -40px;\n  padding: 10px 25px;\n  background-color: rgba(0, 0, 0, 0.5);\n  color: #fff;\n  text-align: left; }\n.gal-container .description h4 {\n  margin: 0px;\n  font-size: 15px;\n  font-weight: 300;\n  line-height: 20px; }\n.gal-container .modal.fade .modal-dialog {\n  -webkit-transform: scale(0.1);\n  transform: scale(0.1);\n  top: 100px;\n  opacity: 0;\n  transition: all 0.3s; }\n.gal-container .modal.fade.in .modal-dialog {\n  -webkit-transform: scale(1);\n  transform: scale(1);\n  -webkit-transform: translate3d(0, -100px, 0);\n  transform: translate3d(0, -100px, 0);\n  opacity: 1; }\n@media (min-width: 768px) {\n  .gal-container .modal-dialog {\n    width: 55%;\n    margin: 50 auto; } }\n@media (max-width: 768px) {\n  .gal-container .modal-content {\n    height: 250px; } }\n/* Footer Style */\ni.red {\n  color: #BC0213; }\n.gal-container {\n  padding-top: 75px;\n  padding-bottom: 75px; }\nfooter {\n  font-family: 'Quicksand', sans-serif; }\nfooter a, footer a:hover {\n  color: #88C425; }\n.modal-body {\n  padding: 0;\n  padding-top: 1rem; }\n.modal-header {\n  border-bottom: unset;\n  padding: 0.5rem; }\n.close {\n  margin: 0;\n  margin-bottom: -1rem;\n  padding: 0;\n  padding-right: 7px; }\n.modal-footer {\n  border-top: unset;\n  padding: 5px 15px; }\n.modal-footer button {\n    padding: 10px 28px; }\n.buttons {\n  padding-left: 75px; }\n.buttons button {\n    border: unset;\n    background-color: transparent; }\n.buttons button:hover {\n      cursor: pointer; }\n.upload-btn {\n  position: absolute;\n  z-index: 1;\n  right: 0;\n  margin-top: 15px;\n  border: unset;\n  color: white;\n  background-color: #3C9;\n  font-family: sans-serif;\n  margin-right: 50px; }\n.upload-btn:disabled {\n    background-color: #397460; }\n.uploader {\n  padding: 0px 30px; }\n.selected-username {\n  padding-left: 310px;\n  font-size: 25px;\n  font-weight: 600; }\n.remove-styles {\n  border: unset;\n  background-color: transparent; }\n.is-gallery {\n  padding-top: 10px;\n  padding-left: 30px;\n  margin: 0;\n  padding-right: 30px; }\n.fetch-client-btn {\n  margin-right: 20px; }\n.active {\n  font-weight: 600; }\n.list-client-div {\n  width: 500px;\n  padding-top: 20px; }\n.list-client-div {\n  margin: 0 auto; }\n.client-list-title {\n  font-size: 26px;\n  font-weight: 600;\n  text-align: center;\n  padding-bottom: 20px; }\ntd {\n  text-align: center;\n  width: 250px;\n  font-size: 18px; }\ntd:first-child {\n    border-right: 1px solid black; }\nth {\n  text-align: center;\n  font-size: 18px;\n  font-weight: 600;\n  width: 250px; }\n.body-tr:hover {\n  background-color: white !important;\n  font-weight: 600;\n  cursor: pointer; }\n.client-name, .client-email {\n  border-bottom: 1px solid black; }\n.client-name {\n  border-right: 1px solid black; }\nbutton:hover {\n  cursor: pointer; }\n.btn-success.disabled, .btn-success:disabled {\n  background-color: #486f51 !important;\n  border-color: #486f51 !important; }\n.remove-btn {\n  all: unset; }\n.remove-btn:hover {\n    cursor: pointer; }\n.no-customer {\n  border-right: unset !important;\n  font-weight: bold; }\n.td-remove-btn {\n  width: 25px !important; }\n.btn-list-admin {\n  margin: 0;\n  margin-bottom: 10px;\n  border-bottom: 1px solid black; }\n.bottom-div {\n  padding-top: 56px;\n  background-color: #c3c3c3;\n  height: -webkit-fill-available;\n  width: 100%; }\n.loading-gif {\n  width: 100px; }\n.loading-div, .no-photo {\n  text-align: center;\n  margin-top: 100px; }\n.loading-div h2, .no-photo h2 {\n    color: white;\n    font-weight: bold; }\n"
 
 /***/ }),
 
@@ -533,16 +533,7 @@ var CustomerAreaService = /** @class */ (function () {
                     resolve(JSON.parse(response.text()));
                 }
             }).catch(function (error) {
-                switch (error.status) {
-                    case 500: {
-                        var err = JSON.parse(error.text());
-                        _this.errorService.setErrorTextSubject(err.message);
-                        break;
-                    }
-                    case 505: {
-                        break;
-                    }
-                }
+                _this.errorService.errorHandler(error);
                 reject(error);
             });
         });
@@ -568,7 +559,7 @@ var CustomerAreaService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"error-div\" *ngIf=\"showError\">\n  <span>\n    {{errorText}}\n  </span>\n</div>"
+module.exports = "<div class=\"error-div\" *ngIf=\"showError\">\n  <span>\n    {{errorText}}\n  </span>\n  <button class=\"close-btn\" (click)=\"closeError()\">\n    <span class=\"close-span\">X</span>\n  </button>\n</div>"
 
 /***/ }),
 
@@ -579,7 +570,7 @@ module.exports = "<div class=\"error-div\" *ngIf=\"showError\">\n  <span>\n    {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".error-div {\n  width: 450px;\n  background: red;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  margin-bottom: 50px;\n  padding: 5px 0px;\n  font-weight: bold; }\n"
+module.exports = ".error-div {\n  width: 450px;\n  background: #de3838;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  padding: 5px 0px;\n  font-weight: bold;\n  color: white; }\n\n.close-btn {\n  background-color: transparent;\n  border: transparent; }\n\n.close-btn:hover {\n    cursor: pointer; }\n\n.close-btn span {\n    color: white;\n    font-weight: bold; }\n"
 
 /***/ }),
 
@@ -618,6 +609,9 @@ var ErrorComponent = /** @class */ (function () {
             _this.errorText = errorMsg;
             _this.showError = true;
         });
+    };
+    ErrorComponent.prototype.closeError = function () {
+        this.showError = false;
     };
     ErrorComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -666,6 +660,19 @@ var ErrorService = /** @class */ (function () {
     };
     ErrorService.prototype.getErrorTextSubject = function () {
         return this.errorTextSubject;
+    };
+    ErrorService.prototype.errorHandler = function (error) {
+        switch (error.status) {
+            case 503: {
+                this.setErrorTextSubject('Sem conexão com servidor');
+                break;
+            }
+            case 500: {
+                var err = JSON.parse(error.text());
+                this.setErrorTextSubject(err.message);
+                break;
+            }
+        }
     };
     ErrorService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -829,17 +836,7 @@ var LoginComponent = /** @class */ (function () {
         this.loginService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).then(function () {
             _this.router.navigate(['/customer-area']);
         }).catch(function (error) {
-            switch (error.status) {
-                case 503: {
-                    _this.errorService.setErrorTextSubject('Sem conexão com servidor');
-                    break;
-                }
-                case 500: {
-                    var err = JSON.parse(error.text());
-                    _this.errorService.setErrorTextSubject(err.message);
-                    break;
-                }
-            }
+            _this.errorService.errorHandler(error);
         });
     };
     LoginComponent.prototype.cancel = function () {

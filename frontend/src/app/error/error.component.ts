@@ -24,4 +24,8 @@ export class ErrorComponent implements OnInit {
     );
   }
 
+  public closeError(): void {
+    this.showError = false;
+  }
+
 }

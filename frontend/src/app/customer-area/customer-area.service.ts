@@ -141,17 +141,7 @@ export class CustomerAreaService {
                     }
                 ).catch(
                     (error) => {
-                        switch (error.status) {
-                            case 500: {
-                                const err = JSON.parse(error.text());
-                                this.errorService.setErrorTextSubject(err.message);
-                                break;
-                            }
-                            case 505: {
-
-                                break;
-                            }
-                        }
+                        this.errorService.errorHandler(error);
                         reject(error);
                     }
                 );

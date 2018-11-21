@@ -17,4 +17,18 @@ export class ErrorService {
   public getErrorTextSubject(): Subject<string> {
     return this.errorTextSubject;
   }
+
+  public errorHandler(error): void {
+    switch (error.status) {
+      case 503: {
+        this.setErrorTextSubject('Sem conexão com servidor');
+        break;
+      }
+      case 500: {
+        const err = JSON.parse(error.text());
+        this.setErrorTextSubject(err.message);
+        break;
+      }
+    }
+  }
 }
