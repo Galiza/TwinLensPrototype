@@ -571,7 +571,7 @@ module.exports = "<div class=\"error-div\" *ngIf=\"showError\">\n  <span>\n    {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".error-div {\n  width: 450px;\n  background: #de3838;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  padding: 5px 0px;\n  font-weight: bold;\n  color: white; }\n\n.close-btn {\n  background-color: transparent;\n  border: transparent; }\n\n.close-btn:hover {\n    cursor: pointer; }\n\n.close-btn span {\n    color: white;\n    font-weight: bold; }\n"
+module.exports = ".error-div {\n  width: 450px;\n  background: #de3838;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  padding: 5px 0px;\n  font-weight: bold;\n  color: white; }\n\n.close-btn {\n  background-color: transparent;\n  border: transparent;\n  float: right;\n  margin-right: 5px; }\n\n.close-btn:hover {\n    cursor: pointer; }\n\n.close-btn span {\n    color: white;\n    font-weight: bold; }\n"
 
 /***/ }),
 
@@ -783,7 +783,7 @@ module.exports = "<div class=\"main-div\">\n  <div style=\"all: unset;\">\n    <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "button {\n  padding: 12px; }\n\n.main-div {\n  padding-top: 200px;\n  background-color: #dadada;\n  height: -webkit-fill-available;\n  width: 100%; }\n\n.form-div {\n  padding: 15px;\n  height: 328px;\n  width: 400px;\n  margin: 0 auto;\n  background-color: white;\n  border-radius: 10px; }\n\n.form-div div {\n    padding: 15px; }\n"
+module.exports = "button {\n  padding: 12px; }\n\n.main-div {\n  padding-top: 200px;\n  background-color: #dadada;\n  height: -webkit-fill-available;\n  width: 100%; }\n\n.form-div {\n  padding: 15px;\n  height: 328px;\n  width: 400px;\n  margin: 0 auto;\n  margin-top: 15px;\n  background-color: white;\n  border-radius: 10px; }\n\n.form-div div {\n    padding: 15px; }\n"
 
 /***/ }),
 

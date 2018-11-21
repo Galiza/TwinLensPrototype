@@ -12,6 +12,8 @@
 .close-btn{
     background-color: transparent;
     border: transparent;
+    float: right;
+    margin-right: 5px;
 
     &:hover{
         cursor:pointer;
