@@ -213,7 +213,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\" (click)=\"logout()\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div class=\"bottom-div\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row btn-list-admin\">\n      <div class=\"buttons\">\n        <button (click)=\"fetchClients()\" class=\"fetch-client-btn\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewClient()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div *ngIf=\"isListClient\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th colspan=2 class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\">\n              <td (click)=\"fetchAlbum(user)\">{{user.name}}</td>\n              <td (click)=\"fetchAlbum(user)\">{{user.email}}</td>\n              <td class=\"td-remove-btn\"><button class=\"remove-btn\" (click)=\"removeUser(user)\"><span class=\"font-weight: 600;\">X</span></button></td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td class=\"no-customer\" colspan=2>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n        <app-register (newUserAdded)=\"newUserAdded($event)\"></app-register>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row is-gallery\">\n      <div class=\"col\">\n        <button (click)=\"returnToClients()\" class=\"remove-styles\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col selected-username\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"uploadPhotos()\" class=\"remove-styles\">\n          Upload de imagens</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"galleryPhotos()\" class=\"remove-styles\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <div *ngIf=\"fetchingPhotos\" class=\"loading-div\">\n        <img class=\"loading-gif\" src=\"../../assets/image/loader_grey.gif\">\n        <h2>Baixando fotos...</h2>\n      </div>\n      <div *ngIf=\"!fetchingPhotos\">\n        <div *ngIf=\"images.length > 0\">\n          <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n        </div>\n        <div *ngIf=\"images.length === 0\" class=\"no-photo\">\n          <h2>Não há nenhuma foto</h2>\n        </div>\n      </div>\n    </div>\n    <div *ngIf=\"uploadPhoto\" class=\"uploader\">\n      <button class=\"upload-btn\" [disabled]=\"files.length === 0\" (click)=\"savePhotos()\">FAZER UPLOAD</button>\n      <image-upload [buttonCaption]=\"'Selecione as imagens'\" [dropBoxMessage]=\"'Arraste as imagens aqui.'\" [extensions]=\"['jpg','jpeg','png']\"\n        (uploadFinished)=\"onUploadFinished($event)\">\n      </image-upload>\n    </div>\n  </div>\n</div>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\" (click)=\"logout()\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div class=\"bottom-div\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row btn-list-admin\">\n      <div class=\"buttons\">\n        <button (click)=\"fetchClients()\" class=\"fetch-client-btn\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewClient()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div style=\"all: unset;\">\n      <app-error></app-error>\n    </div>\n    <div *ngIf=\"isListClient\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th colspan=2 class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\">\n              <td (click)=\"fetchAlbum(user)\">{{user.name}}</td>\n              <td (click)=\"fetchAlbum(user)\">{{user.email}}</td>\n              <td class=\"td-remove-btn\"><button class=\"remove-btn\" (click)=\"removeUser(user)\"><span class=\"font-weight: 600;\">X</span></button></td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td class=\"no-customer\" colspan=2>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n      <app-register (newUserAdded)=\"newUserAdded($event)\"></app-register>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row is-gallery\">\n      <div class=\"col\">\n        <button (click)=\"returnToClients()\" class=\"remove-styles\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col selected-username\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"uploadPhotos()\" class=\"remove-styles\">\n          Upload de imagens</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"galleryPhotos()\" class=\"remove-styles\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <div *ngIf=\"fetchingPhotos\" class=\"loading-div\">\n        <img class=\"loading-gif\" src=\"../../assets/image/loader_grey.gif\">\n        <h2>Baixando fotos...</h2>\n      </div>\n      <div *ngIf=\"!fetchingPhotos\">\n        <div *ngIf=\"images.length > 0\">\n          <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n        </div>\n        <div *ngIf=\"images.length === 0\" class=\"no-photo\">\n          <h2>Não há nenhuma foto</h2>\n        </div>\n      </div>\n    </div>\n    <div *ngIf=\"uploadPhoto\" class=\"uploader\">\n      <button class=\"upload-btn\" [disabled]=\"files.length === 0\" (click)=\"savePhotos()\">FAZER UPLOAD</button>\n      <image-upload [buttonCaption]=\"'Selecione as imagens'\" [dropBoxMessage]=\"'Arraste as imagens aqui.'\" [extensions]=\"['jpg','jpeg','png']\"\n        (uploadFinished)=\"onUploadFinished($event)\">\n      </image-upload>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -427,6 +427,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomerAreaService", function() { return CustomerAreaService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _error_error_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../error/error.service */ "./src/app/error/error.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -438,10 +439,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var CustomerAreaService = /** @class */ (function () {
     // private url = 'http://localhost:8080';
-    function CustomerAreaService(http) {
+    function CustomerAreaService(http, errorService) {
         this.http = http;
+        this.errorService = errorService;
     }
     CustomerAreaService.prototype.fetchClientList = function () {
         var _this = this;
@@ -530,6 +533,16 @@ var CustomerAreaService = /** @class */ (function () {
                     resolve(JSON.parse(response.text()));
                 }
             }).catch(function (error) {
+                switch (error.status) {
+                    case 500: {
+                        var err = JSON.parse(error.text());
+                        _this.errorService.setErrorTextSubject(err.message);
+                        break;
+                    }
+                    case 505: {
+                        break;
+                    }
+                }
                 reject(error);
             });
         });
@@ -538,7 +551,8 @@ var CustomerAreaService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"],
+            _error_error_service__WEBPACK_IMPORTED_MODULE_2__["ErrorService"]])
     ], CustomerAreaService);
     return CustomerAreaService;
 }());
@@ -565,7 +579,7 @@ module.exports = "<div class=\"error-div\" *ngIf=\"showError\">\n  <span>\n    {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".error-div {\n  width: 450px;\n  background: red;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  margin-bottom: 50px;\n  padding: 5px 0px;\n  color: white;\n  font-weight: bold; }\n"
+module.exports = ".error-div {\n  width: 450px;\n  background: red;\n  border-radius: 5px;\n  margin: 0 auto;\n  text-align: center;\n  margin-bottom: 50px;\n  padding: 5px 0px;\n  font-weight: bold; }\n"
 
 /***/ }),
 
@@ -969,6 +983,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _customer_area_customer_area_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../customer-area/customer-area.service */ "./src/app/customer-area/customer-area.service.ts");
+/* harmony import */ var _error_error_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../error/error.service */ "./src/app/error/error.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -981,9 +996,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(customerService) {
+    function RegisterComponent(customerService, errorService) {
         this.customerService = customerService;
+        this.errorService = errorService;
         this.newUserAdded = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     RegisterComponent.prototype.ngOnInit = function () {
@@ -1003,6 +1020,10 @@ var RegisterComponent = /** @class */ (function () {
         newUser.name = this.newUserForm.get('name').value;
         newUser.email = this.newUserForm.get('email').value;
         newUser.password = this.newUserForm.get('password').value;
+        if (this.newUserForm.get('password').value !== this.newUserForm.get('confirmPass').value) {
+            this.errorService.setErrorTextSubject('A senha e confirmação de senha não coincidem.');
+            return;
+        }
         this.customerService.addNewClient(newUser).then(function (addedUser) {
             _this.newUserForm.reset();
             _this.newUserAdded.emit(addedUser);
@@ -1018,7 +1039,8 @@ var RegisterComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./register.component.html */ "./src/app/register/register.component.html"),
             styles: [__webpack_require__(/*! ./register.component.scss */ "./src/app/register/register.component.scss")]
         }),
-        __metadata("design:paramtypes", [_customer_area_customer_area_service__WEBPACK_IMPORTED_MODULE_2__["CustomerAreaService"]])
+        __metadata("design:paramtypes", [_customer_area_customer_area_service__WEBPACK_IMPORTED_MODULE_2__["CustomerAreaService"],
+            _error_error_service__WEBPACK_IMPORTED_MODULE_3__["ErrorService"]])
     ], RegisterComponent);
     return RegisterComponent;
 }());

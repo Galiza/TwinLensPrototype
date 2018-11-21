@@ -27,6 +27,9 @@
         </button>
       </div>
     </div>
+    <div style="all: unset;">
+      <app-error></app-error>
+    </div>
     <div *ngIf="isListClient">
       <div class="list-client-div">
         <div class="client-list-title">
@@ -55,7 +58,7 @@
       </div>
     </div>
     <div *ngIf="isRegister">
-        <app-register (newUserAdded)="newUserAdded($event)"></app-register>
+      <app-register (newUserAdded)="newUserAdded($event)"></app-register>
     </div>
   </div>
   <div *ngIf="isGallery">

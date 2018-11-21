@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerAreaService } from '../customer-area/customer-area.service';
 import { User } from '../model/model';
+import { ErrorService } from '../error/error.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
   @Output() newUserAdded: EventEmitter<User> = new EventEmitter();
 
   constructor(
-    private customerService: CustomerAreaService
+    private customerService: CustomerAreaService,
+    private errorService: ErrorService
   ) { }
 
   ngOnInit() {
@@ -36,6 +38,10 @@ export class RegisterComponent implements OnInit {
     newUser.name = this.newUserForm.get('name').value;
     newUser.email = this.newUserForm.get('email').value;
     newUser.password = this.newUserForm.get('password').value;
+    if (this.newUserForm.get('password').value !== this.newUserForm.get('confirmPass').value) {
+      this.errorService.setErrorTextSubject('A senha e confirmação de senha não coincidem.');
+      return;
+    }
 
     this.customerService.addNewClient(newUser).then(
       (addedUser: User) => {
