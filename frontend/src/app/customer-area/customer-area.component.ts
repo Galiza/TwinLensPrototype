@@ -143,11 +143,12 @@ export class CustomerAreaComponent implements OnInit {
           return;
         }
         this.album = album;
-        const files: string[] = JSON.parse(album.photo);
-        if (files !== null && files.length > 0) {
+        const fileList: string[] = JSON.parse(album.photo);
+        this.files = fileList;
+        if (fileList !== null && fileList.length > 0) {
           let index = 0;
           const downloadedImages: Image[] = [];
-          files.forEach(
+          fileList.forEach(
             (file) => {
               downloadedImages.push(new Image(
                 index,
