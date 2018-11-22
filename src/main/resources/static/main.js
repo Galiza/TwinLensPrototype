@@ -213,7 +213,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\" (click)=\"logout()\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div class=\"bottom-div\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row btn-list-admin\">\n      <div class=\"buttons\">\n        <button (click)=\"goToClients()\" class=\"fetch-client-btn\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewUser()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div style=\"all: unset;\">\n      <app-error></app-error>\n    </div>\n    <div *ngIf=\"isUserList\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th colspan=2 class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\">\n              <td (click)=\"userClicked(user)\">{{user.name}}</td>\n              <td (click)=\"userClicked(user)\">{{user.email}}</td>\n              <td class=\"td-remove-btn\"><button class=\"remove-btn\" (click)=\"removeUser(user)\"><span class=\"font-weight: 600;\">X</span></button></td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td class=\"no-customer\" colspan=2>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n      <app-register (newUserAdded)=\"newUserAdded($event)\"></app-register>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row is-gallery\">\n      <div class=\"col\">\n        <button (click)=\"toClients()\" class=\"remove-styles\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col selected-username\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"uploadPhotos()\" class=\"remove-styles\">\n          Upload de imagens</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"galleryPhotos()\" class=\"remove-styles\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <div *ngIf=\"fetchingPhotos\" class=\"loading-div\">\n        <img class=\"loading-gif\" src=\"../../assets/image/loader_grey.gif\">\n        <h2>Baixando fotos...</h2>\n      </div>\n      <div *ngIf=\"!fetchingPhotos\">\n        <div *ngIf=\"images.length > 0\">\n          <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n        </div>\n        <div *ngIf=\"images.length === 0\" class=\"no-photo\">\n          <h2>Não há nenhuma foto</h2>\n        </div>\n      </div>\n    </div>\n    <div *ngIf=\"uploadPhoto\" class=\"uploader\">\n      <button class=\"upload-btn\" [disabled]=\"files.length === 0\" (click)=\"savePhotos()\">FAZER UPLOAD</button>\n      <image-upload [buttonCaption]=\"'Selecione as imagens'\" [dropBoxMessage]=\"'Arraste as imagens aqui.'\" [extensions]=\"['jpg','jpeg','png']\"\n        [uploadedFiles]=\"files\" (removed)=\"onRemoved($event)\" (uploadFinished)=\"onUploadFinished($event)\">\n      </image-upload>\n    </div>\n  </div>\n</div>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\" (click)=\"logout()\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div class=\"bottom-div\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row btn-list-admin\">\n      <div class=\"buttons\">\n        <button (click)=\"goToClients()\" class=\"fetch-client-btn\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewUser()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div style=\"all: unset;\">\n      <app-error></app-error>\n    </div>\n    <div *ngIf=\"isUserList\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th colspan=2 class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\">\n              <td (click)=\"userClicked(user)\">{{user.name}}</td>\n              <td (click)=\"userClicked(user)\">{{user.email}}</td>\n              <td class=\"td-remove-btn\"><button class=\"remove-btn\" (click)=\"removeUser(user)\"><span class=\"font-weight: 600;\">X</span></button></td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td class=\"no-customer\" colspan=2>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n      <app-register (newUserAdded)=\"newUserAdded($event)\"></app-register>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row is-gallery\">\n      <div class=\"col\">\n        <button (click)=\"goToClients()\" class=\"remove-styles\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col selected-username\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"showUploader()\" class=\"remove-styles\">\n          Upload de fotos</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"showGallery()\" class=\"remove-styles\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <div *ngIf=\"fetchingPhotos\" class=\"loading-div\">\n        <img class=\"loading-gif\" src=\"../../assets/image/loader_grey.gif\">\n        <h2>Baixando fotos...</h2>\n      </div>\n      <div *ngIf=\"!fetchingPhotos\">\n        <div *ngIf=\"images.length > 0\">\n          <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n        </div>\n        <div *ngIf=\"images.length === 0\" class=\"no-photo\">\n          <h2>Não há nenhuma foto</h2>\n        </div>\n      </div>\n    </div>\n    <div *ngIf=\"uploadPhoto\" class=\"uploader\">\n      <button class=\"upload-btn\" (click)=\"uploadPhotos()\">FAZER UPLOAD</button>\n      <image-upload [buttonCaption]=\"'Selecione as imagens'\" [dropBoxMessage]=\"'Arraste as imagens aqui.'\" [extensions]=\"['jpg','jpeg','png']\"\n        [uploadedFiles]=\"files\" (removed)=\"onRemoved($event)\" (uploadFinished)=\"onUploadFinished($event)\">\n      </image-upload>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -244,6 +244,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../login/login.service */ "./src/app/login/login.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _error_error_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../error/error.service */ "./src/app/error/error.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -259,12 +260,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var CustomerAreaComponent = /** @class */ (function () {
-    function CustomerAreaComponent(customerService, loginService, router, sanitizer) {
+    function CustomerAreaComponent(customerService, loginService, router, sanitizer, errorService) {
         this.customerService = customerService;
         this.loginService = loginService;
         this.router = router;
         this.sanitizer = sanitizer;
+        this.errorService = errorService;
         this.images = [];
         this.files = [];
         this.album = {};
@@ -319,26 +322,32 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.uploadPhoto = false;
         this.images = [];
     };
-    CustomerAreaComponent.prototype.uploadPhotos = function () {
+    CustomerAreaComponent.prototype.showUploader = function () {
         this.uploadPhoto = true;
     };
-    CustomerAreaComponent.prototype.galleryPhotos = function () {
+    CustomerAreaComponent.prototype.showGallery = function () {
         this.uploadPhoto = false;
     };
     CustomerAreaComponent.prototype.onUploadFinished = function (event) {
         this.files.push(event.src);
     };
-    CustomerAreaComponent.prototype.savePhotos = function () {
+    CustomerAreaComponent.prototype.uploadPhotos = function () {
         var _this = this;
-        this.album.id = this.selectedUser.id;
-        this.album.photo = JSON.stringify(this.files);
-        this.customerService.uploadClientPhotos(this.album).then(function (uploaded) {
-            if (uploaded) {
-                _this.insertIntoGalleryImage(_this.files);
-            }
-            _this.isGallery = true;
-            _this.uploadPhoto = false;
-        });
+        if (this.files.length > 0) {
+            this.album.id = this.selectedUser.id;
+            this.album.photo = JSON.stringify(this.files);
+            this.customerService.uploadClientPhotos(this.album).then(function (uploaded) {
+                if (uploaded) {
+                    _this.insertIntoGalleryImage(_this.files);
+                }
+                console.log(_this.images);
+                _this.isGallery = true;
+                _this.uploadPhoto = false;
+            });
+        }
+        else {
+            this.errorService.setErrorTextSubject('Favor, selecionar fotos antes de tentar realizar upload');
+        }
     };
     CustomerAreaComponent.prototype.downloadAlbum = function (id) {
         var _this = this;
@@ -374,7 +383,6 @@ var CustomerAreaComponent = /** @class */ (function () {
         var index = this.files.findIndex(function (file) { return file === event.src; });
         if (index !== -1) {
             this.files.splice(index, 1);
-            this.savePhotos();
         }
     };
     CustomerAreaComponent.prototype.sanitizeBase64 = function (base64) {
@@ -404,7 +412,8 @@ var CustomerAreaComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_customer_area_service__WEBPACK_IMPORTED_MODULE_2__["CustomerAreaService"],
             _login_login_service__WEBPACK_IMPORTED_MODULE_3__["LoginService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"]])
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"],
+            _error_error_service__WEBPACK_IMPORTED_MODULE_6__["ErrorService"]])
     ], CustomerAreaComponent);
     return CustomerAreaComponent;
 }());
@@ -951,7 +960,7 @@ var LoginService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"newUserForm\" class=\"new-user-form\">\n  <div style=\"padding-bottom: 0;\">\n    <label>Nome:</label>\n    <input class=\"form-control flex-fill mr-1\" formControlName=\"name\">\n  </div>\n  <div>\n    <label>Email:</label>\n    <input class=\"form-control flex-fill mr-1\" formControlName=\"email\">\n  </div>\n  <div>\n    <label>Senha:</label>\n    <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"password\">\n  </div>\n  <div>\n    <label>Confirme a senha:</label>\n    <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"confirmPass\">\n  </div>\n  <div>\n    <button [disabled]=\"!newUserForm.valid\" class=\"btn btn-success btn-lg btn-block register-btn\" (click)=\"register()\">Entrar</button>\n  </div>\n</form>"
+module.exports = "<form [formGroup]=\"newUserForm\" class=\"new-user-form\">\n  <div style=\"padding-bottom: 0;\">\n    <label>Nome:</label>\n    <input class=\"form-control flex-fill mr-1\" formControlName=\"name\">\n  </div>\n  <div>\n    <label>Email:</label>\n    <input class=\"form-control flex-fill mr-1\" formControlName=\"email\">\n  </div>\n  <div>\n    <label>Senha:</label>\n    <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"password\">\n  </div>\n  <div>\n    <label>Confirme a senha:</label>\n    <input type=\"password\" class=\"form-control flex-fill mr-1\" formControlName=\"confirmPass\">\n  </div>\n  <div>\n    <button [disabled]=\"!newUserForm.valid\" class=\"btn btn-success btn-lg btn-block register-btn\" (click)=\"register()\">Registrar</button>\n  </div>\n</form>"
 
 /***/ }),
 

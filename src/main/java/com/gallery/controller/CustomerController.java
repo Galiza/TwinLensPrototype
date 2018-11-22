@@ -28,10 +28,11 @@ public class CustomerController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public User register(@RequestBody User newUser) {
         User user = dbUserInterface.findByEmail(newUser.getEmail());
-        if(user.getEmail().equals(newUser.getEmail())){
+        if(user == null){
+            dbUserInterface.save(newUser);
+        } else if(user.getEmail().equals(newUser.getEmail())){
             throw new ExceptionHandler("Este e-mail já está registrado.");
         }
-        dbUserInterface.save(newUser);
         return newUser;
     }
     

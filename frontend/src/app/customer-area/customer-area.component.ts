@@ -7,6 +7,7 @@ import { LoginService } from '../login/login.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { ErrorService } from '../error/error.service';
 
 @Component({
   selector: 'app-customer-area',
@@ -38,7 +39,8 @@ export class CustomerAreaComponent implements OnInit {
     private customerService: CustomerAreaService,
     private loginService: LoginService,
     private router: Router,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private errorService: ErrorService
   ) { }
 
   ngOnInit() {
@@ -88,11 +90,11 @@ export class CustomerAreaComponent implements OnInit {
     this.images = [];
   }
 
-  public uploadPhotos(): void {
+  public showUploader(): void {
     this.uploadPhoto = true;
   }
 
-  public galleryPhotos(): void {
+  public showGallery(): void {
     this.uploadPhoto = false;
   }
 
@@ -100,18 +102,23 @@ export class CustomerAreaComponent implements OnInit {
     this.files.push(event.src);
   }
 
-  public savePhotos(): void {
+  public uploadPhotos(): void {
+    if (this.files.length > 0) {
     this.album.id = this.selectedUser.id;
     this.album.photo = JSON.stringify(this.files);
-    this.customerService.uploadClientPhotos(this.album).then(
-      (uploaded: boolean) => {
-        if (uploaded) {
-          this.insertIntoGalleryImage(this.files);
+      this.customerService.uploadClientPhotos(this.album).then(
+        (uploaded: boolean) => {
+          if (uploaded) {
+            this.insertIntoGalleryImage(this.files);
+          }
+          console.log(this.images);
+          this.isGallery = true;
+          this.uploadPhoto = false;
         }
-        this.isGallery = true;
-        this.uploadPhoto = false;
-      }
-    );
+      );
+    } else {
+      this.errorService.setErrorTextSubject('Favor, selecionar fotos antes de tentar realizar upload');
+    }
   }
 
   private downloadAlbum(id: number): void {
@@ -155,7 +162,6 @@ export class CustomerAreaComponent implements OnInit {
     const index = this.files.findIndex(file => file === event.src);
     if (index !== -1) {
       this.files.splice(index, 1);
-      this.savePhotos();
     }
   }
 

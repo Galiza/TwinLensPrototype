@@ -64,7 +64,7 @@
   <div *ngIf="isGallery">
     <div *ngIf="user.isAdmin" class="row is-gallery">
       <div class="col">
-        <button (click)="toClients()" class="remove-styles">
+        <button (click)="goToClients()" class="remove-styles">
           <i class="fa fa-arrow-left"></i>
           Retornar para lista de clientes
         </button>
@@ -73,9 +73,9 @@
         <span>{{selectedUser.name}}</span>
       </div>
       <div class="col">
-        <button *ngIf="!uploadPhoto" (click)="uploadPhotos()" class="remove-styles">
-          Upload de imagens</button>
-        <button *ngIf="uploadPhoto" (click)="galleryPhotos()" class="remove-styles">Retornar
+        <button *ngIf="!uploadPhoto" (click)="showUploader()" class="remove-styles">
+          Upload de fotos</button>
+        <button *ngIf="uploadPhoto" (click)="showGallery()" class="remove-styles">Retornar
           para galeria</button>
       </div>
     </div>
@@ -94,7 +94,7 @@
       </div>
     </div>
     <div *ngIf="uploadPhoto" class="uploader">
-      <button class="upload-btn" [disabled]="files.length === 0" (click)="savePhotos()">FAZER UPLOAD</button>
+      <button class="upload-btn" (click)="uploadPhotos()">FAZER UPLOAD</button>
       <image-upload [buttonCaption]="'Selecione as imagens'" [dropBoxMessage]="'Arraste as imagens aqui.'" [extensions]="['jpg','jpeg','png']"
         [uploadedFiles]="files" (removed)="onRemoved($event)" (uploadFinished)="onUploadFinished($event)">
       </image-upload>
