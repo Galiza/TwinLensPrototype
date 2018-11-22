@@ -380,6 +380,9 @@ var CustomerAreaComponent = /** @class */ (function () {
             _this.fetchingPhotos = false;
         });
     };
+    CustomerAreaComponent.prototype.onRemoved = function (event) {
+        console.log(event);
+    };
     CustomerAreaComponent.prototype.sanitizeBase64 = function (base64) {
         var sanitizedBase64 = this.sanitizer.bypassSecurityTrustResourceUrl(base64);
         return sanitizedBase64;

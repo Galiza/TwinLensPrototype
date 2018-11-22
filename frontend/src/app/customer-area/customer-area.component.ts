@@ -167,6 +167,10 @@ export class CustomerAreaComponent implements OnInit {
     );
   }
 
+  public onRemoved(event): void {
+    console.log(event);
+  }
+
   private sanitizeBase64(base64: string): SafeResourceUrl {
     const sanitizedBase64: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(base64);
     return sanitizedBase64;
