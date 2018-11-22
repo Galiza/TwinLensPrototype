@@ -333,21 +333,16 @@ var CustomerAreaComponent = /** @class */ (function () {
     };
     CustomerAreaComponent.prototype.uploadPhotos = function () {
         var _this = this;
-        if (this.files.length > 0) {
-            this.album.id = this.selectedUser.id;
-            this.album.photo = JSON.stringify(this.files);
-            this.customerService.uploadClientPhotos(this.album).then(function (uploaded) {
-                if (uploaded) {
-                    _this.insertIntoGalleryImage(_this.files);
-                }
-                console.log(_this.images);
-                _this.isGallery = true;
-                _this.uploadPhoto = false;
-            });
-        }
-        else {
-            this.errorService.setErrorTextSubject('Favor, selecionar fotos antes de tentar realizar upload');
-        }
+        this.album.id = this.selectedUser.id;
+        this.album.photo = JSON.stringify(this.files);
+        this.customerService.uploadClientPhotos(this.album).then(function (uploaded) {
+            if (uploaded) {
+                _this.insertIntoGalleryImage(_this.files);
+            }
+            console.log(_this.images);
+            _this.isGallery = true;
+            _this.uploadPhoto = false;
+        });
     };
     CustomerAreaComponent.prototype.downloadAlbum = function (id) {
         var _this = this;

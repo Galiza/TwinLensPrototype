@@ -103,7 +103,6 @@ export class CustomerAreaComponent implements OnInit {
   }
 
   public uploadPhotos(): void {
-    if (this.files.length > 0) {
     this.album.id = this.selectedUser.id;
     this.album.photo = JSON.stringify(this.files);
       this.customerService.uploadClientPhotos(this.album).then(
@@ -116,9 +115,6 @@ export class CustomerAreaComponent implements OnInit {
           this.uploadPhoto = false;
         }
       );
-    } else {
-      this.errorService.setErrorTextSubject('Favor, selecionar fotos antes de tentar realizar upload');
-    }
   }
 
   private downloadAlbum(id: number): void {
