@@ -213,7 +213,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\" (click)=\"logout()\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div class=\"bottom-div\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row btn-list-admin\">\n      <div class=\"buttons\">\n        <button (click)=\"fetchClients()\" class=\"fetch-client-btn\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewClient()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div style=\"all: unset;\">\n      <app-error></app-error>\n    </div>\n    <div *ngIf=\"isListClient\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th colspan=2 class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\">\n              <td (click)=\"fetchAlbum(user)\">{{user.name}}</td>\n              <td (click)=\"fetchAlbum(user)\">{{user.email}}</td>\n              <td class=\"td-remove-btn\"><button class=\"remove-btn\" (click)=\"removeUser(user)\"><span class=\"font-weight: 600;\">X</span></button></td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td class=\"no-customer\" colspan=2>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n      <app-register (newUserAdded)=\"newUserAdded($event)\"></app-register>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row is-gallery\">\n      <div class=\"col\">\n        <button (click)=\"returnToClients()\" class=\"remove-styles\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col selected-username\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"uploadPhotos()\" class=\"remove-styles\">\n          Upload de imagens</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"galleryPhotos()\" class=\"remove-styles\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <div *ngIf=\"fetchingPhotos\" class=\"loading-div\">\n        <img class=\"loading-gif\" src=\"../../assets/image/loader_grey.gif\">\n        <h2>Baixando fotos...</h2>\n      </div>\n      <div *ngIf=\"!fetchingPhotos\">\n        <div *ngIf=\"images.length > 0\">\n          <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n        </div>\n        <div *ngIf=\"images.length === 0\" class=\"no-photo\">\n          <h2>Não há nenhuma foto</h2>\n        </div>\n      </div>\n    </div>\n    <div *ngIf=\"uploadPhoto\" class=\"uploader\">\n      <button class=\"upload-btn\" [disabled]=\"files.length === 0\" (click)=\"savePhotos()\">FAZER UPLOAD</button>\n      <image-upload [buttonCaption]=\"'Selecione as imagens'\" [dropBoxMessage]=\"'Arraste as imagens aqui.'\" [extensions]=\"['jpg','jpeg','png']\"\n        [uploadedFiles]=\"files\" (removed)=\"onRemoved($event)\" (uploadFinished)=\"onUploadFinished($event)\">\n      </image-upload>\n    </div>\n  </div>\n</div>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand text-white home\">{{user.name}}</a>\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\"\n      aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      Menu\n      <i class=\"fas fa-bars\"></i>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLink=\"/home\" routerLinkActive=\"active\" (click)=\"logout()\">Sair</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<div class=\"bottom-div\">\n  <div *ngIf=\"user.isAdmin\">\n    <div class=\"row btn-list-admin\">\n      <div class=\"buttons\">\n        <button (click)=\"goToClients()\" class=\"fetch-client-btn\">\n          Cliente\n        </button>\n        <button (click)=\"registerNewUser()\">\n          Registrar Novo Cliente\n        </button>\n      </div>\n    </div>\n    <div style=\"all: unset;\">\n      <app-error></app-error>\n    </div>\n    <div *ngIf=\"isUserList\">\n      <div class=\"list-client-div\">\n        <div class=\"client-list-title\">\n          <span>Lista de Clientes</span>\n        </div>\n        <p-table [value]=\"userList\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"client-name\">Nome</th>\n              <th colspan=2 class=\"client-email\">Email</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-user>\n            <tr class=\"body-tr\">\n              <td (click)=\"userClicked(user)\">{{user.name}}</td>\n              <td (click)=\"userClicked(user)\">{{user.email}}</td>\n              <td class=\"td-remove-btn\"><button class=\"remove-btn\" (click)=\"removeUser(user)\"><span class=\"font-weight: 600;\">X</span></button></td>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"emptymessage\">\n            <tr>\n              <td class=\"no-customer\" colspan=2>Não há clientes cadastrados</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </div>\n    <div *ngIf=\"isRegister\">\n      <app-register (newUserAdded)=\"newUserAdded($event)\"></app-register>\n    </div>\n  </div>\n  <div *ngIf=\"isGallery\">\n    <div *ngIf=\"user.isAdmin\" class=\"row is-gallery\">\n      <div class=\"col\">\n        <button (click)=\"toClients()\" class=\"remove-styles\">\n          <i class=\"fa fa-arrow-left\"></i>\n          Retornar para lista de clientes\n        </button>\n      </div>\n      <div class=\"col selected-username\">\n        <span>{{selectedUser.name}}</span>\n      </div>\n      <div class=\"col\">\n        <button *ngIf=\"!uploadPhoto\" (click)=\"uploadPhotos()\" class=\"remove-styles\">\n          Upload de imagens</button>\n        <button *ngIf=\"uploadPhoto\" (click)=\"galleryPhotos()\" class=\"remove-styles\">Retornar\n          para galeria</button>\n      </div>\n    </div>\n    <div *ngIf=\"!uploadPhoto\">\n      <div *ngIf=\"fetchingPhotos\" class=\"loading-div\">\n        <img class=\"loading-gif\" src=\"../../assets/image/loader_grey.gif\">\n        <h2>Baixando fotos...</h2>\n      </div>\n      <div *ngIf=\"!fetchingPhotos\">\n        <div *ngIf=\"images.length > 0\">\n          <ks-modal-gallery [id]=\"0\" [modalImages]=\"images\" [plainGalleryConfig]=\"plainGalleryRow\"></ks-modal-gallery>\n        </div>\n        <div *ngIf=\"images.length === 0\" class=\"no-photo\">\n          <h2>Não há nenhuma foto</h2>\n        </div>\n      </div>\n    </div>\n    <div *ngIf=\"uploadPhoto\" class=\"uploader\">\n      <button class=\"upload-btn\" [disabled]=\"files.length === 0\" (click)=\"savePhotos()\">FAZER UPLOAD</button>\n      <image-upload [buttonCaption]=\"'Selecione as imagens'\" [dropBoxMessage]=\"'Arraste as imagens aqui.'\" [extensions]=\"['jpg','jpeg','png']\"\n        [uploadedFiles]=\"files\" (removed)=\"onRemoved($event)\" (uploadFinished)=\"onUploadFinished($event)\">\n      </image-upload>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -271,7 +271,7 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.user = {};
         this.userList = [];
         this.isRegister = false;
-        this.isListClient = true;
+        this.isUserList = true;
         this.isGallery = false;
         this.uploadPhoto = false;
         this.fetchingPhotos = false;
@@ -283,7 +283,7 @@ var CustomerAreaComponent = /** @class */ (function () {
           this.router.navigate(['/home']);
         }*/
         if (this.user.isAdmin) {
-            this.fetchClients();
+            this.goToClients();
         }
         else {
             this.downloadAlbum(this.user.id);
@@ -293,36 +293,31 @@ var CustomerAreaComponent = /** @class */ (function () {
             layout: new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["GridLayout"]({ width: '240px', height: 'auto' }, { length: 5, wrap: true })
         };
     };
-    CustomerAreaComponent.prototype.fetchClients = function () {
+    CustomerAreaComponent.prototype.goToClients = function () {
         var _this = this;
-        this.isListClient = true;
+        this.isUserList = true;
         this.isRegister = false;
         this.isGallery = false;
         this.images = [];
+        this.files = [];
+        this.album = {};
         if (this.userList.length === 0) {
             this.customerService.fetchClientList().then(function (userList) {
                 _this.userList = userList;
             });
         }
     };
-    CustomerAreaComponent.prototype.fetchAlbum = function (selectedUser) {
+    CustomerAreaComponent.prototype.userClicked = function (selectedUser) {
         this.selectedUser = selectedUser;
-        this.isListClient = false;
+        this.isUserList = false;
         this.downloadAlbum(selectedUser.id);
     };
-    CustomerAreaComponent.prototype.registerNewClient = function () {
+    CustomerAreaComponent.prototype.registerNewUser = function () {
         this.isRegister = true;
-        this.isListClient = false;
+        this.isUserList = false;
         this.isGallery = false;
         this.uploadPhoto = false;
         this.images = [];
-    };
-    CustomerAreaComponent.prototype.returnToClients = function () {
-        this.isListClient = true;
-        this.isGallery = false;
-        this.uploadPhoto = false;
-        this.images = [];
-        this.album = {};
     };
     CustomerAreaComponent.prototype.uploadPhotos = function () {
         this.uploadPhoto = true;
@@ -339,17 +334,8 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.album.photo = JSON.stringify(this.files);
         this.customerService.uploadClientPhotos(this.album).then(function (uploaded) {
             if (uploaded) {
-                var index_1 = 0;
-                var downloadedImages_1 = [];
-                _this.files.forEach(function (file) {
-                    downloadedImages_1.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_1, {
-                        img: _this.sanitizeBase64(file)
-                    }));
-                    index_1++;
-                });
-                _this.images = downloadedImages_1;
+                _this.insertIntoGalleryImage(_this.files);
             }
-            _this.files = [];
             _this.isGallery = true;
             _this.uploadPhoto = false;
         });
@@ -366,22 +352,30 @@ var CustomerAreaComponent = /** @class */ (function () {
             var fileList = JSON.parse(album.photo);
             _this.files = fileList;
             if (fileList !== null && fileList.length > 0) {
-                var index_2 = 0;
-                var downloadedImages_2 = [];
-                fileList.forEach(function (file) {
-                    downloadedImages_2.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index_2, {
-                        img: _this.sanitizeBase64(file)
-                    }));
-                    index_2++;
-                });
-                _this.images = downloadedImages_2;
+                _this.insertIntoGalleryImage(fileList);
             }
             _this.uploadPhoto = false;
             _this.fetchingPhotos = false;
         });
     };
+    CustomerAreaComponent.prototype.insertIntoGalleryImage = function (files) {
+        var _this = this;
+        var index = 0;
+        var galleryImages = [];
+        files.forEach(function (file) {
+            galleryImages.push(new _ks89_angular_modal_gallery__WEBPACK_IMPORTED_MODULE_1__["Image"](index, {
+                img: _this.sanitizeBase64(file)
+            }));
+            index++;
+        });
+        this.images = galleryImages;
+    };
     CustomerAreaComponent.prototype.onRemoved = function (event) {
-        console.log(event);
+        var index = this.files.findIndex(function (file) { return file === event.src; });
+        if (index !== -1) {
+            this.files.splice(index, 1);
+            this.savePhotos();
+        }
     };
     CustomerAreaComponent.prototype.sanitizeBase64 = function (base64) {
         var sanitizedBase64 = this.sanitizer.bypassSecurityTrustResourceUrl(base64);
@@ -399,7 +393,7 @@ var CustomerAreaComponent = /** @class */ (function () {
     CustomerAreaComponent.prototype.newUserAdded = function (newUser) {
         this.userList.push(newUser);
         this.isRegister = false;
-        this.isListClient = true;
+        this.isUserList = true;
     };
     CustomerAreaComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({

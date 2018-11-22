@@ -19,10 +19,10 @@
   <div *ngIf="user.isAdmin">
     <div class="row btn-list-admin">
       <div class="buttons">
-        <button (click)="fetchClients()" class="fetch-client-btn">
+        <button (click)="goToClients()" class="fetch-client-btn">
           Cliente
         </button>
-        <button (click)="registerNewClient()">
+        <button (click)="registerNewUser()">
           Registrar Novo Cliente
         </button>
       </div>
@@ -30,7 +30,7 @@
     <div style="all: unset;">
       <app-error></app-error>
     </div>
-    <div *ngIf="isListClient">
+    <div *ngIf="isUserList">
       <div class="list-client-div">
         <div class="client-list-title">
           <span>Lista de Clientes</span>
@@ -44,8 +44,8 @@
           </ng-template>
           <ng-template pTemplate="body" let-user>
             <tr class="body-tr">
-              <td (click)="fetchAlbum(user)">{{user.name}}</td>
-              <td (click)="fetchAlbum(user)">{{user.email}}</td>
+              <td (click)="userClicked(user)">{{user.name}}</td>
+              <td (click)="userClicked(user)">{{user.email}}</td>
               <td class="td-remove-btn"><button class="remove-btn" (click)="removeUser(user)"><span class="font-weight: 600;">X</span></button></td>
             </tr>
           </ng-template>
@@ -64,7 +64,7 @@
   <div *ngIf="isGallery">
     <div *ngIf="user.isAdmin" class="row is-gallery">
       <div class="col">
-        <button (click)="returnToClients()" class="remove-styles">
+        <button (click)="toClients()" class="remove-styles">
           <i class="fa fa-arrow-left"></i>
           Retornar para lista de clientes
         </button>

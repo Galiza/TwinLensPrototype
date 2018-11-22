@@ -27,6 +27,7 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public User login(@RequestBody Login login) {
         User user = dbUserInterface.findByEmail(login.getEmail());
+        System.out.println("Retrieved USER " + user);
         if (!user.getEmail().equals(login.getEmail()) || !user.getPassword().equals(login.getPassword())) {
             throw new ExceptionHandler("Email/Password estão incorretos.");
         } else if(user == null){

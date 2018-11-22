@@ -23,7 +23,7 @@ export class CustomerAreaComponent implements OnInit {
   public userList: User[] = [];
 
   public isRegister = false;
-  public isListClient = true;
+  public isUserList = true;
   public isGallery = false;
   public uploadPhoto = false;
 
@@ -47,7 +47,7 @@ export class CustomerAreaComponent implements OnInit {
       this.router.navigate(['/home']);
     }*/
     if (this.user.isAdmin) {
-      this.fetchClients();
+      this.goToClients();
     } else {
       this.downloadAlbum(this.user.id);
     }
@@ -58,11 +58,13 @@ export class CustomerAreaComponent implements OnInit {
     };
   }
 
-  public fetchClients(): void {
-    this.isListClient = true;
+  public goToClients(): void {
+    this.isUserList = true;
     this.isRegister = false;
     this.isGallery = false;
     this.images = [];
+    this.files = [];
+    this.album = {} as Album;
     if (this.userList.length === 0) {
       this.customerService.fetchClientList().then(
         (userList: User[]) => {
@@ -72,26 +74,18 @@ export class CustomerAreaComponent implements OnInit {
     }
   }
 
-  public fetchAlbum(selectedUser: User): void {
+  public userClicked(selectedUser: User): void {
     this.selectedUser = selectedUser;
-    this.isListClient = false;
+    this.isUserList = false;
     this.downloadAlbum(selectedUser.id);
   }
 
-  public registerNewClient(): void {
+  public registerNewUser(): void {
     this.isRegister = true;
-    this.isListClient = false;
+    this.isUserList = false;
     this.isGallery = false;
     this.uploadPhoto = false;
     this.images = [];
-  }
-
-  public returnToClients(): void {
-    this.isListClient = true;
-    this.isGallery = false;
-    this.uploadPhoto = false;
-    this.images = [];
-    this.album = {} as Album;
   }
 
   public uploadPhotos(): void {
@@ -112,22 +106,8 @@ export class CustomerAreaComponent implements OnInit {
     this.customerService.uploadClientPhotos(this.album).then(
       (uploaded: boolean) => {
         if (uploaded) {
-          let index = 0;
-          const downloadedImages: Image[] = [];
-          this.files.forEach(
-            (file) => {
-              downloadedImages.push(new Image(
-                index,
-                {
-                  img: this.sanitizeBase64(file)
-                }
-              ));
-              index++;
-            }
-          );
-          this.images = downloadedImages;
+          this.insertIntoGalleryImage(this.files);
         }
-        this.files = [];
         this.isGallery = true;
         this.uploadPhoto = false;
       }
@@ -146,20 +126,7 @@ export class CustomerAreaComponent implements OnInit {
         const fileList: string[] = JSON.parse(album.photo);
         this.files = fileList;
         if (fileList !== null && fileList.length > 0) {
-          let index = 0;
-          const downloadedImages: Image[] = [];
-          fileList.forEach(
-            (file) => {
-              downloadedImages.push(new Image(
-                index,
-                {
-                  img: this.sanitizeBase64(file)
-                }
-              ));
-              index++;
-            }
-          );
-          this.images = downloadedImages;
+          this.insertIntoGalleryImage(fileList);
         }
         this.uploadPhoto = false;
         this.fetchingPhotos = false;
@@ -167,8 +134,29 @@ export class CustomerAreaComponent implements OnInit {
     );
   }
 
+  private insertIntoGalleryImage(files: string[]): void {
+    let index = 0;
+    const galleryImages: Image[] = [];
+    files.forEach(
+      (file) => {
+        galleryImages.push(new Image(
+          index,
+          {
+            img: this.sanitizeBase64(file)
+          }
+        ));
+        index++;
+      }
+    );
+    this.images = galleryImages;
+  }
+
   public onRemoved(event): void {
-    console.log(event);
+    const index = this.files.findIndex(file => file === event.src);
+    if (index !== -1) {
+      this.files.splice(index, 1);
+      this.savePhotos();
+    }
   }
 
   private sanitizeBase64(base64: string): SafeResourceUrl {
@@ -191,6 +179,6 @@ export class CustomerAreaComponent implements OnInit {
   public newUserAdded(newUser: User): void {
     this.userList.push(newUser);
     this.isRegister = false;
-    this.isListClient = true;
+    this.isUserList = true;
   }
 }
