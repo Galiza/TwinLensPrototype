@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.gallery.db.DbUserInterface;
+import com.gallery.exception.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
@@ -25,9 +26,13 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public User register(@RequestBody User user) {
-        dbUserInterface.save(user);
-        return user;
+    public User register(@RequestBody User newUser) {
+        User user = dbUserInterface.findByEmail(newUser.getEmail());
+        if(user.getEmail().equals(newUser.getEmail())){
+            throw new ExceptionHandler("Este e-mail já está registrado.");
+        }
+        dbUserInterface.save(newUser);
+        return newUser;
     }
     
     @RequestMapping(value = "/remove/:{id}", method = RequestMethod.DELETE)
