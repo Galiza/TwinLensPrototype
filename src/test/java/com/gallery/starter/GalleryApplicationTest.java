@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
 @SpringBootTest
-public class GalleryApplicationTests {
+public class GalleryApplicationTest {
 
     @Autowired
     private MockMvc mvc;
