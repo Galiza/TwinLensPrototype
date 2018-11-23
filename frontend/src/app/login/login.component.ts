@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { Album } from '../model/model';
+import { ErrorService } from '../error/error.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    public errorService: ErrorService
   ) { }
 
   ngOnInit() {
@@ -37,7 +39,7 @@ export class LoginComponent implements OnInit {
       }
     ).catch(
       (error) => {
-        this.showError = true;
+        this.errorService.errorHandler(error);
       }
     );
   }
@@ -45,5 +47,4 @@ export class LoginComponent implements OnInit {
   public cancel(): void {
     this.router.navigate(['/home']);
   }
-
 }

@@ -9,25 +9,28 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">Sair</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active" (click)="logout()">Sair</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-<div style="padding-top: 56px; background-color: #dadada; height: -webkit-fill-available; width: 100%;">
+<div class="bottom-div">
   <div *ngIf="user.isAdmin">
     <div class="row btn-list-admin">
       <div class="buttons">
-        <button (click)="fetchClients()" class="fetch-client-btn">
+        <button (click)="goToClients()" class="fetch-client-btn">
           Cliente
         </button>
-        <button (click)="registerNewClient()">
+        <button (click)="registerNewUser()">
           Registrar Novo Cliente
         </button>
       </div>
     </div>
-    <div *ngIf="isListClient">
+    <div style="all: unset;">
+      <app-error></app-error>
+    </div>
+    <div *ngIf="isUserList">
       <div class="list-client-div">
         <div class="client-list-title">
           <span>Lista de Clientes</span>
@@ -36,13 +39,13 @@
           <ng-template pTemplate="header">
             <tr>
               <th class="client-name">Nome</th>
-              <th class="client-email">Email</th>
+              <th colspan=2 class="client-email">Email</th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-user>
             <tr class="body-tr">
-              <td (click)="fetchAlbum(user)">{{user.name}}</td>
-              <td (click)="fetchAlbum(user)">{{user.email}}</td>
+              <td (click)="userClicked(user)">{{user.name}}</td>
+              <td (click)="userClicked(user)">{{user.email}}</td>
               <td class="td-remove-btn"><button class="remove-btn" (click)="removeUser(user)"><span class="font-weight: 600;">X</span></button></td>
             </tr>
           </ng-template>
@@ -55,33 +58,13 @@
       </div>
     </div>
     <div *ngIf="isRegister">
-      <form [formGroup]="newUserForm" class="new-user-form">
-        <div style="padding-bottom: 0;">
-          <label>Nome:</label>
-          <input class="form-control flex-fill mr-1" formControlName="name">
-        </div>
-        <div>
-          <label>Email:</label>
-          <input class="form-control flex-fill mr-1" formControlName="email">
-        </div>
-        <div>
-          <label>Senha:</label>
-          <input type="password" class="form-control flex-fill mr-1" formControlName="password">
-        </div>
-        <div>
-          <label>Confirme a senha:</label>
-          <input type="password" class="form-control flex-fill mr-1" formControlName="confirmPass">
-        </div>
-        <div>
-          <button [disabled]="!newUserForm.valid" class="btn btn-success btn-lg btn-block register-btn" (click)="register()">Entrar</button>
-        </div>
-      </form>
+      <app-register (newUserAdded)="newUserAdded($event)"></app-register>
     </div>
   </div>
   <div *ngIf="isGallery">
     <div *ngIf="user.isAdmin" class="row is-gallery">
       <div class="col">
-        <button (click)="returnToClients()" class="remove-styles">
+        <button (click)="goToClients()" class="remove-styles">
           <i class="fa fa-arrow-left"></i>
           Retornar para lista de clientes
         </button>
@@ -90,23 +73,30 @@
         <span>{{selectedUser.name}}</span>
       </div>
       <div class="col">
-        <button *ngIf="!uploadPhoto" (click)="uploadPhotos()" class="remove-styles">
-          Upload de imagens</button>
-        <button *ngIf="uploadPhoto" (click)="galleryPhotos()" class="remove-styles">Retornar
+        <button *ngIf="!uploadPhoto" (click)="showUploader()" class="remove-styles">
+          Upload de fotos</button>
+        <button *ngIf="uploadPhoto" (click)="showGallery()" class="remove-styles">Retornar
           para galeria</button>
       </div>
     </div>
     <div *ngIf="!uploadPhoto">
-      <ks-modal-gallery [id]="0" [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery>
+      <div *ngIf="fetchingPhotos" class="loading-div">
+        <img class="loading-gif" src="../../assets/image/loader_grey.gif">
+        <h2>Baixando fotos...</h2>
+      </div>
+      <div *ngIf="!fetchingPhotos">
+        <div *ngIf="images.length > 0">
+          <ks-modal-gallery [id]="0" [modalImages]="images" [plainGalleryConfig]="plainGalleryRow"></ks-modal-gallery>
+        </div>
+        <div *ngIf="images.length === 0" class="no-photo">
+          <h2>Não há nenhuma foto</h2>
+        </div>
+      </div>
     </div>
     <div *ngIf="uploadPhoto" class="uploader">
-      <button class="upload-btn" [disabled]="files.length === 0">FAZER UPLOAD</button>
-      <image-upload
-        [buttonCaption]="'Selecione as imagens'"
-        [dropBoxMessage]="'Arraste as imagens aqui.'"
-         [extensions]="['jpg','jpeg','png']"
-        (uploadFinished)="onUploadFinished($event)"
-        >
+      <button class="upload-btn" (click)="uploadPhotos()">FAZER UPLOAD</button>
+      <image-upload [buttonCaption]="'Selecione as imagens'" [dropBoxMessage]="'Arraste as imagens aqui.'" [extensions]="['jpg','jpeg','png']"
+        [uploadedFiles]="files" (removed)="onRemoved($event)" (uploadFinished)="onUploadFinished($event)">
       </image-upload>
     </div>
   </div>

@@ -7,6 +7,7 @@ import { LoginService } from '../login/login.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { ErrorService } from '../error/error.service';
 
 @Component({
   selector: 'app-customer-area',
@@ -23,57 +24,49 @@ export class CustomerAreaComponent implements OnInit {
   public userList: User[] = [];
 
   public isRegister = false;
-  public isListClient = true;
+  public isUserList = true;
   public isGallery = false;
-
-  private newUserForm: FormGroup;
-  public selectedUser: User = {} as User;
-
   public uploadPhoto = false;
 
-  public multiple = true;
+  public fetchingPhotos = false;
+
+  public newUserForm: FormGroup;
+  public selectedUser: User = {} as User;
 
   plainGalleryRow: PlainGalleryConfig;
+
   constructor(
     private customerService: CustomerAreaService,
     private loginService: LoginService,
     private router: Router,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private errorService: ErrorService
   ) { }
 
   ngOnInit() {
-    this.createForm();
     this.user = this.loginService.getUser();
-    if (Object.keys(this.user).length === 0 || this.user === undefined || this.user === null) {
+    /*if (Object.keys(this.user).length === 0 || this.user === undefined || this.user === null) {
       this.router.navigate(['/home']);
-    }
+    }*/
     if (this.user.isAdmin) {
-      if (this.userList.length === 0) {
-        this.fetchClients();
-      }
+      this.goToClients();
     } else {
       this.downloadAlbum(this.user.id);
     }
 
     this.plainGalleryRow = {
       strategy: PlainGalleryStrategy.GRID,
-      layout: new GridLayout({ width: '240px', height: '190px' }, { length: 5, wrap: true })
+      layout: new GridLayout({ width: '240px', height: 'auto' }, { length: 5, wrap: true })
     };
   }
 
-  private createForm(): void {
-    this.newUserForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.email),
-      password: new FormControl('', Validators.required),
-      confirmPass: new FormControl('', Validators.required),
-    });
-  }
-
-  public fetchClients(): void {
-    this.isListClient = true;
+  public goToClients(): void {
+    this.isUserList = true;
     this.isRegister = false;
+    this.isGallery = false;
     this.images = [];
+    this.files = [];
+    this.album = {} as Album;
     if (this.userList.length === 0) {
       this.customerService.fetchClientList().then(
         (userList: User[]) => {
@@ -83,48 +76,25 @@ export class CustomerAreaComponent implements OnInit {
     }
   }
 
-  public fetchAlbum(selectedUser: User): void {
+  public userClicked(selectedUser: User): void {
     this.selectedUser = selectedUser;
-    this.isListClient = false;
+    this.isUserList = false;
     this.downloadAlbum(selectedUser.id);
   }
 
-  public registerNewClient(): void {
+  public registerNewUser(): void {
     this.isRegister = true;
-    this.isListClient = false;
+    this.isUserList = false;
     this.isGallery = false;
     this.uploadPhoto = false;
     this.images = [];
   }
 
-  public register(): void {
-    const newUser: User = {} as User;
-    newUser.name = this.newUserForm.get('name').value;
-    newUser.email = this.newUserForm.get('email').value;
-    newUser.password = this.newUserForm.get('password').value;
-
-    this.customerService.addNewClient(newUser).then(
-      (addedUser: User) => {
-        this.userList.push(addedUser);
-        this.newUserForm.reset();
-        this.isListClient = true;
-        this.isRegister = false;
-      }
-    );
-  }
-
-  public returnToClients(): void {
-    this.isListClient = true;
-    this.isGallery = false;
-    this.uploadPhoto = false;
-    this.images = [];
-  }
-
-  public uploadPhotos(): void {
+  public showUploader(): void {
     this.uploadPhoto = true;
   }
 
-  public galleryPhotos(): void {
+  public showGallery(): void {
     this.uploadPhoto = false;
   }
 
@@ -132,56 +102,63 @@ export class CustomerAreaComponent implements OnInit {
     this.files.push(event.src);
   }
 
-  public savePhotos(): void {
+  public uploadPhotos(): void {
     this.album.id = this.selectedUser.id;
     this.album.photo = JSON.stringify(this.files);
-    this.customerService.uploadClientPhotos(this.album).then(
-      (uploaded: boolean) => {
-        if (uploaded) {
-          this.album = {} as Album;
-          let index = 0;
-          this.files.forEach(
-            (file) => {
-              this.images.push(new Image(
-                index,
-                {
-                  img: this.sanitizeBase64(file)
-                }
-              ));
-              index++;
-            }
-          );
+      this.customerService.uploadClientPhotos(this.album).then(
+        (uploaded: boolean) => {
+          if (uploaded) {
+            this.insertIntoGalleryImage(this.files);
+          }
+          console.log(this.images);
+          this.isGallery = true;
+          this.uploadPhoto = false;
         }
-        this.files = [];
-        this.isGallery = true;
+      );
+  }
+
+  private downloadAlbum(id: number): void {
+    this.isGallery = true;
+    this.fetchingPhotos = true;
+    this.customerService.getClientPhotos(id).then(
+      (album: Album) => {
+        if (album.photo === '') {
+          return;
+        }
+        this.album = album;
+        const fileList: string[] = JSON.parse(album.photo);
+        this.files = fileList;
+        if (fileList !== null && fileList.length > 0) {
+          this.insertIntoGalleryImage(fileList);
+        }
         this.uploadPhoto = false;
+        this.fetchingPhotos = false;
       }
     );
   }
 
-  private downloadAlbum(id: number): void {
-    this.customerService.getClientPhotos(id).then(
-      (album: Album) => {
-        const files = JSON.parse(album.photo);
-        if (files !== null) {
-          if (files.length > 0) {
-            let index = 0;
-            this.files.forEach(
-              (file) => {
-                this.images.push(new Image(
-                  index,
-                  {
-                    img: this.sanitizeBase64(file)
-                  }
-                ));
-                index++;
-              }
-            );
+  private insertIntoGalleryImage(files: string[]): void {
+    let index = 0;
+    const galleryImages: Image[] = [];
+    files.forEach(
+      (file) => {
+        galleryImages.push(new Image(
+          index,
+          {
+            img: this.sanitizeBase64(file)
           }
-        }
-        this.isGallery = true;
+        ));
+        index++;
       }
     );
+    this.images = galleryImages;
+  }
+
+  public onRemoved(event): void {
+    const index = this.files.findIndex(file => file === event.src);
+    if (index !== -1) {
+      this.files.splice(index, 1);
+    }
   }
 
   private sanitizeBase64(base64: string): SafeResourceUrl {
@@ -195,5 +172,15 @@ export class CustomerAreaComponent implements OnInit {
         this.userList = userList;
       }
     );
+  }
+
+  public logout(): void {
+    this.loginService.setUser({} as User);
+  }
+
+  public newUserAdded(newUser: User): void {
+    this.userList.push(newUser);
+    this.isRegister = false;
+    this.isUserList = true;
   }
 }

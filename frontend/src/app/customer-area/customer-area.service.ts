@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Login, User, Album } from '../model/model';
 import { Subject } from 'rxjs';
+import { ErrorService } from '../error/error.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CustomerAreaService {
 
-    private url = 'http://localhost:8080';
+    // private url = 'http://localhost:8080';
 
     constructor(
-        private http: Http
+        private http: Http,
+        private errorService: ErrorService
     ) { }
 
     public fetchClientList(): Promise<User[]> {
@@ -35,7 +37,7 @@ export class CustomerAreaService {
                     }
                 ).catch(
                     (error) => {
-                        console.log(error);
+                        this.errorService.errorHandler(error);
                         reject(error);
                     }
                 );
@@ -140,6 +142,7 @@ export class CustomerAreaService {
                     }
                 ).catch(
                     (error) => {
+                        this.errorService.errorHandler(error);
                         reject(error);
                     }
                 );

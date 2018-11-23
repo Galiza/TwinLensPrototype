@@ -13,5 +13,4 @@ public interface DbAlbumInterface extends CrudRepository<Album, Long> {
      * by id
      */
     public Album findAlbumById(Long id);
-    
 }

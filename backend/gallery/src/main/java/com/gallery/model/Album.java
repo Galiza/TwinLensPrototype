@@ -17,6 +17,14 @@ public class Album implements Serializable {
     private Long id;
     @Column(name="photo", columnDefinition = "text")
     private String photo;
+	
+	public Album(){
+	}
+	
+	public Album(Long id, String photo){
+		this.id = id;
+		this.photo = photo;
+	}
 
     public Long getId() {
         return id;

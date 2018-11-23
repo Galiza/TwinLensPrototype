@@ -29,6 +29,14 @@ public class User implements Serializable {
     @Column(name="password")
     private String password;
     
+    public User(){ }
+
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+    
     public void setId(Long id){
         this.id = id;
     }

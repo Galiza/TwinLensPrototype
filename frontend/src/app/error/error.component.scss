@@ -1,0 +1,26 @@
+.error-div{
+    width: 450px;
+    background: #de3838;
+    border-radius: 5px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px 0px;
+    font-weight: bold;
+    color: white;
+}
+
+.close-btn{
+    background-color: transparent;
+    border: transparent;
+    float: right;
+    margin-right: 5px;
+
+    &:hover{
+        cursor:pointer;
+    }
+
+    & span {
+        color: white;
+        font-weight: bold;
+    }
+}

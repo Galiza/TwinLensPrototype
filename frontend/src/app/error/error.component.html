@@ -1,0 +1,8 @@
+<div class="error-div" *ngIf="showError">
+  <span>
+    {{errorText}}
+  </span>
+  <button class="close-btn" (click)="closeError()">
+    <span class="close-span">X</span>
+  </button>
+</div>
