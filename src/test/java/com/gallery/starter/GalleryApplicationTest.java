@@ -17,7 +17,7 @@ public class GalleryApplicationTest {
     @Test
     public void test_login_successful() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
-        Login login = new Login("admin@admin", "admin");
+        Login login = new Login("y@y", "p");
         User user = restTemplate.postForObject("http://localhost:8080/login", login, User.class);
         Assert.assertEquals(login.getEmail(), user.getEmail());
     }
