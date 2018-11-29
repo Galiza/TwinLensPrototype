@@ -123,7 +123,7 @@ export class CustomerAreaComponent implements OnInit {
     this.customerService.getClientPhotos(id).then(
       (album: Album) => {
         this.fetchingPhotos = false;
-        if (album.photo === '') {
+        if (album.photo === '' || this.selectedUser.id !== album.id) {
           return;
         }
         this.album = album;

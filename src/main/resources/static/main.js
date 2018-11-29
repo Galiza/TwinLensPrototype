@@ -350,7 +350,7 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.fetchingPhotos = true;
         this.customerService.getClientPhotos(id).then(function (album) {
             _this.fetchingPhotos = false;
-            if (album.photo === '') {
+            if (album.photo === '' || _this.selectedUser.id !== album.id) {
                 return;
             }
             _this.album = album;
