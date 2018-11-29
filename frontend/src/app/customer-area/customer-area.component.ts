@@ -122,6 +122,7 @@ export class CustomerAreaComponent implements OnInit {
     this.fetchingPhotos = true;
     this.customerService.getClientPhotos(id).then(
       (album: Album) => {
+        this.fetchingPhotos = false;
         if (album.photo === '') {
           return;
         }
@@ -132,7 +133,6 @@ export class CustomerAreaComponent implements OnInit {
           this.insertIntoGalleryImage(fileList);
         }
         this.uploadPhoto = false;
-        this.fetchingPhotos = false;
       }
     );
   }

@@ -349,6 +349,7 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.isGallery = true;
         this.fetchingPhotos = true;
         this.customerService.getClientPhotos(id).then(function (album) {
+            _this.fetchingPhotos = false;
             if (album.photo === '') {
                 return;
             }
@@ -359,7 +360,6 @@ var CustomerAreaComponent = /** @class */ (function () {
                 _this.insertIntoGalleryImage(fileList);
             }
             _this.uploadPhoto = false;
-            _this.fetchingPhotos = false;
         });
     };
     CustomerAreaComponent.prototype.insertIntoGalleryImage = function (files) {
