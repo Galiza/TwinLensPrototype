@@ -834,8 +834,19 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.submit = function () {
         var _this = this;
-        this.loginService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).then(function () {
-            _this.router.navigate(['/customer-area']);
+        var email = this.loginForm.get('email').value;
+        var password = this.loginForm.get('password').value;
+        this.loginService.login(email, password).then(function (user) {
+            if (user !== undefined || user !== null) {
+                if (user.name === 'Admin') {
+                    user.isAdmin = true;
+                }
+                else {
+                    user.isAdmin = false;
+                }
+                _this.loginService.setUser(user);
+                _this.router.navigate(['/customer-area']);
+            }
         }).catch(function (error) {
             _this.errorService.errorHandler(error);
         });
@@ -901,35 +912,12 @@ var LoginService = /** @class */ (function () {
                 email: email,
                 password: password
             };
-            if (email === 'admin' && password === 'admin') {
-                var adminUser = {
-                    password: 'admin',
-                    name: 'Admin',
-                    email: 'admin@admin',
-                    id: -1,
-                    isAdmin: true
-                };
-                resolve(adminUser);
-                _this.setUser(adminUser);
-            }
-            else {
-                _this.http.post('/login', login, options).toPromise()
-                    .then(function (response) {
-                    var user = JSON.parse(response.text());
-                    if (user !== undefined || user !== null) {
-                        if (user.name === 'Admin') {
-                            user.isAdmin = true;
-                        }
-                        else {
-                            user.isAdmin = false;
-                        }
-                        resolve(user);
-                        _this.setUser(user);
-                    }
-                }).catch(function (error) {
-                    reject(error);
-                });
-            }
+            _this.http.post('/login', login, options).toPromise()
+                .then(function (response) {
+                resolve(JSON.parse(response.text()));
+            }).catch(function (error) {
+                reject(error);
+            });
         });
     };
     LoginService.prototype.getUser = function () {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
-import { Album } from '../model/model';
+import { Album, User } from '../model/model';
 import { ErrorService } from '../error/error.service';
 
 @Component({
@@ -33,9 +33,19 @@ export class LoginComponent implements OnInit {
   }
 
   public submit(): void {
-    this.loginService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).then(
-      () => {
-        this.router.navigate(['/customer-area']);
+    const email = this.loginForm.get('email').value;
+    const password = this.loginForm.get('password').value;
+    this.loginService.login(email, password).then(
+      (user: User) => {
+        if (user !== undefined || user !== null) {
+          if (user.name === 'Admin') {
+            user.isAdmin = true;
+          } else {
+            user.isAdmin = false;
+          }
+          this.loginService.setUser(user);
+          this.router.navigate(['/customer-area']);
+        }
       }
     ).catch(
       (error) => {

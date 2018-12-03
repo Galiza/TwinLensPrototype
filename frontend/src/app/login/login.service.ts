@@ -29,37 +29,16 @@ export class LoginService {
         password: password
       };
 
-      if (email === 'admin' && password === 'admin') {
-        const adminUser: User = {
-          password: 'admin',
-          name: 'Admin',
-          email: 'admin@admin',
-          id: -1,
-          isAdmin: true
-        };
-        resolve(adminUser);
-        this.setUser(adminUser);
-      } else {
       this.http.post('/login', login, options).toPromise()
         .then(
           (response: Response) => {
-            const user: User = JSON.parse(response.text());
-            if (user !== undefined || user !== null) {
-              if (user.name === 'Admin') {
-                user.isAdmin = true;
-              } else {
-                user.isAdmin = false;
-              }
-              resolve(user);
-              this.setUser(user);
-            }
+            resolve(JSON.parse(response.text()));
           }
         ).catch(
           (error) => {
             reject(error);
           }
         );
-      }
     });
   }
 
