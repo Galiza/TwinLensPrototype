@@ -456,7 +456,7 @@ var CustomerAreaService = /** @class */ (function () {
                 .then(function (response) {
                 var userList = JSON.parse(response.text());
                 var index = userList.findIndex(function (user) { return user.name === 'Admin'; });
-                userList = userList.splice(index, 1);
+                userList.splice(index, 1);
                 if (userList !== undefined || userList !== null) {
                     resolve(userList);
                 }
