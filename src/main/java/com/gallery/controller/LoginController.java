@@ -27,10 +27,7 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public User login(@RequestBody Login login) {
         User user = dbUserInterface.findByEmail(login.getEmail());
-        
-        if (user == null) {
-            throw new ExceptionHandler("Usuario não existe.");
-        } else if(!user.getPassword().equals(login.getPassword())){
+        if(user == null || !user.getPassword().equals(login.getPassword())){
             throw new ExceptionHandler("Email/Password estão incorretos.");
         }
         return user;

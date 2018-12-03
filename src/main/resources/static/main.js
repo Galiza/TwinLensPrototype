@@ -282,9 +282,6 @@ var CustomerAreaComponent = /** @class */ (function () {
     }
     CustomerAreaComponent.prototype.ngOnInit = function () {
         this.user = this.loginService.getUser();
-        /*if (Object.keys(this.user).length === 0 || this.user === undefined || this.user === null) {
-          this.router.navigate(['/home']);
-        }*/
         if (this.user.isAdmin) {
             this.goToClients();
         }
@@ -339,7 +336,6 @@ var CustomerAreaComponent = /** @class */ (function () {
             if (uploaded) {
                 _this.insertIntoGalleryImage(_this.files);
             }
-            console.log(_this.images);
             _this.isGallery = true;
             _this.uploadPhoto = false;
         });
@@ -350,7 +346,7 @@ var CustomerAreaComponent = /** @class */ (function () {
         this.fetchingPhotos = true;
         this.customerService.getClientPhotos(id).then(function (album) {
             _this.fetchingPhotos = false;
-            if (album.photo === '' || _this.selectedUser.id !== album.id) {
+            if (album.photo === '' || (_this.user.name === 'Admin' && _this.selectedUser.id !== album.id)) {
                 return;
             }
             _this.album = album;
@@ -458,9 +454,11 @@ var CustomerAreaService = /** @class */ (function () {
             var options = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["RequestOptions"]({ headers: header });
             _this.http.get('/listUsers', options).toPromise()
                 .then(function (response) {
-                var user = JSON.parse(response.text());
-                if (user !== undefined || user !== null) {
-                    resolve(user);
+                var userList = JSON.parse(response.text());
+                var index = userList.findIndex(function (user) { return user.name === 'Admin'; });
+                userList = userList.splice(index, 1);
+                if (userList !== undefined || userList !== null) {
+                    resolve(userList);
                 }
             }).catch(function (error) {
                 _this.errorService.errorHandler(error);
@@ -919,7 +917,12 @@ var LoginService = /** @class */ (function () {
                     .then(function (response) {
                     var user = JSON.parse(response.text());
                     if (user !== undefined || user !== null) {
-                        user.isAdmin = false;
+                        if (user.name === 'Admin') {
+                            user.isAdmin = true;
+                        }
+                        else {
+                            user.isAdmin = false;
+                        }
                         resolve(user);
                         _this.setUser(user);
                     }

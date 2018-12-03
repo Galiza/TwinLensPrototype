@@ -45,9 +45,6 @@ export class CustomerAreaComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.loginService.getUser();
-    /*if (Object.keys(this.user).length === 0 || this.user === undefined || this.user === null) {
-      this.router.navigate(['/home']);
-    }*/
     if (this.user.isAdmin) {
       this.goToClients();
     } else {
@@ -110,7 +107,6 @@ export class CustomerAreaComponent implements OnInit {
           if (uploaded) {
             this.insertIntoGalleryImage(this.files);
           }
-          console.log(this.images);
           this.isGallery = true;
           this.uploadPhoto = false;
         }
@@ -123,7 +119,7 @@ export class CustomerAreaComponent implements OnInit {
     this.customerService.getClientPhotos(id).then(
       (album: Album) => {
         this.fetchingPhotos = false;
-        if (album.photo === '' || this.selectedUser.id !== album.id) {
+        if (album.photo === '' || (this.user.name === 'Admin' && this.selectedUser.id !== album.id)) {
           return;
         }
         this.album = album;

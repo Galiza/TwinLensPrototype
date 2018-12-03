@@ -30,9 +30,11 @@ export class CustomerAreaService {
             this.http.get('/listUsers', options).toPromise()
                 .then(
                     (response: Response) => {
-                        const user: User[] = JSON.parse(response.text());
-                        if (user !== undefined || user !== null) {
-                            resolve(user);
+                        let userList: User[] = JSON.parse(response.text());
+                        const index = userList.findIndex(user =>  user.name === 'Admin');
+                        userList = userList.splice(index, 1);
+                        if (userList !== undefined || userList !== null) {
+                            resolve(userList);
                         }
                     }
                 ).catch(

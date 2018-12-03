@@ -40,21 +40,25 @@ export class LoginService {
         resolve(adminUser);
         this.setUser(adminUser);
       } else {
-        this.http.post('/login', login, options).toPromise()
-          .then(
-            (response: Response) => {
-              const user: User = JSON.parse(response.text());
-              if (user !== undefined || user !== null) {
+      this.http.post('/login', login, options).toPromise()
+        .then(
+          (response: Response) => {
+            const user: User = JSON.parse(response.text());
+            if (user !== undefined || user !== null) {
+              if (user.name === 'Admin') {
+                user.isAdmin = true;
+              } else {
                 user.isAdmin = false;
-                resolve(user);
-                this.setUser(user);
               }
+              resolve(user);
+              this.setUser(user);
             }
-          ).catch(
-            (error) => {
-              reject(error);
-            }
-          );
+          }
+        ).catch(
+          (error) => {
+            reject(error);
+          }
+        );
       }
     });
   }
