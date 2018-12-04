@@ -15,7 +15,6 @@ import com.gallery.model.Login;
 import com.gallery.model.User;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.gallery.db.DbUserInterface;
-import com.gallery.exception.ExceptionHandler;
 
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
 @RestController
@@ -25,10 +24,10 @@ public class LoginController {
     private DbUserInterface dbUserInterface;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public User login(@RequestBody Login login) {
+    public User login(@RequestBody Login login) throws Exception {
         User user = dbUserInterface.findByEmail(login.getEmail());
         if(user == null || !user.getPassword().equals(login.getPassword())){
-            throw new ExceptionHandler("Email/Password estão incorretos.");
+            throw new Exception("Email/Password estão incorretos.");
         }
         return user;
     }

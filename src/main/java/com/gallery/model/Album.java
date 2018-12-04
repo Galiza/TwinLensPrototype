@@ -10,21 +10,22 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "album")
 public class Album implements Serializable {
+
     private static final long serialVersionUID = 1L;
-   
+
     @Id
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
-    @Column(name="photo", columnDefinition = "text")
+    @Column(name = "photo", columnDefinition = "text")
     private String photo;
-	
-	public Album(){
-	}
-	
-	public Album(Long id, String photo){
-		this.id = id;
-		this.photo = photo;
-	}
+
+    public Album() {
+    }
+
+    public Album(Long id, String photo) {
+        this.id = id;
+        this.photo = photo;
+    }
 
     public Long getId() {
         return id;
